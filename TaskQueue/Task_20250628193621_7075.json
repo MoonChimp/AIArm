@@ -1,0 +1,11 @@
+﻿{
+    "CreatedTime":  "2025-06-28 19:36:21",
+    "Status":  "Created",
+    "Parameters":  {
+                       "Prompt":  "Create a cinematic video",
+                       "Type":  "Video",
+                       "OutputPath":  "D:\\Videos\\output_20250628_193621.mp4"
+                   },
+    "Id":  "Task_20250628193621_7075",
+    "Type":  "CreateVideo"
+}

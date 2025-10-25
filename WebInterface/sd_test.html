@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusAI StableDiffusion Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+    h1 { color: #333; }
+    .input-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input[type="text"] { width: 100%; padding: 8px; }
+    button { padding: 10px 15px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+    #result { margin-top: 20px; }
+    #imageResult { max-width: 100%; margin-top: 15px; }
+    .status { padding: 10px; border-radius: 4px; margin-bottom: 15px; }
+    .success { background-color: #d4edda; color: #155724; }
+    .error { background-color: #f8d7da; color: #721c24; }
+    .loading { background-color: #fff3cd; color: #856404; }
+  </style>
+</head>
+<body>
+  <h1>NexusAI StableDiffusion Integration Test</h1>
+  <div class="input-group">
+    <label for="prompt">Image Prompt:</label>
+    <input type="text" id="prompt" placeholder="Enter a description of the image you want to generate..." value="A beautiful mountain landscape with a lake at sunset">
+  </div>
+  <div class="input-group">
+    <label for="quality">Quality:</label>
+    <select id="quality">
+      <option value="low">Low (Faster)</option>
+      <option value="medium" selected>Medium</option>
+      <option value="high">High (Slower)</option>
+    </select>
+  </div>
+  <div class="input-group">
+    <label for="style">Style:</label>
+    <select id="style">
+      <option value="photorealistic" selected>Photorealistic</option>
+      <option value="anime">Anime</option>
+      <option value="painting">Painting</option>
+      <option value="3d">3D Render</option>
+    </select>
+  </div>
+  <button id="generateButton">Generate Image</button>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('generateButton').addEventListener('click', generateImage);
+
+    async function generateImage() {
+      const prompt = document.getElementById('prompt').value;
+      const quality = document.getElementById('quality').value;
+      const style = document.getElementById('style').value;
+      const resultDiv = document.getElementById('result');
+
+      if (!prompt) {
+        resultDiv.innerHTML = `<div class="status error">Please enter a prompt</div>`;
+        return;
+      }
+
+      resultDiv.innerHTML = `<div class="status loading">Generating image... This may take a moment.</div>`;
+
+      try {
+        const response = await fetch('/api/photo-generation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            prompt,
+            options: {
+              quality,
+              style,
+              // Set dimensions to speed up generation
+              width: 512,
+              height: 512
+            }
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Response data:", data);
+
+        if (data.success) {
+          const imageUrl = data.image_url || data.result;
+          resultDiv.innerHTML = `
+            <div class="status success">Image generated successfully!</div>
+            <p>Prompt: ${prompt}</p>
+            <p>Quality: ${quality} | Style: ${style}</p>
+            <img id="imageResult" src="${imageUrl}" alt="Generated image" />
+          `;
+        } else {
+          resultDiv.innerHTML = `<div class="status error">Error: ${data.error || 'Unknown error'}</div>`;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        resultDiv.innerHTML = `<div class="status error">Error: ${error.message}</div>`;
+      }
+    }
+  </script>
+</body>
+</html>

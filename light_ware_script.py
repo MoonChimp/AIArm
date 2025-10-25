@@ -1,0 +1,1 @@
+def light_ware(task

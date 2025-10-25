@@ -1,0 +1,17 @@
+{
+  "app_config": {
+    "name": "Music Generator Mobile",
+    "version": "1.0.0",
+    "description": "Mobile music generation app",
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "framework": "React Native",
+    "features": [
+      "Music Generation",
+      "Audio Playback",
+      "Export Options"
+    ]
+  }
+}

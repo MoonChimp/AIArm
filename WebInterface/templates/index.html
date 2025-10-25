@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIArm HRM System Monitor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #0f1525;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            background-color: #1a2332;
+            border: 1px solid #2a3343;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #233043;
+            border-bottom: 1px solid #2a3343;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .status-running {
+            background-color: #10b981;
+            box-shadow: 0 0 5px #10b981;
+        }
+        .status-error {
+            background-color: #ef4444;
+            box-shadow: 0 0 5px #ef4444;
+        }
+        .status-offline {
+            background-color: #6b7280;
+            box-shadow: 0 0 5px #6b7280;
+        }
+        .status-timeout {
+            background-color: #f59e0b;
+            box-shadow: 0 0 5px #f59e0b;
+        }
+        .system-stats {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .system-stats-label {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        .chart-container {
+            position: relative;
+            height: 200px;
+            width: 100%;
+        }
+        .log-entry {
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            padding: 5px;
+            border-bottom: 1px solid #2a3343;
+        }
+        .log-error {
+            color: #ef4444;
+        }
+        .log-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .refresh-button {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+        .refresh-button:hover {
+            color: #e0e0e0;
+        }
+        .navbar {
+            background-color: #233043;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #10b981;
+        }
+        .btn-restart {
+            background-color: #233043;
+            border: 1px solid #10b981;
+            color: #10b981;
+            transition: all 0.3s ease;
+        }
+        .btn-restart:hover {
+            background-color: #10b981;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-microchip me-2"></i>
+                AIArm HRM System Monitor
+            </a>
+            <div class="ms-auto">
+                <span id="current-time" class="text-light"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <span id="system-message">Loading system status...</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        CPU Usage
+                        <button class="refresh-button" onclick="fetchStatus()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="system-stats" id="cpu-usage">0%</div>
+                        <div class="system-stats-label">CPU UTILIZATION</div>
+                        <div class="chart-container">
+                            <canvas id="cpuChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Memory Usage
+                        <button class="refresh-button" onclick="fetchStatus()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="system-stats" id="memory-usage">0%</div>
+                        <div class="system-stats-label">MEMORY UTILIZATION</div>
+                        <div class="chart-container">
+                            <canvas id="memoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Disk Usage
+                        <button class="refresh-button" onclick="fetchStatus()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="system-stats" id="disk-usage">0%</div>
+                        <div class="system-stats-label">DISK UTILIZATION</div>
+                        <div class="chart-container">
+                            <canvas id="diskChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Service Status
+                        <button class="refresh-button" onclick="fetchStatus()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="row" id="services-container">
+                            <!-- Services will be inserted here -->
+                            <div class="col-md-12 text-center">
+                                <p>Loading services...</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-restart me-2" onclick="restartService('server')">
+                                    <i class="fas fa-sync-alt me-1"></i> Restart Server
+                                </button>
+                                <button class="btn btn-restart me-2" onclick="restartService('innerlife')">
+                                    <i class="fas fa-sync-alt me-1"></i> Restart Inner Life
+                                </button>
+                                <button class="btn btn-restart me-2" onclick="restartService('agentmanager')">
+                                    <i class="fas fa-sync-alt me-1"></i> Restart Agent Manager
+                                </button>
+                                <button class="btn btn-restart me-2" onclick="restartService('all')">
+                                    <i class="fas fa-sync-alt me-1"></i> Restart All Services
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Inner Life Status
+                        <button class="refresh-button" onclick="fetchStatus()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="card-body" id="innerlife-container">
+                        <p class="text-center">Loading Inner Life status...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Memory System
+                        <button class="refresh-button" onclick="fetchStatus()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="card-body" id="memory-container">
+                        <p class="text-center">Loading memory status...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        System Logs
+                        <button class="refresh-button" onclick="fetchLogs()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="log-container" id="logs-container">
+                            <p class="text-center p-3">Loading logs...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    
+    <script>
+        // Chart configurations
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#94a3b8'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        color: '#94a3b8',
+                        maxTicksLimit: 5
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            animation: {
+                duration: 1000
+            }
+        };
+        
+        // Initialize charts
+        const cpuCtx = document.getElementById('cpuChart').getContext('2d');
+        const cpuChart = new Chart(cpuCtx, {
+            type: 'line',
+            data: {
+                labels: Array(20).fill(''),
+                datasets: [{
+                    data: Array(20).fill(0),
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: chartOptions
+        });
+        
+        const memoryCtx = document.getElementById('memoryChart').getContext('2d');
+        const memoryChart = new Chart(memoryCtx, {
+            type: 'line',
+            data: {
+                labels: Array(20).fill(''),
+                datasets: [{
+                    data: Array(20).fill(0),
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: chartOptions
+        });
+        
+        const diskCtx = document.getElementById('diskChart').getContext('2d');
+        const diskChart = new Chart(diskCtx, {
+            type: 'line',
+            data: {
+                labels: Array(20).fill(''),
+                datasets: [{
+                    data: Array(20).fill(0),
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: chartOptions
+        });
+        
+        // Update charts with new data
+        function updateCharts(history) {
+            const timestamps = history.timestamps.map(ts => {
+                const date = new Date(ts);
+                return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            });
+            
+            cpuChart.data.labels = timestamps;
+            cpuChart.data.datasets[0].data = history.cpu_usage;
+            cpuChart.update();
+            
+            memoryChart.data.labels = timestamps;
+            memoryChart.data.datasets[0].data = history.memory_usage;
+            memoryChart.update();
+            
+            diskChart.data.labels = timestamps;
+            diskChart.data.datasets[0].data = history.disk_usage;
+            diskChart.update();
+        }
+        
+        // Fetch system status
+        function fetchStatus() {
+            fetch('/api/status')
+                .then(response => response.json())
+                .then(data => {
+                    updateSystemStats(data.system);
+                    updateServiceStatus(data.services);
+                    updateInnerLifeStatus(data.innerlife);
+                    updateMemoryStatus(data.memory);
+                    updateLogs(data.logs);
+                    
+                    // Update system message
+                    const allServicesRunning = data.services.services.every(s => s.status === 'running');
+                    if (allServicesRunning) {
+                        document.getElementById('system-message').textContent = 'All systems operational. AIArm HRM system is running normally.';
+                        document.querySelector('.alert').className = 'alert alert-success';
+                    } else {
+                        const offlineCount = data.services.services.filter(s => s.status !== 'running').length;
+                        document.getElementById('system-message').textContent = `Warning: ${offlineCount} service(s) not operational. Check service status below.`;
+                        document.querySelector('.alert').className = 'alert alert-warning';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching status:', error);
+                    document.getElementById('system-message').textContent = 'Error connecting to status API. Monitoring service may be down.';
+                    document.querySelector('.alert').className = 'alert alert-danger';
+                });
+                
+            // Fetch historical data
+            fetch('/api/history')
+                .then(response => response.json())
+                .then(data => {
+                    updateCharts(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching history:', error);
+                });
+        }
+        
+        // Update system stats
+        function updateSystemStats(system) {
+            document.getElementById('cpu-usage').textContent = `${system.cpu.percent}%`;
+            document.getElementById('memory-usage').textContent = `${system.memory.percent}%`;
+            document.getElementById('disk-usage').textContent = `${system.disk.percent}%`;
+        }
+        
+        // Update service status
+        function updateServiceStatus(services) {
+            const container = document.getElementById('services-container');
+            container.innerHTML = '';
+            
+            // Add service cards
+            services.services.forEach(service => {
+                const statusClass = 
+                    service.status === 'running' ? 'status-running' :
+                    service.status === 'error' ? 'status-error' :
+                    service.status === 'timeout' ? 'status-timeout' :
+                    'status-offline';
+                
+                const statusText = 
+                    service.status === 'running' ? 'Running' :
+                    service.status === 'error' ? 'Error' :
+                    service.status === 'timeout' ? 'Timeout' :
+                    'Offline';
+                
+                const card = document.createElement('div');
+                card.className = 'col-md-4 mb-3';
+                card.innerHTML = `
+                    <div class="card service-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="status-indicator ${statusClass}"></span>
+                                ${service.name}
+                            </h5>
+                            <p class="card-text text-${service.status === 'running' ? 'success' : 'danger'}">
+                                ${statusText}
+                            </p>
+                            ${service.status === 'running' && service.details.response_time ?
+                                `<p class="text-muted">Response Time: ${service.details.response_time} ms</p>` : ''}
+                            ${service.status !== 'running' && service.details.error ?
+                                `<p class="text-danger">Error: ${service.details.error}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            
+            // Add node processes
+            if (services.node_processes && services.node_processes.length > 0) {
+                const nodeProcesses = document.createElement('div');
+                nodeProcesses.className = 'col-md-12 mt-3';
+                nodeProcesses.innerHTML = `
+                    <h6 class="mb-3">Node.js Processes (${services.node_processes.length})</h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-dark">
+                            <thead>
+                                <tr>
+                                    <th>PID</th>
+                                    <th>Memory</th>
+                                    <th>CPU</th>
+                                    <th>Command</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${services.node_processes.map(proc => `
+                                    <tr>
+                                        <td>${proc.pid}</td>
+                                        <td>${(proc.memory / (1024 * 1024)).toFixed(2)} MB</td>
+                                        <td>${proc.cpu.toFixed(1)}%</td>
+                                        <td><small>${proc.cmdline}</small></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                container.appendChild(nodeProcesses);
+            }
+            
+            // Add Python processes
+            if (services.python_processes && services.python_processes.length > 0) {
+                const pythonProcesses = document.createElement('div');
+                pythonProcesses.className = 'col-md-12 mt-3';
+                pythonProcesses.innerHTML = `
+                    <h6 class="mb-3">Python Processes (${services.python_processes.length})</h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-dark">
+                            <thead>
+                                <tr>
+                                    <th>PID</th>
+                                    <th>Memory</th>
+                                    <th>CPU</th>
+                                    <th>Command</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${services.python_processes.map(proc => `
+                                    <tr>
+                                        <td>${proc.pid}</td>
+                                        <td>${(proc.memory / (1024 * 1024)).toFixed(2)} MB</td>
+                                        <td>${proc.cpu.toFixed(1)}%</td>
+                                        <td><small>${proc.cmdline}</small></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                container.appendChild(pythonProcesses);
+            }
+        }
+        
+        // Update Inner Life status
+        function updateInnerLifeStatus(innerlife) {
+            const container = document.getElementById('innerlife-container');
+            container.innerHTML = '';
+            
+            const statusClass = innerlife.active ? 'text-success' : 'text-danger';
+            const statusText = innerlife.active ? 'Active' : 'Inactive';
+            
+            container.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="${statusClass}">
+                            <span class="status-indicator ${innerlife.active ? 'status-running' : 'status-offline'}"></span>
+                            ${statusText}
+                        </h5>
+                        <div class="mt-3">
+                            <p><strong>Thought Count:</strong> ${innerlife.thought_count}</p>
+                            <p><strong>Concept Count:</strong> ${innerlife.concept_count}</p>
+                            <p><strong>Connection Count:</strong> ${innerlife.connection_count}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="mb-2">Last Thought:</h6>
+                        <div class="card bg-dark">
+                            <div class="card-body">
+                                <p class="card-text">${innerlife.last_thought ? innerlife.last_thought.content || 'No content available' : 'No thoughts recorded'}</p>
+                                ${innerlife.last_thought ? `<p class="card-text text-muted small">${new Date(innerlife.last_thought.timestamp).toLocaleString()}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Update Memory status
+        function updateMemoryStatus(memory) {
+            const container = document.getElementById('memory-container');
+            container.innerHTML = '';
+            
+            const fileSizeMB = (memory.total_size / (1024 * 1024)).toFixed(2);
+            
+            container.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Memory System</h5>
+                        <div class="mt-3">
+                            <p><strong>File Count:</strong> ${memory.file_count}</p>
+                            <p><strong>Total Size:</strong> ${fileSizeMB} MB</p>
+                            <p><strong>Conversation Count:</strong> ${memory.conversation_count}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="mb-2">Last Modified:</h6>
+                        <p>${memory.last_modified ? new Date(memory.last_modified).toLocaleString() : 'No data available'}</p>
+                        
+                        <h6 class="mb-2 mt-4">Memory Stats:</h6>
+                        <div class="progress mb-2" style="height: 25px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: ${memory.conversation_count / Math.max(memory.file_count, 1) * 100}%">
+                                Conversations
+                            </div>
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: ${(memory.file_count - memory.conversation_count) / Math.max(memory.file_count, 1) * 100}%">
+                                Other
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Update Logs
+        function updateLogs(logs) {
+            const container = document.getElementById('logs-container');
+            container.innerHTML = '';
+            
+            logs.forEach(log => {
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry ${log.type === 'error' ? 'log-error' : ''}`;
+                logEntry.textContent = log.content;
+                container.appendChild(logEntry);
+            });
+            
+            // Scroll to bottom
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        // Fetch logs only
+        function fetchLogs() {
+            fetch('/api/logs')
+                .then(response => response.json())
+                .then(logs => {
+                    updateLogs(logs);
+                })
+                .catch(error => {
+                    console.error('Error fetching logs:', error);
+                });
+        }
+        
+        // Restart service
+        function restartService(service) {
+            if (!confirm(`Are you sure you want to restart the ${service === 'all' ? 'entire system' : service} service?`)) {
+                return;
+            }
+            
+            document.getElementById('system-message').textContent = `Restarting ${service}... Please wait.`;
+            document.querySelector('.alert').className = 'alert alert-warning';
+            
+            fetch(`/api/restart/${service}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('system-message').textContent = data.message;
+                        document.querySelector('.alert').className = 'alert alert-success';
+                        
+                        // Refresh after a delay
+                        setTimeout(fetchStatus, 5000);
+                    } else {
+                        document.getElementById('system-message').textContent = data.message;
+                        document.querySelector('.alert').className = 'alert alert-danger';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error restarting service:', error);
+                    document.getElementById('system-message').textContent = 'Error restarting service.';
+                    document.querySelector('.alert').className = 'alert alert-danger';
+                });
+        }
+        
+        // Update current time
+        function updateCurrentTime() {
+            const now = new Date();
+            document.getElementById('current-time').textContent = now.toLocaleString();
+        }
+        
+        // Initial load
+        fetchStatus();
+        setInterval(fetchStatus, 30000); // Refresh every 30 seconds
+        
+        // Update time every second
+        updateCurrentTime();
+        setInterval(updateCurrentTime, 1000);
+    </script>
+</body>
+</html>

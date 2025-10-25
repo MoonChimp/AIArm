@@ -1,0 +1,12 @@
+{
+    "VideoAI": "RunwayML",
+    "VideoAIPath": "C:\\Users\\%USERNAME%\\AppData\\Local\\RunwayML\\RunwayML.exe",
+    "CommunicationType": "File",
+    "Prompt": "Create a cinematic video",
+    "InputFile": "D:\\AIArm\\Programs\\runway_input.txt",
+    "OutputFile": "D:\\AIArm\\Programs\\runway_output.txt",
+    "OutputPath": "D:\\Videos\\output.mp4",
+    "Timeout": 1800,
+    "Duration": 4,
+    "Resolution": "1280x768"
+}

@@ -1,0 +1,158 @@
+{
+  "database_design": {
+    "name": "nexus_ai_db",
+    "version": "1.0.0",
+    "type": "relational",
+    "tables": [
+      {
+        "name": "users",
+        "columns": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "primary_key": true,
+            "auto_increment": true
+          },
+          {
+            "name": "username",
+            "type": "VARCHAR(255)",
+            "unique": true,
+            "not_null": true
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR(255)",
+            "unique": true,
+            "not_null": true
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_username",
+            "columns": [
+              "username"
+            ]
+          },
+          {
+            "name": "idx_email",
+            "columns": [
+              "email"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "requests",
+        "columns": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "primary_key": true,
+            "auto_increment": true
+          },
+          {
+            "name": "user_id",
+            "type": "INTEGER",
+            "foreign_key": "users.id"
+          },
+          {
+            "name": "request_text",
+            "type": "TEXT",
+            "not_null": true
+          },
+          {
+            "name": "response_text",
+            "type": "TEXT"
+          },
+          {
+            "name": "status",
+            "type": "ENUM('pending', 'processing', 'completed', 'failed')",
+            "default": "pending"
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_user_id",
+            "columns": [
+              "user_id"
+            ]
+          },
+          {
+            "name": "idx_status",
+            "columns": [
+              "status"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "agent_memories",
+        "columns": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "primary_key": true,
+            "auto_increment": true
+          },
+          {
+            "name": "content",
+            "type": "TEXT",
+            "not_null": true
+          },
+          {
+            "name": "context",
+            "type": "VARCHAR(255)"
+          },
+          {
+            "name": "importance",
+            "type": "DECIMAL(3,2)",
+            "default": 0.5
+          },
+          {
+            "name": "embeddings",
+            "type": "JSON"
+          },
+          {
+            "name": "access_count",
+            "type": "INTEGER",
+            "default": 0
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_context",
+            "columns": [
+              "context"
+            ]
+          },
+          {
+            "name": "idx_importance",
+            "columns": [
+              "importance"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

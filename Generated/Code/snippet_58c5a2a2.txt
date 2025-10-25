@@ -1,0 +1,20 @@
+# Request: hello
+
+Here's a simple Python function that prints "Hello" to the console:
+
+```python
+def say_hello():
+    print("Hello")
+```
+
+To call this function and print "Hello", you can simply run:
+
+```python
+say_hello()
+```
+
+This will output:
+
+```
+Hello
+```

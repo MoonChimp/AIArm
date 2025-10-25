@@ -1,0 +1,6 @@
+This file was created by NexusCore with administrative privileges.
+Created at: 2025-09-22T22:58:32.820Z
+System: win32 10.0.26100
+User: moonc
+
+This file demonstrates that NexusCore has full access to the filesystem.

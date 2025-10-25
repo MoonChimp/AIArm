@@ -1,0 +1,184 @@
+{
+  "pricing_plans": {
+    "free": {
+      "name": "Free Trial",
+      "price": 0,
+      "currency": "USD",
+      "period": "forever",
+      "features": [
+        "100 messages per month",
+        "Basic personality (balanced mode only)",
+        "Standard response time",
+        "Community support"
+      ],
+      "limitations": {
+        "messages_per_month": 100,
+        "personalities": ["balanced"],
+        "priority": false
+      }
+    },
+    "personal": {
+      "name": "Personal",
+      "price": 9.99,
+      "currency": "USD",
+      "period": "monthly",
+      "features": [
+        "Unlimited messages",
+        "All 4 personalities (Cortana/JARVIS/TARS/Claude)",
+        "Adjustable honesty level",
+        "Growing bond system",
+        "Priority support",
+        "Faster response time"
+      ],
+      "limitations": {
+        "messages_per_month": -1,
+        "personalities": ["balanced", "caring", "professional", "honest", "thoughtful"],
+        "priority": true
+      },
+      "popular": false
+    },
+    "professional": {
+      "name": "Professional",
+      "price": 29.99,
+      "currency": "USD",
+      "period": "monthly",
+      "features": [
+        "Everything in Personal",
+        "API access for integrations",
+        "Custom personality weights",
+        "Advanced analytics",
+        "Priority processing",
+        "Email support",
+        "Multiple AI models"
+      ],
+      "limitations": {
+        "messages_per_month": -1,
+        "personalities": ["all"],
+        "priority": true,
+        "api_access": true
+      },
+      "popular": true
+    },
+    "lifetime": {
+      "name": "Lifetime Access",
+      "price": "Contact for pricing",
+      "price_note": "One-time payment - Privately discussed based on use case",
+      "currency": "USD",
+      "period": "lifetime",
+      "features": [
+        "Everything in Professional",
+        "Lifetime access to all features",
+        "All future updates included",
+        "Priority support forever",
+        "Custom deployment options",
+        "White-label capabilities",
+        "On-premise installation",
+        "Dedicated support channel",
+        "Custom model training",
+        "Source code access (optional)"
+      ],
+      "limitations": {
+        "messages_per_month": -1,
+        "personalities": ["all"],
+        "priority": true,
+        "api_access": true,
+        "lifetime": true,
+        "white_label": true
+      },
+      "popular": false,
+      "enterprise": true,
+      "contact_required": true
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "Custom",
+      "price_note": "Contact sales for volume pricing",
+      "currency": "USD",
+      "period": "custom",
+      "features": [
+        "Everything in Lifetime",
+        "Multi-user deployment",
+        "SSO integration",
+        "Custom SLA agreements",
+        "Dedicated infrastructure",
+        "Custom integrations",
+        "Training and onboarding",
+        "24/7 premium support",
+        "Compliance assistance"
+      ],
+      "limitations": {
+        "messages_per_month": -1,
+        "personalities": ["all"],
+        "priority": true,
+        "api_access": true,
+        "multi_user": true,
+        "custom_deployment": true
+      },
+      "popular": false,
+      "enterprise": true,
+      "contact_required": true
+    }
+  },
+  "pricing_notes": {
+    "lifetime_plan": "The Lifetime plan pricing is determined through private consultation based on:",
+    "factors": [
+      "Individual vs commercial use",
+      "Number of users/seats",
+      "Deployment requirements (cloud vs on-premise)",
+      "Support level needed",
+      "Custom feature requirements",
+      "White-label needs",
+      "Integration complexity"
+    ],
+    "typical_range": "$500 - $5000 one-time payment",
+    "contact": "Contact: nexusai-sales@example.com",
+    "negotiable": true
+  },
+  "add_ons": {
+    "custom_training": {
+      "name": "Custom Model Training",
+      "price": "Custom",
+      "description": "Train NexusAI on your specific data"
+    },
+    "white_label": {
+      "name": "White Label License",
+      "price": "Custom",
+      "description": "Rebrand as your own product"
+    },
+    "priority_support": {
+      "name": "Priority Support",
+      "price": 99,
+      "period": "monthly",
+      "description": "24/7 priority support channel"
+    }
+  },
+  "discounts": {
+    "annual_discount": {
+      "name": "Annual Payment Discount",
+      "percentage": 20,
+      "description": "Save 20% with annual payment"
+    },
+    "educational": {
+      "name": "Educational License",
+      "percentage": 50,
+      "description": "50% off for students and educators"
+    },
+    "non_profit": {
+      "name": "Non-Profit License",
+      "percentage": 30,
+      "description": "30% off for registered non-profits"
+    }
+  },
+  "payment_methods": [
+    "Credit/Debit Card",
+    "PayPal",
+    "Bank Transfer (Enterprise)",
+    "Cryptocurrency (on request)"
+  ],
+  "refund_policy": "30-day money-back guarantee on all plans",
+  "currency_options": [
+    "USD",
+    "EUR",
+    "GBP"
+  ]
+}

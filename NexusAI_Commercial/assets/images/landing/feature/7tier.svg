@@ -1,0 +1,18 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46" width="46" height="46">
+	<title>7tier-svg</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m0 0h46v46h-46z"/>
+		</clipPath>
+		<image  width="42" height="47" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAvCAMAAACi0KjaAAAAAXNSR0IB2cksfwAAAMZQTFRFXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7IXP7ICklPnAAAAEJ0Uk5TAMBg/+UMQFhQq7FG8xfjbJLNATL+/CsE1Ih63gch+D+jYfATpgl7jdk4A5d06PZUuVscD+xvoItjx1YmfpuaghJ8jgr7fQAAAOBJREFUeJzF00lWwgAURNGEZ+yiUcDQSBKURkFNRCI22O9/Uw5YAG/iscb3VP3JD4I/SyjS2FC2Zyfa0N0t2YN9eeABh1LGHB07GSWcyNJTmi0n22dpx8luj76cP2eQOZkXDGVpyIWUl4zGTo5HNGTphFDKmCJ3cppwJUuvmXWdbKfMnbzpcSvn7ygjJ/OKe1kaspDygWrpZP3ISpY+6ScZYp8kG/As5/skUyc7KbGTrSYTOb/ST7KseJGlC16lXFO8OVmXvMvSD/0kc+yTZDM+5fwXZS1pwlrK4PvHyv/IL8zBD9nf4ihYAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		.s0 { fill: #fbfbfb } 
+	</style>
+	<g id="Clip-Path" clip-path="url(#cp1)">
+		<g id="Layer">
+			<path id="Layer" class="s0" d="m46 23c0 12.7-10.3 23-23 23-12.7 0-23-10.3-23-23 0-12.7 10.3-23 23-23 12.7 0 23 10.3 23 23z"/>
+		</g>
+	</g>
+	<use id="Layer" href="#img1" x="0" y="2"/>
+</svg>

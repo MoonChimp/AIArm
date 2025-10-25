@@ -1,0 +1,9 @@
+# Request: hellp
+
+It seems like there might be a typo in your request. Did you mean to ask for "hello"? Below is a simple Python code snippet that prints "Hello, World!" to the console:
+
+```python
+print("Hello, World!")
+```
+
+If you meant something else by "hellp," please provide more details so I can assist you better!

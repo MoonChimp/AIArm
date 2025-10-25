@@ -1,0 +1,256 @@
+================================================================
+NEXUS AI - INTELLIGENT AGENT ROUTING GUIDE
+================================================================
+Date: 2025-10-09
+
+================================================================
+HOW IT WORKS
+================================================================
+
+Nexus now has TWO ways to route your requests to agents:
+
+1. **AUTOMATIC ROUTING** (Conversation-Based)
+   - Just talk naturally to Nexus
+   - It automatically detects which agent you need
+   - No need to select buttons or specify agents
+
+2. **MANUAL ROUTING** (Button-Based)
+   - Click a specific agent button (PHOTO, MUSIC, CODE, etc.)
+   - Forces Nexus to use that specific agent
+   - Bypasses automatic routing
+
+================================================================
+AUTOMATIC ROUTING EXAMPLES
+================================================================
+
+You can now say things like:
+
+PHOTO AGENT:
+❌ OLD: Click "PHOTO" button, then type "golden retriever"
+✅ NEW: Just type "show me a golden retriever puppy"
+
+Automatic detection keywords:
+- "show me", "visualize", "picture", "image", "photo", "draw", "artwork", "painting"
+
+MUSIC AGENT:
+❌ OLD: Click "MUSIC" button, then type "happy birthday"
+✅ NEW: Just type "create a happy birthday song"
+
+Automatic detection keywords:
+- "song", "music", "beat", "melody", "lyrics", "audio", "compose", "tune", "track"
+
+VIDEO AGENT:
+❌ OLD: Click "VIDEO" button, then type "sunset"
+✅ NEW: Just type "make a sunset timelapse video"
+
+Automatic detection keywords:
+- "video", "animation", "movie", "film", "timelapse", "montage"
+
+CODE AGENT:
+❌ OLD: Click "CODE" button, then type "calculator"
+✅ NEW: Just type "build me a calculator web app"
+
+Automatic detection keywords:
+- "website", "webapp", "web app", "mobile app", "application", "calculator", "program", "script", "react", "code"
+
+STORY AGENT:
+❌ OLD: Click "STORY" button, then type "dragon"
+✅ NEW: Just type "write a story about a dragon"
+
+Automatic detection keywords:
+- "story", "write about", "narrative", "tale", "fiction", "chapter"
+
+WEB SEARCH AGENT:
+❌ OLD: Click search button, then type query
+✅ NEW: Just type "what's the weather today?"
+
+Automatic detection keywords:
+- "search for", "look up", "find information", "what is", "who is", "weather", "news"
+
+================================================================
+CONVERSATION MODE
+================================================================
+
+Nexus also knows when you DON'T need an agent:
+
+CONVERSATIONAL (No Agent):
+- "thank you"
+- "hello"
+- "how are you?"
+- "great job!"
+- "that looks good"
+
+For these, Nexus will just chat with you naturally.
+
+================================================================
+HOW THE ROUTING WORKS (TECHNICAL)
+================================================================
+
+Step 1: KEYWORD DETECTION (Fast)
+---------------------------------
+- Nexus first checks your message for keywords
+- If it finds "song" → routes to Music Agent
+- If it finds "image" → routes to Photo Agent
+- This is instant and doesn't require AI
+
+Step 2: AI ROUTING (Fallback)
+------------------------------
+- If keywords don't match, Nexus asks its AI brain
+- Uses nexusai-a0-coder1.0:latest model
+- Analyzes your intent and selects the right agent
+- Takes ~1-2 seconds
+
+Step 3: CONVERSATION (Default)
+-------------------------------
+- If no agent needed, Nexus chats with you
+- Uses llama3:latest for natural conversation
+- Remembers context from earlier in the chat
+
+================================================================
+CURRENT IMPLEMENTATION
+================================================================
+
+Files Updated:
+- D:\AIArm\NexusCore\orchestrator.py (lines 175-291)
+  - _route_request() method enhanced with keyword detection
+  - Added 60+ keywords across all agent types
+  - AI fallback for ambiguous requests
+
+API Server:
+- D:\AIArm\nexus_api_server.py (lines 59-98)
+  - /api/chat endpoint handles both modes
+  - If agent specified: direct_agent_call()
+  - If no agent: process() with automatic routing
+
+Crystal UI:
+- User can still use buttons for manual selection
+- Or just type naturally and let Nexus decide
+
+================================================================
+EXAMPLES IN PRACTICE
+================================================================
+
+Example 1: Natural Photo Request
+---------------------------------
+User: "I want to see a cute cat"
+Nexus detects: "see" → photo keyword
+Routes to: Photo Agent
+Result: D:\AIArm\Generated\Images\nexus_photo_*.png
+
+Example 2: Natural Music Request
+---------------------------------
+User: "compose a relaxing melody"
+Nexus detects: "compose", "melody" → music keywords
+Routes to: Music Agent
+Result: D:\AIArm\Generated\Music\nexus_song_*.mp3
+
+Example 3: Natural Code Request
+---------------------------------
+User: "I need a todo list website"
+Nexus detects: "website" → code keyword
+Routes to: Code Agent
+Result: D:\AIArm\Generated\Code\todo_list_*\
+
+Example 4: Conversation
+-----------------------
+User: "thanks, that's perfect!"
+Nexus detects: "thanks" → conversational phrase
+Routes to: Conversation mode (no agent)
+Result: "You're welcome! Happy to help!"
+
+Example 5: AI Fallback
+-----------------------
+User: "can you help me organize my thoughts visually?"
+Nexus keywords: No direct match
+AI analyzes: "visually" + "organize" → likely Photo Agent
+Routes to: Photo Agent (via AI decision)
+Result: Creates visualization image
+
+================================================================
+ADVANTAGES
+================================================================
+
+✓ Faster workflow - no need to click buttons
+✓ More natural interaction - just talk to Nexus
+✓ Context-aware - Nexus understands intent
+✓ Flexible - can still use manual buttons if preferred
+✓ Smart fallback - AI routing when keywords fail
+✓ Conversational - distinguishes chat from tasks
+
+================================================================
+KNOWN BEHAVIORS
+================================================================
+
+1. If you use keywords for multiple agents in one request:
+   - First matching keyword wins
+   - Example: "create a music video" → Music Agent (not Video)
+   - Better: "create a video with music" → Video Agent
+
+2. Greetings and thanks always skip agents:
+   - "hello nexus" → Conversation
+   - "thanks!" → Conversation
+   - This is intentional for natural flow
+
+3. Manual button selection overrides everything:
+   - If you click PHOTO button, it goes to Photo Agent
+   - Even if you type "make a song" after clicking PHOTO
+   - Button selection = explicit user intent
+
+================================================================
+TESTING SUGGESTIONS
+================================================================
+
+After restart, test these:
+
+1. "show me a sunset over mountains"
+   Expected: Photo Agent → PNG image
+
+2. "write a cheerful tune"
+   Expected: Music Agent → MP3 + lyrics
+
+3. "create a portfolio website"
+   Expected: Code Agent → Complete web app
+
+4. "make a 10 second intro video"
+   Expected: Video Agent → MP4 file
+
+5. "tell me a story about space"
+   Expected: Story Agent → Text story
+
+6. "what's happening in the news?"
+   Expected: WebSearch Agent → Search results
+
+7. "thank you nexus"
+   Expected: Conversation → "You're welcome!"
+
+================================================================
+FUTURE ENHANCEMENTS (Not Yet Implemented)
+================================================================
+
+Potential improvements:
+- Multi-agent coordination (music + video together)
+- Context switching (remember which agent you were using)
+- Proactive suggestions ("Would you like me to create an image of that?")
+- Learning from your usage patterns
+- Voice command support
+
+================================================================
+CONFIGURATION
+================================================================
+
+Routing Model: nexusai-a0-coder1.0:latest
+Conversation Model: llama3:latest
+Routing Timeout: 15 seconds
+Routing Temperature: 0.1 (consistent decisions)
+
+To modify keywords:
+Edit: D:\AIArm\NexusCore\orchestrator.py
+Lines: 184-235 (keyword arrays)
+
+To modify AI routing behavior:
+Edit: D:\AIArm\NexusCore\orchestrator.py
+Lines: 242-291 (AI routing prompt)
+
+================================================================
+END OF GUIDE
+================================================================

@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIArm Code Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
+    <style>
+        :root {
+            --primary-color: rgb(0, 191, 255);
+            --primary-dark: rgb(0, 128, 255);
+            --secondary-color: rgb(138, 43, 226);
+            --dark-bg: rgb(16, 24, 39);
+            --darker-bg: rgb(10, 15, 25);
+            --text-light: rgb(229, 231, 235);
+            --text-dim: rgba(229, 231, 235, 0.7);
+            --success-color: #4CAF50;
+            --error-color: #F44336;
+            --warning-color: #FF9800;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            background: rgba(0, 0, 0, 0.2);
+            border-right: 1px solid rgba(0, 191, 255, 0.2);
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .file-browser {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            max-height: calc(100vh - 300px);
+        }
+        
+        .file-browser h3 {
+            font-size: 14px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .file-tree {
+            margin-left: 10px;
+        }
+        
+        .folder {
+            margin-bottom: 5px;
+        }
+        
+        .folder-name {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 0;
+        }
+        
+        .folder-name:hover {
+            color: var(--primary-color);
+        }
+        
+        .folder-icon {
+            margin-right: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .folder.open .folder-icon {
+            transform: rotate(90deg);
+        }
+        
+        .folder-contents {
+            margin-left: 20px;
+            display: none;
+        }
+        
+        .folder.open .folder-contents {
+            display: block;
+        }
+        
+        .file {
+            padding: 5px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .file:hover {
+            color: var(--primary-color);
+        }
+        
+        .file-icon {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+        
+        /* File type icons */
+        .file-icon.py::before {
+            content: "🐍";
+        }
+        
+        .file-icon.js::before {
+            content: "📄";
+        }
+        
+        .file-icon.html::before {
+            content: "🌐";
+        }
+        
+        .file-icon.css::before {
+            content: "🎨";
+        }
+        
+        .file-icon.json::before {
+            content: "📋";
+        }
+        
+        .file-icon.md::before {
+            content: "📝";
+        }
+        
+        .file-icon.txt::before {
+            content: "📄";
+        }
+        
+        .file-icon.bat::before {
+            content: "⚙️";
+        }
+        
+        .actions {
+            border-top: 1px solid rgba(0, 191, 255, 0.2);
+            padding-top: 20px;
+        }
+        
+        .action-btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            color: var(--text-light);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: rgba(0, 191, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-btn {
+            padding: 5px 10px;
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            color: var(--text-light);
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .header-btn:hover {
+            background: rgba(0, 191, 255, 0.2);
+        }
+        
+        .header-btn.save {
+            background: rgba(0, 191, 255, 0.3);
+        }
+        
+        .editor-container {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tabs {
+            display: flex;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-right: 1px solid rgba(0, 191, 255, 0.1);
+            position: relative;
+            background: rgba(0, 0, 0, 0.2);
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .tab.active {
+            background: rgba(0, 191, 255, 0.1);
+        }
+        
+        .tab:hover {
+            background: rgba(0, 191, 255, 0.05);
+        }
+        
+        .tab-close {
+            margin-left: 10px;
+            opacity: 0.5;
+        }
+        
+        .tab-close:hover {
+            opacity: 1;
+        }
+        
+        .editor-wrapper {
+            flex: 1;
+            overflow: auto;
+            position: relative;
+        }
+        
+        .CodeMirror {
+            height: 100% !important;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+        }
+        
+        .assistant-panel {
+            height: 300px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(0, 191, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .assistant-header {
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .assistant-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .assistant-toggle {
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .assistant-toggle:hover {
+            opacity: 1;
+        }
+        
+        .assistant-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .assistant-messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            max-height: 170px;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 90%;
+        }
+        
+        .message.user {
+            background: rgba(138, 43, 226, 0.1);
+            border-left: 3px solid var(--secondary-color);
+            margin-left: auto;
+        }
+        
+        .message.assistant {
+            background: rgba(0, 191, 255, 0.05);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .message-header {
+            font-size: 12px;
+            margin-bottom: 5px;
+            color: var(--text-dim);
+        }
+        
+        .message-content {
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        
+        .message-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .assistant-input {
+            display: flex;
+        }
+        
+        .assistant-input textarea {
+            flex: 1;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            border-radius: 5px;
+            color: var(--text-light);
+            resize: none;
+            height: 60px;
+            margin-right: 10px;
+        }
+        
+        .assistant-input textarea:focus {
+            outline: none;
+            border-color: rgba(0, 191, 255, 0.5);
+        }
+        
+        .assistant-input button {
+            padding: 0 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .assistant-input button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
+        }
+        
+        /* Status bar */
+        .status-bar {
+            padding: 5px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .status-indicator.connected {
+            background: var(--success-color);
+        }
+        
+        .status-indicator.disconnected {
+            background: var(--error-color);
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .notification.success {
+            background: var(--success-color);
+        }
+        
+        .notification.error {
+            background: var(--error-color);
+        }
+        
+        .notification.warning {
+            background: var(--warning-color);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                max-height: 300px;
+                overflow-y: auto;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+            }
+            
+            .assistant-panel {
+                height: 250px;
+            }
+        }
+        
+        /* Crystal background */
+        .crystal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .crystal {
+            position: absolute;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: rgba(0, 191, 255, 0.05);
+            border: 1px solid rgba(0, 191, 255, 0.1);
+            opacity: 0.2;
+        }
+        
+        /* Context menu */
+        .context-menu {
+            position: absolute;
+            background: rgba(22, 33, 54, 0.95);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 5px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .context-menu-item {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .context-menu-item:hover {
+            background: rgba(0, 191, 255, 0.1);
+        }
+        
+        .context-menu-separator {
+            height: 1px;
+            background: rgba(0, 191, 255, 0.2);
+            margin: 5px 0;
+        }
+        
+        /* Loader */
+        .loader {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(16, 24, 39, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .loader.show {
+            display: flex;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 191, 255, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary-color);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: rgba(22, 33, 54, 0.95);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            border-radius: 10px;
+            width: 600px;
+            max-width: 90%;
+            padding: 20px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .modal-close {
+            cursor: pointer;
+            font-size: 20px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            opacity: 1;
+        }
+        
+        .modal-body {
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            border-radius: 5px;
+            color: var(--text-light);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(0, 191, 255, 0.5);
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .modal-btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .modal-btn.cancel {
+            background: rgba(150, 150, 150, 0.1);
+            border: 1px solid rgba(150, 150, 150, 0.3);
+            color: var(--text-dim);
+        }
+        
+        .modal-btn.cancel:hover {
+            background: rgba(150, 150, 150, 0.2);
+        }
+        
+        .modal-btn.confirm {
+            background: rgba(0, 191, 255, 0.2);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            color: var(--primary-color);
+        }
+        
+        .modal-btn.confirm:hover {
+            background: rgba(0, 191, 255, 0.3);
+        }
+        
+        .modal-btn.danger {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: var(--error-color);
+        }
+        
+        .modal-btn.danger:hover {
+            background: rgba(244, 67, 54, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Crystal background -->
+    <div class="crystal-bg" id="crystalBg"></div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+    
+    <!-- Context Menu -->
+    <div class="context-menu" id="contextMenu" style="display: none;">
+        <div class="context-menu-item" data-action="new-file">New File</div>
+        <div class="context-menu-item" data-action="new-folder">New Folder</div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" data-action="rename">Rename</div>
+        <div class="context-menu-item" data-action="delete">Delete</div>
+    </div>
+    
+    <!-- Modals -->
+    <div class="modal" id="newFileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Create New File</div>
+                <div class="modal-close" data-close="newFileModal">&times;</div>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">File Path</label>
+                    <input type="text" class="form-input" id="newFilePath" placeholder="e.g. D:\AIArm\WebInterface\new_file.js">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">File Content</label>
+                    <textarea class="form-input" id="newFileContent" rows="10" placeholder="Enter initial file content..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" data-close="newFileModal">Cancel</button>
+                <button class="modal-btn confirm" id="createFileBtn">Create File</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="deleteConfirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Confirm Deletion</div>
+                <div class="modal-close" data-close="deleteConfirmModal">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <span id="deleteFileName">this file</span>?</p>
+                <p>This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" data-close="deleteConfirmModal">Cancel</button>
+                <button class="modal-btn danger" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px;">
+                <img src="/NexusLogo.gif" alt="Nexus Logo" style="height: 100px; margin-bottom: 10px; mix-blend-mode: screen;">
+                <div style="text-align: center;">
+                    <div class="logo">AIArm OS</div>
+                    <div class="subtitle">CODE ASSISTANT (100% LOCAL)</div>
+                </div>
+            </div>
+            
+            <div class="file-browser">
+                <h3>File Explorer</h3>
+                <div class="file-tree" id="fileTree">
+                    <!-- File tree will be populated dynamically -->
+                    <div class="folder open">
+                        <div class="folder-name">
+                            <span class="folder-icon">▶</span>
+                            <span>D:\AIArm</span>
+                        </div>
+                        <div class="folder-contents">
+                            <div class="folder">
+                                <div class="folder-name">
+                                    <span class="folder-icon">▶</span>
+                                    <span>MultiAgent</span>
+                                </div>
+                                <div class="folder-contents">
+                                    <div class="folder">
+                                        <div class="folder-name">
+                                            <span class="folder-icon">▶</span>
+                                            <span>Agents</span>
+                                        </div>
+                                        <div class="folder-contents">
+                                            <div class="file" data-path="D:\AIArm\MultiAgent\Agents\code_assistant_agent.py">
+                                                <span class="file-icon py"></span>
+                                                <span>code_assistant_agent.py</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="file" data-path="D:\AIArm\MultiAgent\enhanced_orchestrator.py">
+                                        <span class="file-icon py"></span>
+                                        <span>enhanced_orchestrator.py</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="folder">
+                                <div class="folder-name">
+                                    <span class="folder-icon">▶</span>
+                                    <span>WebInterface</span>
+                                </div>
+                                <div class="folder-contents">
+                                    <div class="file" data-path="D:\AIArm\WebInterface\real_interface.html">
+                                        <span class="file-icon html"></span>
+                                        <span>real_interface.html</span>
+                                    </div>
+                                    <div class="file" data-path="D:\AIArm\WebInterface\real_server.js">
+                                        <span class="file-icon js"></span>
+                                        <span>real_server.js</span>
+                                    </div>
+                                    <div class="file" data-path="D:\AIArm\WebInterface\improved_bridge.py">
+                                        <span class="file-icon py"></span>
+                                        <span>improved_bridge.py</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button class="action-btn" id="refreshBtn">Refresh File Tree</button>
+                <button class="action-btn" id="newFileBtn">New File</button>
+                <button class="action-btn" id="formatCodeBtn">Format Current File</button>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-actions">
+                    <h2 id="currentFile">No file selected</h2>
+                    <div>
+                        <button class="header-btn" id="runBtn">Run</button>
+                        <button class="header-btn save" id="saveBtn">Save</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Editor -->
+            <div class="editor-container">
+            <div class="tabs" id="editorTabs">
+            <!-- Tabs will be populated dynamically -->
+            </div>
+            <div class="editor-wrapper">
+            <div id="editor"></div>
+            <div class="loader" id="loader" style="display: none;">
+            <div class="spinner"></div>
+            </div>
+            </div>
+            </div>
+            
+            <!-- Assistant Panel -->
+            <div class="assistant-panel">
+                <div class="assistant-header">
+                    <div class="assistant-title">Code Assistant</div>
+                    <div class="assistant-toggle" id="assistantToggle">▼</div>
+                </div>
+                <div class="assistant-content">
+                    <div class="assistant-messages" id="assistantMessages">
+                        <div class="message assistant">
+                            <div class="message-header">Code Assistant (LOCAL OLLAMA)</div>
+                            <div class="message-content">Welcome to the AIArm Code Assistant running in 100% local mode using your Ollama models. I can help you examine, create, and modify system files without any external API calls. All processing happens on your local machine. What would you like to do today?</div>
+                        </div>
+                    </div>
+                    <div class="assistant-input">
+                        <textarea id="assistantInput" placeholder="Ask the Code Assistant..."></textarea>
+                        <button id="sendBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="status-item">
+                    <div class="status-indicator connected" id="connectionIndicator"></div>
+                    <span id="connectionStatus">Connected to AIArm OS (LOCAL OLLAMA)</span>
+                </div>
+                <div class="status-item" id="cursorPosition">Ln 1, Col 1</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
+    <script>
+        // Global variables
+        let editor;
+        let openFiles = {};
+        let currentFile = null;
+        let API_URL = window.location.origin;
+        let sessionId = localStorage.getItem('aiarm_code_assistant_session') || `code_assistant_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+        
+        // Store session ID in local storage for persistence across page reloads
+        localStorage.setItem('aiarm_code_assistant_session', sessionId);
+        
+        // Initialize CodeMirror
+        function initializeEditor() {
+            editor = CodeMirror(document.getElementById('editor'), {
+                mode: "javascript",
+                theme: "dracula",
+                lineNumbers: true,
+                indentUnit: 4,
+                tabSize: 4,
+                indentWithTabs: false,
+                autoCloseBrackets: true,
+                matchBrackets: true,
+                lineWrapping: true
+            });
+            
+            editor.on('cursorActivity', function() {
+                const cursor = editor.getCursor();
+                document.getElementById('cursorPosition').textContent = `Ln ${cursor.line + 1}, Col ${cursor.ch + 1}`;
+            });
+        }
+        
+        // Generate crystal background
+        function generateCrystals() {
+            const container = document.getElementById('crystalBg');
+            const numCrystals = 15;
+            
+            for (let i = 0; i < numCrystals; i++) {
+                const crystal = document.createElement('div');
+                crystal.className = 'crystal';
+                
+                // Random size between 50px and 150px
+                const size = Math.random() * 100 + 50;
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Set styles
+                crystal.style.width = `${size}px`;
+                crystal.style.height = `${size}px`;
+                crystal.style.left = `${posX}%`;
+                crystal.style.top = `${posY}%`;
+                crystal.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                container.appendChild(crystal);
+            }
+        }
+        
+        // Set up folder toggle in file tree
+        function setupFolderToggle() {
+            document.querySelectorAll('.folder-name').forEach(folder => {
+                folder.addEventListener('click', () => {
+                    const parentFolder = folder.parentElement;
+                    parentFolder.classList.toggle('open');
+                });
+            });
+        }
+        
+        // Open a file in the editor
+        function openFile(path) {
+            // Show loader
+            document.getElementById('loader').classList.add('show');
+            
+            // If file is already open, just switch to it
+            if (openFiles[path]) {
+                setCurrentFile(path);
+                document.getElementById('loader').classList.remove('show');
+                return;
+            }
+            
+            // Fetch file content from server
+            fetch(`${API_URL}/api/code-assistant/file?path=${encodeURIComponent(path)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Add file to open files
+                        openFiles[path] = {
+                            content: data.content,
+                            mode: getFileMode(path)
+                        };
+                        
+                        // Add tab
+                        addFileTab(path);
+                        
+                        // Set as current file
+                        setCurrentFile(path);
+                    } else {
+                        showNotification(data.error || 'Failed to open file', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error opening file:', error);
+                    showNotification('Error opening file', 'error');
+                })
+                .finally(() => {
+                    document.getElementById('loader').classList.remove('show');
+                });
+        }
+        
+        // Add a tab for an open file
+        function addFileTab(path) {
+            const tabs = document.getElementById('editorTabs');
+            const fileName = path.split('\\').pop();
+            
+            // Create tab
+            const tab = document.createElement('div');
+            tab.className = 'tab';
+            tab.setAttribute('data-path', path);
+            tab.innerHTML = `
+                ${fileName}
+                <span class="tab-close" data-path="${path}">&times;</span>
+            `;
+            
+            // Add click event to switch to this file
+            tab.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('tab-close')) {
+                    setCurrentFile(path);
+                }
+            });
+            
+            // Add click event to close button
+            tab.querySelector('.tab-close').addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeFile(path);
+            });
+            
+            tabs.appendChild(tab);
+        }
+        
+        // Set the current open file
+        function setCurrentFile(path) {
+            // Update current file
+            currentFile = path;
+            
+            // Update editor content and mode
+            const file = openFiles[path];
+            editor.setValue(file.content);
+            editor.setOption('mode', file.mode);
+            
+            // Update header
+            document.getElementById('currentFile').textContent = path;
+            
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                if (tab.getAttribute('data-path') === path) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+        
+        // Close a file
+        function closeFile(path) {
+            // Remove tab
+            const tab = document.querySelector(`.tab[data-path="${path}"]`);
+            if (tab) {
+                tab.remove();
+            }
+            
+            // Remove from open files
+            delete openFiles[path];
+            
+            // If this was the current file, switch to another open file or clear editor
+            if (currentFile === path) {
+                const remainingFiles = Object.keys(openFiles);
+                if (remainingFiles.length > 0) {
+                    setCurrentFile(remainingFiles[0]);
+                } else {
+                    currentFile = null;
+                    editor.setValue('');
+                    document.getElementById('currentFile').textContent = 'No file selected';
+                }
+            }
+        }
+        
+        // Save the current file
+        function saveCurrentFile() {
+            if (!currentFile) {
+                showNotification('No file selected', 'warning');
+                return;
+            }
+            
+            // Show loader
+            document.getElementById('loader').classList.add('show');
+            
+            // Get current content
+            const content = editor.getValue();
+            
+            // Update open files
+            openFiles[currentFile].content = content;
+            
+            // Save to server
+            fetch(`${API_URL}/api/code-assistant/save`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    path: currentFile,
+                    content: content
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showNotification('File saved successfully', 'success');
+                    } else {
+                        showNotification(data.error || 'Failed to save file', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error saving file:', error);
+                    showNotification('Error saving file', 'error');
+                })
+                .finally(() => {
+                    document.getElementById('loader').classList.remove('show');
+                });
+        }
+        
+        // Get the appropriate mode for a file based on its extension
+        function getFileMode(path) {
+            const extension = path.split('.').pop().toLowerCase();
+            
+            const modeMap = {
+                'js': 'javascript',
+                'json': 'javascript',
+                'py': 'python',
+                'html': 'htmlmixed',
+                'htm': 'htmlmixed',
+                'css': 'css',
+                'xml': 'xml',
+                'md': 'markdown',
+                'txt': 'text'
+            };
+            
+            return modeMap[extension] || 'text';
+        }
+        
+        // Show a notification
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Send a message to the Code Assistant
+        function sendAssistantMessage() {
+            const input = document.getElementById('assistantInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Clear input
+            input.value = '';
+            
+            // Add user message to chat
+            addAssistantMessage(message, true);
+            
+            // Show thinking state
+            addThinkingMessage();
+            
+            // Get current file context if any
+            const context = currentFile ? {
+                currentFile: currentFile,
+                content: editor.getValue()
+            } : {};
+            
+            // Send message to server
+            fetch(`${API_URL}/api/code-assistant/query`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Session-Id': sessionId
+                },
+                body: JSON.stringify({
+                    query: message,
+                    context: context,
+                    sessionId: sessionId
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Remove thinking message
+                    removeThinkingMessage();
+                    
+                    if (data.success) {
+                        // Add assistant response
+                        addAssistantMessage(data.response);
+                    } else {
+                        addAssistantMessage(`Error: ${data.error || 'Failed to process request'}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message:', error);
+                    
+                    // Remove thinking message
+                    removeThinkingMessage();
+                    
+                    // Add error message
+                    addAssistantMessage(`Error: ${error.message || 'Connection failed'}`);
+                });
+        }
+        
+        // Add a message to the assistant chat
+        function addAssistantMessage(message, isUser = false) {
+            const messages = document.getElementById('assistantMessages');
+            const messageElement = document.createElement('div');
+            
+            messageElement.className = `message ${isUser ? 'user' : 'assistant'}`;
+            messageElement.innerHTML = `
+                <div class="message-header">${isUser ? 'You' : 'Code Assistant'}</div>
+                <div class="message-content">${formatAssistantMessage(message)}</div>
+            `;
+            
+            messages.appendChild(messageElement);
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        // Format the assistant message (convert code blocks, etc.)
+        function formatAssistantMessage(message) {
+            // Replace code blocks
+            let formatted = message.replace(/```(\w+)?\n([\s\S]*?)\n```/g, function(match, language, code) {
+                return `<pre><code>${code}</code></pre>`;
+            });
+            
+            // Replace inline code
+            formatted = formatted.replace(/`([^`]+)`/g, '<code>$1</code>');
+            
+            return formatted;
+        }
+        
+        // Add thinking message
+        function addThinkingMessage() {
+            const messages = document.getElementById('assistantMessages');
+            const messageElement = document.createElement('div');
+            
+            messageElement.className = 'message assistant thinking';
+            messageElement.id = 'thinkingMessage';
+            messageElement.innerHTML = `
+                <div class="message-header">Code Assistant</div>
+                <div class="message-content">Thinking...</div>
+            `;
+            
+            messages.appendChild(messageElement);
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        // Remove thinking message
+        function removeThinkingMessage() {
+            const thinkingMessage = document.getElementById('thinkingMessage');
+            if (thinkingMessage) {
+                thinkingMessage.remove();
+            }
+        }
+        
+        // Generate crystal background
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the editor
+            initializeEditor();
+            
+            // Generate crystal background
+            generateCrystals();
+            
+            // Set up folder toggle
+            setupFolderToggle();
+            
+            // Set up file click events
+            document.querySelectorAll('.file').forEach(file => {
+                file.addEventListener('click', () => {
+                    const path = file.getAttribute('data-path');
+                    openFile(path);
+                });
+            });
+            
+            // Set up save button
+            document.getElementById('saveBtn').addEventListener('click', () => {
+                saveCurrentFile();
+            });
+            
+            // Set up assistant send button
+            document.getElementById('sendBtn').addEventListener('click', () => {
+                sendAssistantMessage();
+            });
+            
+            // Set up assistant input enter key
+            document.getElementById('assistantInput').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendAssistantMessage();
+                }
+            });
+            
+            // Set up new file button
+            document.getElementById('newFileBtn').addEventListener('click', () => {
+                document.getElementById('newFileModal').classList.add('show');
+            });
+            
+            // Set up modal close buttons
+            document.querySelectorAll('[data-close]').forEach(button => {
+                button.addEventListener('click', () => {
+                    const modalId = button.getAttribute('data-close');
+                    document.getElementById(modalId).classList.remove('show');
+                });
+            });
+            
+            // Set up create file button
+            document.getElementById('createFileBtn').addEventListener('click', () => {
+                const path = document.getElementById('newFilePath').value.trim();
+                const content = document.getElementById('newFileContent').value;
+                
+                if (!path) {
+                    showNotification('Please enter a file path', 'warning');
+                    return;
+                }
+                
+                // Show loader
+                document.getElementById('loader').classList.add('show');
+                
+                // Send request to server
+                fetch(`${API_URL}/api/code-assistant/create`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        path: path,
+                        content: content
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showNotification('File created successfully', 'success');
+                            document.getElementById('newFileModal').classList.remove('show');
+                            
+                            // Clear form
+                            document.getElementById('newFilePath').value = '';
+                            document.getElementById('newFileContent').value = '';
+                            
+                            // Open the new file
+                            openFile(path);
+                        } else {
+                            showNotification(data.error || 'Failed to create file', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error creating file:', error);
+                        showNotification('Error creating file', 'error');
+                    })
+                    .finally(() => {
+                        document.getElementById('loader').classList.remove('show');
+                    });
+            });
+            
+            // Open the Code Assistant agent file by default
+            openFile('D:\\AIArm\\MultiAgent\\Agents\\code_assistant_agent.py');
+            
+            // Hide the loader after everything is initialized
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

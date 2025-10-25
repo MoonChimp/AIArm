@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS AI - Control Center</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Corner Decorations -->
+    <div class="corner-decoration top-left"></div>
+    <div class="corner-decoration top-right"></div>
+    <div class="corner-decoration bottom-left"></div>
+    <div class="corner-decoration bottom-right"></div>
+
+    <!-- Diagonal accent lines -->
+    <div class="diagonal-line top-left-accent"></div>
+    <div class="diagonal-line top-right-accent"></div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-logo">
+            <svg width="30" height="40" viewBox="0 0 30 40">
+                <path d="M5,5 L15,25 L25,5 L25,35 L15,35 L5,35 Z" fill="#FF6600" stroke="#FF8833" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="nav-tabs">
+            <a href="#" class="nav-tab active" data-tab="home">Home</a>
+            <a href="#" class="nav-tab" data-tab="scenario">Scenario</a>
+            <a href="#" class="nav-tab" data-tab="settings">Personal Settings</a>
+            <a href="#" class="nav-tab" data-tab="checkup">Checkup</a>
+            <a href="#" class="nav-tab" data-tab="monitoring">Monitoring</a>
+            <a href="#" class="nav-tab" data-tab="apps">App Center</a>
+        </div>
+        <div class="nav-icons">
+            <button class="icon-btn" title="Notifications">🔔</button>
+            <button class="icon-btn" title="Audio">🎧</button>
+            <button class="icon-btn" title="Settings">⚙️</button>
+            <button class="icon-btn" title="Minimize">─</button>
+            <button class="icon-btn" title="Maximize">⬜</button>
+            <button class="icon-btn" title="Close">✕</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Home Tab Content -->
+        <div class="tab-content active" id="tab-home">
+            <!-- Left Panel -->
+            <div class="left-panel">
+                <!-- GPU Frequency Gauge -->
+                <div class="frequency-gauge">
+                    <canvas id="frequencyGauge" width="280" height="280"></canvas>
+                    <div class="gauge-info">
+                        <span class="gauge-label">GPU</span>
+                        <span class="gauge-sublabel">Frequency</span>
+                    </div>
+                </div>
+
+                <!-- Usage Graphs -->
+                <div class="usage-section">
+                    <div class="usage-row">
+                        <canvas id="gpuUsageWave" width="300" height="60"></canvas>
+                        <div class="usage-label">
+                            <span>GPU Usage</span>
+                            <span class="usage-value" id="gpuUsageText">25%</span>
+                        </div>
+                    </div>
+                    <div class="usage-row">
+                        <canvas id="cpuUsageWave" width="300" height="60"></canvas>
+                        <div class="usage-label">
+                            <span>CPU Usage</span>
+                            <span class="usage-value" id="cpuUsageText">25%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Card -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60">
+                            <rect x="10" y="10" width="40" height="40" rx="5" fill="none" stroke="#FF6600" stroke-width="2"/>
+                            <path d="M20,30 L30,40 L50,20" stroke="#FF6600" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h4>LIRA Consciousness System</h4>
+                        <p>6-layer AI architecture with hierarchical reasoning, autonomous learning, and multi-agent coordination for advanced AI operations.</p>
+                        <a href="#" class="feature-link">View all features</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel - Large Logo -->
+            <div class="center-panel">
+                <div class="center-logo-container">
+                    <img src="nexus-logo.png" alt="NEXUS AI" class="center-logo">
+                    <div class="system-mode">
+                        <div class="mode-label">System Mode</div>
+                        <div class="mode-value">Balanced</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <!-- Temperature Gauges -->
+                <div class="temp-gauge-container">
+                    <canvas id="gpuTempGauge" width="180" height="180"></canvas>
+                    <div class="temp-info">
+                        <span class="temp-label">GPU</span>
+                    </div>
+                </div>
+
+                <div class="temp-gauge-container">
+                    <canvas id="cpuTempGauge" width="180" height="180"></canvas>
+                    <div class="temp-info">
+                        <span class="temp-label">CPU</span>
+                    </div>
+                </div>
+
+                <div class="temp-gauge-container">
+                    <canvas id="sysTempGauge" width="180" height="180"></canvas>
+                    <div class="temp-info">
+                        <span class="temp-label">System</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Tabs -->
+        <div class="tab-content" id="tab-scenario">
+            <h2 class="page-title">AI Performance Modes</h2>
+            <div class="mode-selector-grid">
+                <div class="mode-option" data-mode="quiet">
+                    <div class="mode-icon">🌙</div>
+                    <h3>Quiet</h3>
+                    <p>Low power, reduced performance</p>
+                </div>
+                <div class="mode-option active" data-mode="balanced">
+                    <div class="mode-icon">⚖️</div>
+                    <h3>Balanced</h3>
+                    <p>Optimal balance of power and performance</p>
+                </div>
+                <div class="mode-option" data-mode="performance">
+                    <div class="mode-icon">🔥</div>
+                    <h3>Performance</h3>
+                    <p>Maximum speed, all agents active</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab-settings">
+            <h2 class="page-title">Personal Settings</h2>
+            <p style="color: #888;">Settings panel coming soon...</p>
+        </div>
+
+        <div class="tab-content" id="tab-checkup">
+            <h2 class="page-title">System Checkup</h2>
+            <button class="checkup-all-btn">
+                <span class="btn-icon">❤️</span>
+                <span>Checkup All</span>
+            </button>
+        </div>
+
+        <div class="tab-content" id="tab-monitoring">
+            <h2 class="page-title">Live Monitoring</h2>
+            <div class="monitor-grid-layout">
+                <div class="monitor-panel">
+                    <h3>AI Model Status</h3>
+                    <canvas id="aiMonitorGraph" width="600" height="180"></canvas>
+                </div>
+                <div class="monitor-panel">
+                    <h3>System Resources</h3>
+                    <canvas id="sysMonitorGraph" width="600" height="180"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab-apps">
+            <h2 class="page-title">Agent Launcher</h2>
+            <div class="app-grid-layout">
+                <div class="app-item" data-agent="code">
+                    <div class="app-icon-large">💻</div>
+                    <h3>Code Agent</h3>
+                    <p>Software development & programming</p>
+                    <button class="launch-btn">Launch</button>
+                </div>
+                <div class="app-item" data-agent="photo">
+                    <div class="app-icon-large">🎨</div>
+                    <h3>Photo Agent</h3>
+                    <p>AI image generation</p>
+                    <button class="launch-btn">Launch</button>
+                </div>
+                <div class="app-item" data-agent="music">
+                    <div class="app-icon-large">🎵</div>
+                    <h3>Music Agent</h3>
+                    <p>Audio synthesis & music</p>
+                    <button class="launch-btn">Launch</button>
+                </div>
+                <div class="app-item" data-agent="video">
+                    <div class="app-icon-large">🎬</div>
+                    <h3>Video Agent</h3>
+                    <p>Video generation & editing</p>
+                    <button class="launch-btn">Launch</button>
+                </div>
+                <div class="app-item" data-agent="story">
+                    <div class="app-icon-large">📖</div>
+                    <h3>Story Agent</h3>
+                    <p>Narrative & story creation</p>
+                    <button class="launch-btn">Launch</button>
+                </div>
+                <div class="app-item" data-agent="websearch">
+                    <div class="app-icon-large">🔍</div>
+                    <h3>WebSearch Agent</h3>
+                    <p>Internet research & data</p>
+                    <button class="launch-btn">Launch</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-icon">📊</div>
+            <h3>Scenario Profile</h3>
+        </div>
+
+        <select class="sidebar-select">
+            <option>Daily Use</option>
+            <option>Development</option>
+            <option>Content Creation</option>
+        </select>
+
+        <div class="sidebar-quick-info">
+            <div class="quick-row">
+                <span>Mode</span>
+                <span>Balanced →</span>
+            </div>
+            <div class="quick-row">
+                <span>Fan</span>
+                <span>Auto →</span>
+            </div>
+            <button class="details-link">Details →</button>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Monitoring</h3>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-value" id="gpuPercent">25</div>
+                    <div class="metric-unit">%</div>
+                    <div class="metric-label">GPU</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value" id="gpuDegrees">50</div>
+                    <div class="metric-unit">°C</div>
+                    <div class="metric-label">GPU</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value" id="cpuPercent">25</div>
+                    <div class="metric-unit">%</div>
+                    <div class="metric-label">CPU</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value" id="cpuDegrees">61</div>
+                    <div class="metric-unit">°C</div>
+                    <div class="metric-label">CPU</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value" id="sysDegrees">49</div>
+                    <div class="metric-unit">°C</div>
+                    <div class="metric-label">System</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value" id="ramPercent">65.4</div>
+                    <div class="metric-unit">%</div>
+                    <div class="metric-label">RAM</div>
+                </div>
+            </div>
+            <button class="details-link">Details →</button>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Live Update</h3>
+            <p class="update-message">No items to update</p>
+            <button class="check-now-btn">Check Now</button>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>App Shortcut</h3>
+            <div class="shortcut-icons">
+                <div class="shortcut-icon" style="background: #4CAF50"></div>
+                <div class="shortcut-icon" style="background: #FF5722"></div>
+                <div class="shortcut-icon" style="background: #00BCD4"></div>
+                <div class="shortcut-icon" style="background: #FFC107"></div>
+            </div>
+        </div>
+    </aside>
+
+    <script src="visual-effects.js"></script>
+    <script src="nexus-os.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "id": "test_session_001",
+  "created": "2025-10-20T20:26:07.760055",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello, I need help with Python programming",
+      "timestamp": "2025-10-20T20:26:07.760069",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'd be happy to help you with Python programming! What specific task are you working on?",
+      "timestamp": "2025-10-20T20:26:07.760078",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "I want to create a file management system",
+      "timestamp": "2025-10-20T20:26:07.760086",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Great! I can help you create a file management system. We have full file management capabilities available.",
+      "timestamp": "2025-10-20T20:26:07.760090",
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "total_interactions": 4,
+    "topics_discussed": [],
+    "user_preferences": {}
+  }
+}

@@ -1,0 +1,1 @@
+ERROR: Unknown command: whats the weather. Available commands: CREATE_VIDEO, OPEN_PROGRAM, STATUS, COMMUNICATE_AI, TEST

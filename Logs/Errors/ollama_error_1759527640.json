@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-10-03T17:40:40.761283",
+  "exception_type": "AttributeError",
+  "exception_message": "'EmotionalState' object has no attribute 'items'",
+  "prompt": "hello Nexus\n\nInner Life Context:\n\nThinking context:\nRecent thoughts:\n- I have specialized agents at ...",
+  "agent_type": "orchestrator",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\AIArm\\WebInterface\\ollama_bridge.py\", line 203, in process_with_ollama\n    inner_life_context = inner_life.enrich_response_context(prompt)\n  File \"D:\\AIArm\\InnerLife\\inner_life_integration.py\", line 236, in enrich_response_context\n    significant_emotions = {e: i for e, i in context[\"emotional_state\"].items() if i > 0.5}\n                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'EmotionalState' object has no attribute 'items'\n"
+}

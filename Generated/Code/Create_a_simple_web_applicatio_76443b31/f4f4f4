@@ -1,0 +1,89 @@
+;
+  color: #333;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.75rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #222;
+}
+
+#items-list li {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+#items-list li:last-child {
+  border-bottom: none;
+}
+
+app.js:
+javascript
+const form = document.getElementById('item-form');
+const itemName = document.getElementById('item-name');
+const itemDescription = document.getElementById('item-description');
+const itemsList = document.getElementById('items-list');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const name = itemName.value;
+  const description = itemDescription.value;
+  
+  if (!name || !description) {
+    alert('Please fill in all fields.');
+    return;
+  }
+  
+  const li = document.createElement('li');
+  li.textContent = `${name}: ${description}`;
+  
+  itemsList.appendChild(li);
+  
+  itemName.value = '';
+  itemDescription.value = '';
+});

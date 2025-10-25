@@ -1,0 +1,10 @@
+﻿{
+    "CreatedTime":  "2025-06-28 19:36:34",
+    "Status":  "Created",
+    "Parameters":  {
+                       "ProgramName":  "notepad",
+                       "Action":  "Launch"
+                   },
+    "Id":  "Task_20250628193634_1419",
+    "Type":  "OpenProgram"
+}

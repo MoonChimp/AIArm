@@ -1,0 +1,11 @@
+{
+  "name": "essential-version",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm start --workspace=@nexusai/core-assistant"
+  },
+  "dependencies": {
+    "@nexusai/core-assistant": "1.0.0"
+  }
+}

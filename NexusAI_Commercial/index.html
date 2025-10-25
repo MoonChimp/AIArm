@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusAI Enterprise - Professional AI Assistant</title>
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="assets/css/vendors/bootstrap.css">
+
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- professional business styles -->
+    <style>
+        /* Professional Business Theme */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #1e293b;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Professional Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Clean Header */
+        .header {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .brand-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            color: #64748b;
+            font-size: 1rem;
+            margin: 4px 0 0 0;
+        }
+
+        /* Professional Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            height: fit-content;
+        }
+
+        .control-panel h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-panel h3::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 2px;
+        }
+
+        /* Control Groups */
+        .control-group {
+            margin-bottom: 24px;
+        }
+
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .control-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .control-select,
+        .control-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            background: white;
+            transition: border-color 0.2s ease;
+        }
+
+        .control-select:focus,
+        .control-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Status Panel */
+        .status-panel {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 24px;
+        }
+
+        .status-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.875rem;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            position: relative;
+        }
+
+        .status-indicator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #10b981;
+            opacity: 0.3;
+            animation: statusPulse 2s infinite;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+
+        .status-text {
+            color: #059669;
+            font-weight: 500;
+        }
+
+        /* Bond Level */
+        .bond-level {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .bond-level h4 {
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .bond-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        /* Chat Interface */
+        .chat-interface {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        .chat-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .chat-header p {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin: 4px 0 0 0;
+        }
+
+        /* Messages */
+        .chat-messages {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            background: #fafafa;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .message.bot .message-avatar {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, #64748b, #475569);
+            color: white;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            line-height: 1.5;
+        }
+
+        .message.bot .message-content {
+            background: white;
+            color: #374151;
+            border: 1px solid #e5e7eb;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+
+        /* Input Area */
+        .chat-input {
+            padding: 24px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .input-form {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            background: #f8fafc;
+            transition: all 0.2s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background: white;
+        }
+
+        .send-button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .send-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Example Buttons */
+        .examples {
+            margin-top: 24px;
+            padding: 16px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+        }
+
+        .examples h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 12px;
+        }
+
+        .example-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .example-btn {
+            padding: 8px 12px;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .example-btn:hover {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        /* Professional Typography */
+        .text-primary {
+            color: #1e293b;
+        }
+
+        .text-secondary {
+            color: #64748b;
+        }
+
+        .text-accent {
+            color: #3b82f6;
+        }
+
+        /* Professional Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .control-panel {
+                order: 2;
+            }
+
+            .chat-interface {
+                order: 1;
+                height: 500px;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #64748b;
+        }
+
+        .loading::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e2e8f0;
+            border-top: 2px solid #3b82f6;
+            border-radius: 50%;
+            margin-left: 12px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Professional Scrollbar */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Professional Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">N</div>
+                    <div class="brand-title">
+                        <h1>NexusAI Enterprise</h1>
+                        <p class="brand-subtitle">Professional AI Assistant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <!-- Professional Control Panel -->
+            <div class="control-panel">
+                <h3>AI Configuration</h3>
+
+                <div class="control-group">
+                    <label class="control-label" for="personalityMode">AI Personality:</label>
+                    <select id="personalityMode" class="control-select">
+                        <option value="balanced">Balanced</option>
+                        <option value="caring">Caring</option>
+                        <option value="professional">Professional</option>
+                        <option value="honest">Honest</option>
+                        <option value="thoughtful">Thoughtful</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="honesty">Response Style: <span id="honestyValue">90</span>%</label>
+                    <input type="range" id="honesty" min="0" max="100" value="90" class="control-input">
+                </div>
+
+                <div class="bond-level">
+                    <h4>Connection Level</h4>
+                    <span class="bond-value"><span id="bondLevel">0</span>/100</span>
+                </div>
+
+                <div class="status-panel">
+                    <h4 class="status-title">System Status</h4>
+                    <div class="status-item">
+                        <span>AI Models:</span>
+                        <span class="status-text" id="modelStatus">Loading...</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Memory:</span>
+                        <span class="status-text" id="memoryStatus">Loading...</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Image Gen:</span>
+                        <span class="status-text" id="imageStatus">Loading...</span>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Try These Examples:</h4>
+                    <div class="example-buttons">
+                        <button class="example-btn" onclick="sendExample('Hello! Tell me about your capabilities with your 27 AI models')">Your capabilities</button>
+                        <button class="example-btn" onclick="sendExample('generate image a modern office workspace')">Generate image</button>
+                        <button class="example-btn" onclick="sendExample('Create a Python function for data analysis')">Execute code</button>
+                        <button class="example-btn" onclick="sendExample('What can you see in D drive?')">File system</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Chat Interface -->
+            <div class="chat-interface">
+                <div class="chat-header">
+                    <h2>Chat with NexusAI</h2>
+                    <p>Powered by your local AI infrastructure</p>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        <div class="message-avatar">AI</div>
+                        <div class="message-content">
+                            <strong>Welcome to NexusAI Enterprise!</strong><br><br>
+                            I'm running on your local system with access to:<br>
+                            • <strong>27 AI Models</strong> for various tasks<br>
+                            • <strong>Stable Diffusion WebUI</strong> for professional image generation<br>
+                            • <strong>Advanced memory system</strong> for context retention<br>
+                            • <strong>Code execution</strong> for development tasks<br>
+                            • <strong>File management</strong> for system operations<br><br>
+                            How can I assist you today?
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <form class="input-form" onsubmit="return false;">
+                        <input type="text" class="input-field" placeholder="Type your message here..." autocomplete="off">
+                        <button type="submit" class="send-button">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/nexus-functional.js"></script>
+    <script>
+        // Professional example sender
+        function sendExample(text) {
+            const input = document.querySelector('.input-field');
+            if (input) {
+                input.value = text;
+                const form = document.querySelector('.input-form');
+                if (form) {
+                    // Trigger form submission
+                    const event = new Event('submit', { bubbles: true, cancelable: true });
+                    form.dispatchEvent(event);
+                }
+            }
+        }
+
+        // Professional status checking
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (window.NexusAI && window.NexusAI.checkSystemStatus) {
+                    window.NexusAI.checkSystemStatus();
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

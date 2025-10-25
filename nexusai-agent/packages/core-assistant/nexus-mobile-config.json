@@ -1,0 +1,36 @@
+{
+  "app_config": {
+    "name": "NexusAI Mobile",
+    "version": "1.0.0",
+    "description": "Mobile app for NexusAI system",
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "framework": "React Native",
+    "features": [
+      "Agent interaction",
+      "Real-time messaging",
+      "File management",
+      "Offline mode",
+      "Push notifications"
+    ],
+    "dependencies": [
+      "@react-native-async-storage/async-storage",
+      "react-native-push-notification",
+      "react-native-vector-icons",
+      "react-native-permissions"
+    ],
+    "build_settings": {
+      "ios": {
+        "bundle_id": "com.nexusai.mobile",
+        "deployment_target": "13.0"
+      },
+      "android": {
+        "package_name": "com.nexusai.mobile",
+        "min_sdk_version": 21,
+        "target_sdk_version": 33
+      }
+    }
+  }
+}

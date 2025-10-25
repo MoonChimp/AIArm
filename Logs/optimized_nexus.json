@@ -1,0 +1,27 @@
+{
+    "Success":  false,
+    "Timestamp":  "2025-06-28 20:20:36",
+    "Command":  "STATUS",
+    "SystemRAM":  "16GB",
+    "Model":  "commander-nexus-optimized:latest",
+    "Context":  "",
+    "Response":  "ERROR: Cannot connect to Commander Nexus. Is Ollama running? Check: ollama ps"
+}
+{
+    "Success":  false,
+    "Timestamp":  "2025-06-28 20:21:35",
+    "Command":  "CREATE_VIDEO",
+    "SystemRAM":  "16GB",
+    "Model":  "commander-nexus-optimized:latest",
+    "Context":  "Epic dragon video optimized for current hardware",
+    "Response":  "ERROR: Cannot connect to Commander Nexus. Is Ollama running? Check: ollama ps"
+}
+{
+    "Success":  false,
+    "Timestamp":  "2025-06-28 20:22:06",
+    "Command":  "OPTIMIZE",
+    "SystemRAM":  "16GB",
+    "Model":  "commander-nexus-optimized:latest",
+    "Context":  "preparing system for 64GB RAM upgrade",
+    "Response":  "ERROR: Cannot connect to Commander Nexus. Is Ollama running? Check: ollama ps"
+}

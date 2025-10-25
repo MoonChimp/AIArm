@@ -1,0 +1,7 @@
+{
+    "CommanderNexusResponse":  "ERROR: Cannot connect to Commander Nexus. Is Ollama running? Check: ollama list",
+    "Context":  "",
+    "Timestamp":  "2025-06-28 19:59:37",
+    "Model":  "llama2:7b",
+    "Command":  "STATUS"
+}

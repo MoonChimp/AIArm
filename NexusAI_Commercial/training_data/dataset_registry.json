@@ -1,0 +1,31 @@
+{
+  "datasets": {
+    "c3007921376a": {
+      "id": "c3007921376a",
+      "type": "conversation",
+      "timestamp": "2025-10-20T20:45:52.687512",
+      "size": 4,
+      "path": "D:\\AIArm\\NexusAI_Commercial\\training_data\\conversation_c3007921376a.json"
+    },
+    "44978a45740b": {
+      "id": "44978a45740b",
+      "type": "conversation",
+      "timestamp": "2025-10-20T21:02:31.947622",
+      "size": 4,
+      "path": "D:\\AIArm\\NexusAI_Commercial\\training_data\\conversation_44978a45740b.json"
+    },
+    "b76eb9b9d3af": {
+      "id": "b76eb9b9d3af",
+      "type": "conversation",
+      "timestamp": "2025-10-20T21:07:21.312391",
+      "size": 4,
+      "path": "D:\\AIArm\\NexusAI_Commercial\\training_data\\conversation_b76eb9b9d3af.json"
+    }
+  },
+  "conversation_logs": [
+    "c3007921376a",
+    "44978a45740b",
+    "b76eb9b9d3af"
+  ],
+  "knowledge_base": []
+}

@@ -1,0 +1,52 @@
+{
+  "environment": "development",
+  "port": 45678,
+  "timeoutMs": 120000,
+  "logLevel": "info",
+  "logToFile": true,
+  "memoryEnabled": true,
+  "innerLifeEnabled": false,
+  "logDirectory": "Logs",
+  "memoryDirectory": "D:/AIArm/Memory",
+  "rateLimiting": {
+    "enabled": false,
+    "maxRequests": 100,
+    "windowMs": 900000
+  },
+  "caching": {
+    "enabled": true,
+    "ttl": 3600
+  },
+  "specializedAgents": {
+    "PhotoGeneration": {
+      "enabled": true,
+      "backend": "StableDiffusion",
+      "url": "http://127.0.0.1:7860",
+      "defaultModel": "sdxl",
+      "bridge": "photo_generation_bridge.py"
+    },
+    "VideoGeneration": {
+      "enabled": true,
+      "backend": "local"
+    },
+    "WebsiteCreation": {
+      "enabled": true,
+      "backend": "local"
+    },
+    "WebSearch": {
+      "enabled": true,
+      "backend": "local"
+    }
+  },
+  "responseConfig": {
+    "combinationMethod": "augment-surface",
+    "similarityThreshold": 0.6,
+    "preferDeepForDomains": [
+      "code",
+      "math",
+      "reasoning",
+      "creative writing"
+    ]
+  },
+  "requestTimeoutStrategy": "graceful-degradation"
+}

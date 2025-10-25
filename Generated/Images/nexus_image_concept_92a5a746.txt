@@ -1,0 +1,15 @@
+Image Concept #92a5a746
+============================================================
+
+Original Request: where did you save the photo
+
+Enhanced Prompt:
+detailed cinematic close up shot, cinematic lighting, dramatic, by greg rutkowski, cinematic lighting, 8k, trending on artstation, very coherent in the composition, very clear
+
+Style: default
+Created: 2025-10-09 10:21:08
+
+------------------------------------------------------------
+To generate actual image:
+1. Use this prompt with your preferred AI image generator
+2. Or integrate Nexus with an image API (DALL-E, Midjourney, etc.)

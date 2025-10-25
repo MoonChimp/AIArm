@@ -1,0 +1,14 @@
+This is a test file created to verify that the Nexus AI FileSystem operations are working correctly.
+
+The FileSystem operations include:
+- Reading files
+- Writing files
+- Appending to files
+- Listing directories
+- Creating directories
+- Deleting files and directories
+- Moving and copying files
+- Getting file information
+- Searching for files
+
+This system integrates with the NexusAI interface to provide file operations capabilities through a simple command interface.

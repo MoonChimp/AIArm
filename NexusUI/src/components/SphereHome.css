@@ -1,0 +1,251 @@
+.sphere-home {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Central Sphere */
+.central-sphere {
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.sphere-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: float-sphere 6s ease-in-out infinite;
+}
+
+@keyframes float-sphere {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.sphere-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.3), transparent 70%);
+  filter: blur(40px);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.sphere-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid;
+  animation: rotate-ring 20s linear infinite;
+}
+
+.ring-1 {
+  width: 100%;
+  height: 100%;
+  border-color: rgba(124, 58, 237, 0.3);
+  animation-duration: 15s;
+}
+
+.ring-2 {
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  border-color: rgba(236, 72, 153, 0.2);
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+
+.ring-3 {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  border-color: rgba(124, 58, 237, 0.4);
+  animation-duration: 12s;
+}
+
+@keyframes rotate-ring {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.sphere-core {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a1a2e, #0a0a0f);
+  border: 3px solid rgba(124, 58, 237, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 40px rgba(124, 58, 237, 0.3),
+    inset 0 0 40px rgba(124, 58, 237, 0.1);
+}
+
+.core-text {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, #7c3aed, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+}
+
+/* Action Cards */
+.action-cards {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.action-card {
+  position: absolute;
+  width: 200px;
+  padding: 1.5rem;
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 16px;
+  cursor: pointer;
+  pointer-events: all;
+  transition: all 0.3s ease;
+}
+
+.action-card:hover {
+  background: rgba(26, 26, 46, 0.95);
+  border-color: rgba(124, 58, 237, 0.6);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);
+}
+
+.action-left {
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.action-right {
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.action-top {
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.action-bottom {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #fff;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  color: #a0a0b0;
+}
+
+/* Particles */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(124, 58, 237, 0.6);
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .central-sphere {
+    width: 300px;
+    height: 300px;
+  }
+
+  .sphere-core {
+    width: 150px;
+    height: 150px;
+  }
+
+  .core-text {
+    font-size: 1.5rem;
+  }
+
+  .action-card {
+    width: 160px;
+    padding: 1rem;
+  }
+
+  .action-left { left: 5%; }
+  .action-right { right: 5%; }
+  .action-top { top: 5%; }
+  .action-bottom { bottom: 5%; }
+}
+
+@media (max-width: 768px) {
+  .central-sphere {
+    width: 250px;
+    height: 250px;
+  }
+
+  .action-card {
+    display: none;
+  }
+}

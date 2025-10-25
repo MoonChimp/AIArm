@@ -1,0 +1,40 @@
+{
+  "export_timestamp": "2025-10-20T21:02:31.951174",
+  "total_conversations": 2,
+  "total_knowledge_items": 0,
+  "conversations": [
+    {
+      "role": "user",
+      "content": "How do I create a Python function?"
+    },
+    {
+      "role": "assistant",
+      "content": "To create a Python function, use the 'def' keyword..."
+    },
+    {
+      "role": "user",
+      "content": "Can you show me an example?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's an example function: def greet(name): return f'Hello {name}'"
+    },
+    {
+      "role": "user",
+      "content": "How do I create a Python function?"
+    },
+    {
+      "role": "assistant",
+      "content": "To create a Python function, use the 'def' keyword..."
+    },
+    {
+      "role": "user",
+      "content": "Can you show me an example?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's an example function: def greet(name): return f'Hello {name}'"
+    }
+  ],
+  "knowledge": []
+}

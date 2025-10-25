@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="root">
+        <div class="app">
+            <header class="app-header">
+                <div>
+                    <span class="status-dot online"></span>
+                    <span>Nexus Online</span>
+                </div>
+            </header>
+
+            <main class="app-main">
+                <div class="chat-interface">
+                    <div class="agent-selector">
+                        <button class="agent-button" onclick="selectAgent('chat')" style="--agent-color: #7c3aed">
+                            <span class="agent-icon">💬</span>
+                            <span class="agent-name">Nexus</span>
+                        </button>
+                        <button class="agent-button" onclick="selectAgent('code')" style="--agent-color: #10b981">
+                            <span class="agent-icon">💻</span>
+                            <span class="agent-name">Code</span>
+                        </button>
+                        <button class="agent-button" onclick="selectAgent('music')" style="--agent-color: #f59e0b">
+                            <span class="agent-icon">🎵</span>
+                            <span class="agent-name">Music</span>
+                        </button>
+                        <button class="agent-button" onclick="selectAgent('photo')" style="--agent-color: #ec4899">
+                            <span class="agent-icon">📸</span>
+                            <span class="agent-name">Photo</span>
+                        </button>
+                        <button class="agent-button" onclick="selectAgent('story')" style="--agent-color: #8b5cf6">
+                            <span class="agent-icon">📖</span>
+                            <span class="agent-name">Story</span>
+                        </button>
+                        <button class="agent-button" onclick="selectAgent('video')" style="--agent-color: #3b82f6">
+                            <span class="agent-icon">🎬</span>
+                            <span class="agent-name">Video</span>
+                        </button>
+                        <button class="agent-button" onclick="selectAgent('websearch')" style="--agent-color: #14b8a6">
+                            <span class="agent-icon">🔍</span>
+                            <span class="agent-name">Search</span>
+                        </button>
+                    </div>
+
+                    <div class="chat-messages" id="messages">
+                        <div class="message assistant">
+                            <div class="message-label">Nexus</div>
+                            <div class="message-content">Hello! Select an agent above and start chatting.</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <input type="text" id="messageInput" class="chat-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+                        <button class="send-button" onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        let selectedAgent = null;
+        const API_BASE = 'http://localhost:5000';
+
+        function selectAgent(agent) {
+            selectedAgent = agent;
+            document.querySelectorAll('.agent-button').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.agent-button').classList.add('active');
+            addMessage('system', `Switched to ${agent.charAt(0).toUpperCase() + agent.slice(1)} agent`);
+        }
+
+        function addMessage(role, content) {
+            const messagesDiv = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            messageDiv.innerHTML = `
+                <div class="message-label">${role === 'user' ? 'You' : role === 'system' ? 'System' : 'Nexus'}</div>
+                <div class="message-content">${content}</div>
+            `;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            addMessage('user', message);
+            input.value = '';
+
+            try {
+                const response = await fetch(`${API_BASE}/api/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message, agent: selectedAgent })
+                });
+
+                const data = await response.json();
+                addMessage('assistant', data.response || data.error || 'No response');
+            } catch (error) {
+                addMessage('assistant', 'Error: ' + error.message);
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>

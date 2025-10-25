@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusAI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo-container">
+                    <img src="../assets/NexusLogo.gif" alt="NexusAI Logo" class="app-logo">
+                    <div class="title-group">
+                        <h1 class="app-title">NexusAI Assistant</h1>
+                        <span class="model-info">nexusai:alfazer0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <button id="plan-act-toggle" class="plan-act-btn act-mode">ACT MODE</button>
+                <button id="settings-btn" class="settings-btn" title="Settings">⚙️</button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Chat Messages Container -->
+            <div class="chat-container" id="chat-container">
+                <div class="welcome-message">
+                    <div class="welcome-header">
+                        <img src="../assets/NexusLogo.gif" alt="NexusAI" class="welcome-logo">
+                        <h2>Welcome to NexusAI Assistant</h2>
+                    </div>
+                    <p>Your local AI assistant powered by Ollama. I have all the capabilities of Cline and more:</p>
+                    <div class="capabilities-grid">
+                        <div class="capability-item">
+                            <span class="capability-icon">📁</span>
+                            <div>
+                                <strong>File Operations</strong>
+                                <p>Read, write, edit, and manage files across your system</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <span class="capability-icon">⚡</span>
+                            <div>
+                                <strong>Command Execution</strong>
+                                <p>Run terminal commands and system operations</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <span class="capability-icon">🌐</span>
+                            <div>
+                                <strong>Web Browsing</strong>
+                                <p>Automated web browsing and interaction</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <span class="capability-icon">🔍</span>
+                            <div>
+                                <strong>Code Analysis</strong>
+                                <p>Understand, analyze, and improve your codebase</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <span class="capability-icon">🎯</span>
+                            <div>
+                                <strong>Plan & Act Modes</strong>
+                                <p>Strategic planning and direct task execution</p>
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <span class="capability-icon">🔒</span>
+                            <div>
+                                <strong>Offline First</strong>
+                                <p>Works completely offline with your local model</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="start-instruction">Start by typing a message below or switch to Plan Mode to outline complex tasks.</p>
+                </div>
+            </div>
+
+            <!-- Task Progress Display -->
+            <div class="task-progress" id="task-progress" style="display: none;">
+                <h4>Task Progress</h4>
+                <div class="progress-items" id="progress-items"></div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="user-input" 
+                        placeholder="Type your message here... (Shift+Enter for new line, Enter to send)"
+                        rows="3"
+                    ></textarea>
+                    <button id="send-btn" class="send-btn" title="Send Message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="status-bar">
+                    <span id="connection-status" class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Connecting to Ollama...</span>
+                    </span>
+                    <span id="model-status">Model: nexusai:alfazer0</span>
+                    <span id="mode-status" class="mode-status act">Act Mode</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Side Panel for Tools and Settings -->
+        <div class="side-panel" id="side-panel">
+            <div class="panel-header">
+                <h3>Tools & Settings</h3>
+                <button id="close-panel" class="close-btn" title="Close Panel">×</button>
+            </div>
+            
+            <div class="panel-section">
+                <h4>Available Tools</h4>
+                <div class="tool-list">
+                    <div class="tool-item" data-tool="files">
+                        <span class="tool-icon">📁</span>
+                        <span>File Operations</span>
+                        <span class="tool-status enabled">✓</span>
+                    </div>
+                    <div class="tool-item" data-tool="commands">
+                        <span class="tool-icon">⚡</span>
+                        <span>Command Execution</span>
+                        <span class="tool-status enabled">✓</span>
+                    </div>
+                    <div class="tool-item" data-tool="browser">
+                        <span class="tool-icon">🌐</span>
+                        <span>Web Browsing</span>
+                        <span class="tool-status enabled">✓</span>
+                    </div>
+                    <div class="tool-item" data-tool="analysis">
+                        <span class="tool-icon">🔍</span>
+                        <span>Code Analysis</span>
+                        <span class="tool-status enabled">✓</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h4>AI Configuration</h4>
+                <div class="setting-item">
+                    <label for="ollama-url">Ollama URL:</label>
+                    <input type="text" id="ollama-url" value="http://localhost:11434" />
+                </div>
+                <div class="setting-item">
+                    <label for="model-name">Model:</label>
+                    <input type="text" id="model-name" value="nexusai:alfazer0" />
+                </div>
+                <div class="setting-item">
+                    <label for="enable-fallback">Enable Claude Fallback:</label>
+                    <input type="checkbox" id="enable-fallback" />
+                </div>
+                <button id="test-connection" class="test-btn">Test Connection</button>
+                <button id="refresh-models" class="test-btn">Refresh Models</button>
+            </div>
+
+            <div class="panel-section">
+                <h4>App Settings</h4>
+                <div class="setting-item">
+                    <label for="theme-select">Theme:</label>
+                    <select id="theme-select">
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="auto-save">Auto-save Conversations:</label>
+                    <input type="checkbox" id="auto-save" checked />
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="loading-content">
+                <img src="../assets/NexusLogo.gif" alt="NexusAI" class="loading-logo">
+                <div class="loading-spinner"></div>
+                <p id="loading-text">NexusAI is thinking...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

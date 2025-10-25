@@ -1,0 +1,71 @@
+# NEXUS AI - ESSENTIAL FILES
+# These files are REQUIRED for Nexus to function
+
+## CORE SYSTEM FILES
+/nexus_api_server.py                    # Main API server
+/START_NEXUS.bat                        # Startup script
+
+## ORCHESTRATOR (Brain)
+/NexusCore/orchestrator.py              # Main AI orchestrator
+/NexusCore/file_creator.py              # File creation system
+/NexusCore/service_manager.py           # Service monitoring
+
+## AGENTS (Specialized Workers)
+/InnerLife/Agents/agent_base.py         # Base agent class
+/InnerLife/Agents/real_code_agent.py    # Code generation (uses nexusai-a0-coder1.0)
+/InnerLife/Agents/real_music_agent.py   # Music generation (creates MP3s)
+/InnerLife/Agents/real_photo_agent.py   # Image generation (Stable Diffusion)
+/InnerLife/Agents/real_story_agent.py   # Story generation
+/InnerLife/Agents/real_video_agent.py   # Video generation (creates MP4s)
+/InnerLife/Agents/real_websearch_agent.py # Web search
+
+## INNER LIFE (Memory & Consciousness)
+/InnerLife/thoughts_manager.py          # Thought processing
+/InnerLife/associative_memory.py        # Memory connections
+/InnerLife/emotional_state.py           # Emotional system
+/InnerLife/concept_graph.py             # Concept understanding
+
+## USER INTERFACE
+/NexusUI_Static/index.html              # React UI (currently broken)
+/NexusUI_Static/index_simple.html       # Simple working UI
+/NexusUI_Static/app.js                  # React app code
+/NexusUI_Static/styles.css              # UI styling
+
+## MEMORY STORAGE
+/Memory/conversations.json              # Conversation history
+/Memory/thoughts.json                   # Thought history
+/Memory/associative_memory.json         # Memory graph
+/Memory/emotional_state.json            # Emotional state
+/Memory/concepts.json                   # Learned concepts
+
+## GENERATED CONTENT (User creations)
+/Generated/Code/*                       # Generated applications
+/Generated/Music/*                      # Generated songs/MP3s
+/Generated/Images/*                     # Generated images
+/Generated/Videos/*                     # Generated videos
+/Generated/Stories/*                    # Generated stories
+
+## OLLAMA MODELS (AI Models)
+~/.ollama/models/nexusai-a0-coder1.0:latest  # Merged coding model
+~/.ollama/models/llama3:latest               # Conversation model
+~/.ollama/models/nexusai-agent-enhanced:latest # Routing model
+
+## PYTHON DEPENDENCIES (Required packages)
+- flask
+- flask-cors
+- requests
+- psutil
+- gtts (for MP3 generation)
+- pyttsx3 (for offline MP3)
+- pillow (for image processing)
+- scipy (for audio processing)
+- moviepy (for video editing)
+
+## EXTERNAL SERVICES (Optional but recommended)
+- Ollama (AI models) - REQUIRED
+- Stable Diffusion WebUI (image generation) - Optional
+- FFmpeg (video rendering) - Optional
+
+================================================================================
+TOTAL ESSENTIAL SIZE: ~500MB (excluding Ollama models ~15GB)
+================================================================================

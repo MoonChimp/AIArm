@@ -1,0 +1,72 @@
+{
+  "models": {
+    "42b8bafc9518": {
+      "id": "42b8bafc9518",
+      "name": "nexusai-sample",
+      "path": "D:/AIArm/Models/sample",
+      "type": "ollama",
+      "registered": "2025-10-20T20:45:52.688885",
+      "metadata": {
+        "version": "1.0",
+        "purpose": "testing"
+      },
+      "status": "active",
+      "performance": {}
+    },
+    "4de91f174eae": {
+      "id": "4de91f174eae",
+      "name": "nexusai-sample",
+      "path": "D:/AIArm/Models/sample",
+      "type": "ollama",
+      "registered": "2025-10-20T21:02:31.956243",
+      "metadata": {
+        "version": "1.0",
+        "purpose": "testing"
+      },
+      "status": "active",
+      "performance": {}
+    },
+    "b385df049c81": {
+      "id": "b385df049c81",
+      "name": "sample-model",
+      "path": "D:\\AIArm\\NexusAI_Commercial\\models\\ollama\\sample-model",
+      "type": "ollama",
+      "registered": "2025-10-20T21:02:31.958636",
+      "metadata": {
+        "source": "import",
+        "format": "gguf"
+      },
+      "status": "active",
+      "performance": {}
+    },
+    "9e178691ed1e": {
+      "id": "9e178691ed1e",
+      "name": "nexusai-sample",
+      "path": "D:/AIArm/Models/sample",
+      "type": "ollama",
+      "registered": "2025-10-20T21:07:21.316733",
+      "metadata": {
+        "version": "1.0",
+        "purpose": "testing"
+      },
+      "status": "active",
+      "performance": {}
+    },
+    "f634affed5cd": {
+      "id": "f634affed5cd",
+      "name": "sample-model",
+      "path": "D:\\AIArm\\NexusAI_Commercial\\models\\ollama\\sample-model",
+      "type": "ollama",
+      "registered": "2025-10-20T21:07:21.318679",
+      "metadata": {
+        "source": "import",
+        "format": "gguf"
+      },
+      "status": "active",
+      "performance": {}
+    }
+  },
+  "active_model": "42b8bafc9518",
+  "training_data": {},
+  "performance_metrics": {}
+}

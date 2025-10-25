@@ -1,0 +1,45 @@
+{
+  "id": "3c2cf7ce",
+  "concept": "Create a 30-second product commercial",
+  "type": "commercial",
+  "duration": 30,
+  "timestamp": "2025-10-04T20:56:19.285857",
+  "script": "**\n\nTitle: \"Revive Your Routine with Revive Energy Drink\"\n\n(0s-5s)\n\nNarrator (Voiceover): \"Feeling sluggish? Tired of the same old routine?\"\n\n(Scene 1: Everyday Chaos)\n\n(Cut to a busy morning scene, showcasing a person rushing to get ready for work, checking their phone, and struggling to get out the door on time.)\n\nNarrator (Voiceover): \"We know the feeling. Life can be overwhelming.\"\n\n(5s-10s)\n\nNarrator (Voiceover): \"That's why we created Revive Energy Drink. With its unique blend of natural ingredients and a boost of energy, you'll be ready to take on the day with confidence.\"\n\n(Scene 2: Revive Energy Drink)\n\n(Cut to a close-up shot of the Revive Energy Drink can, highlighting the sleek design and vibrant colors.)\n\nNarrator (Voiceover): \"Revive Energy Drink: the perfect companion for your morning routine.\"\n\n(10s-15s)\n\nNarrator (Voiceover): \"So why settle for just 'getting by'? Revive Your Routine with Revive Energy Drink.\"\n\n(Scene 3: Revived Morning)\n\n(Cut to a revised morning scene, showcasing the same person now energized and focused, enjoying their morning coffee, and effortlessly getting ready for work.)\n\nNarrator (Voiceover): \"Revive Your Routine. Unleash your potential.\"\n\n(15s-30s)\n\nClosing:\n\n(Cut to a shot of the Revive Energy Drink can with the tagline \"Revive Your Routine\" appearing on screen.)\n\nNarrator (Voiceover): \"Try Revive Energy Drink today!\"\n\n**",
+  "storyboard": "**\n\n**Scene 1: Everyday Chaos (5 seconds)**\n\n* Duration: 5 seconds\n* Camera angle: Over-the-shoulder shot of the person, looking down at their phone\n* Framing: Medium shot of the person, with a blurred background of chaos (e.g., morning routine, coffee maker, etc.)\n* Action/movement: Person checking phone, struggling to get ready for work, and rushing out the door\n* Key visual elements: Busy morning routine, cluttered environment, and the person's frazzled expression\n* Transitions: Cut to the next scene\n\n**Scene 2: Revive Energy Drink (5 seconds)**\n\n* Duration: 5 seconds\n* Camera angle: Close-up shot of the Revive Energy Drink can\n* Framing: Centered and focused on the can, with a shallow depth of field to emphasize the design and colors\n* Action/movement: None\n* Key visual elements: Vibrant colors, sleek design, and the brand's logo\n* Transitions: Cut to the next scene\n\n**Scene 3: Revived Morning (10 seconds)**\n\n* Duration: 10 seconds\n* Camera angle: Over-the-shoulder shot of the person, looking down at their coffee\n* Framing: Medium shot of the person, with a clean and organized environment in the background\n* Action/movement: Person effortlessly getting ready for work, enjoying their coffee, and smiling\n* Key visual elements: Clean environment, calm atmosphere, and the person's refreshed expression\n* Transitions: Fade to black and the closing sequence\n\nNote: The storyboard visuals are intended to provide a detailed description of each scene. The actual video production may vary depending on the creative vision and resources.",
+  "scenes": [
+    {
+      "description": "**Scene 1: Everyday Chaos (5 seconds)**",
+      "details": [
+        "* Duration: 5 seconds",
+        "* Camera angle: Over-the-shoulder shot of the person, looking down at their phone",
+        "* Framing: Medium shot of the person, with a blurred background of chaos (e.g., morning routine, coffee maker, etc.)",
+        "* Action/movement: Person checking phone, struggling to get ready for work, and rushing out the door",
+        "* Key visual elements: Busy morning routine, cluttered environment, and the person's frazzled expression",
+        "* Transitions: Cut to the next scene"
+      ]
+    },
+    {
+      "description": "**Scene 2: Revive Energy Drink (5 seconds)**",
+      "details": [
+        "* Duration: 5 seconds",
+        "* Camera angle: Close-up shot of the Revive Energy Drink can",
+        "* Framing: Centered and focused on the can, with a shallow depth of field to emphasize the design and colors",
+        "* Action/movement: None",
+        "* Key visual elements: Vibrant colors, sleek design, and the brand's logo",
+        "* Transitions: Cut to the next scene"
+      ]
+    },
+    {
+      "description": "**Scene 3: Revived Morning (10 seconds)**",
+      "details": [
+        "* Duration: 10 seconds",
+        "* Camera angle: Over-the-shoulder shot of the person, looking down at their coffee",
+        "* Framing: Medium shot of the person, with a clean and organized environment in the background",
+        "* Action/movement: Person effortlessly getting ready for work, enjoying their coffee, and smiling",
+        "* Key visual elements: Clean environment, calm atmosphere, and the person's refreshed expression",
+        "* Transitions: Fade to black and the closing sequence",
+        "Note: The storyboard visuals are intended to provide a detailed description of each scene. The actual video production may vary depending on the creative vision and resources."
+      ]
+    }
+  ]
+}

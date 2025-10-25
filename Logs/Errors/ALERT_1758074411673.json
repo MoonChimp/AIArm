@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-09-17T02:00:11.673Z",
+  "message": "Error threshold exceeded: 20 errors",
+  "errorCounts": {
+    "total": 20,
+    "byType": {
+      "SyntaxError": 18,
+      "TypeError": 2
+    },
+    "byBridge": {
+      "surface": 9,
+      "deep": 9,
+      "concurrent": 1
+    },
+    "byEndpoint": {
+      "bridge": 1
+    },
+    "lastReset": 1758073055562
+  },
+  "lastError": {
+    "message": "Assignment to constant variable.",
+    "stack": "TypeError: Assignment to constant variable.\n    at processConcurrently (D:\\AIArm\\WebInterface\\concurrent_server.js:468:27)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async D:\\AIArm\\WebInterface\\concurrent_server.js:674:20"
+  }
+}

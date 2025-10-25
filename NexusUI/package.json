@@ -1,0 +1,25 @@
+{
+  "name": "nexus-ui",
+  "version": "1.0.0",
+  "description": "Nexus AI Interface - Commander Nexus Control Panel",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite --host 0.0.0.0 --port 3002"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "framer-motion": "^10.16.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "vite": "^5.0.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.52.4"
+  }
+}

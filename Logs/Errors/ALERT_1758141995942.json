@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-09-17T20:46:35.942Z",
+  "message": "Error threshold exceeded: 12 errors",
+  "errorCounts": {
+    "total": 12,
+    "byType": {
+      "SyntaxError": 11,
+      "UnknownError": 1
+    },
+    "byBridge": {
+      "surface": 5,
+      "deep": 7
+    },
+    "byEndpoint": {},
+    "lastReset": 1758140239633
+  },
+  "lastError": {
+    "message": "Unexpected token 'P', \"Processing\"... is not valid JSON",
+    "stack": "SyntaxError: Unexpected token 'P', \"Processing\"... is not valid JSON\n    at JSON.parse (<anonymous>)\n    at ChildProcess.<anonymous> (D:\\AIArm\\WebInterface\\concurrent_server.js:318:31)\n    at ChildProcess.emit (node:events:507:28)\n    at maybeClose (node:internal/child_process:1101:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:305:5)"
+  }
+}

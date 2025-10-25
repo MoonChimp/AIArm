@@ -1,0 +1,47 @@
+{
+  "id": "2559565f",
+  "concept": "Switch to cinema mode and create a cinematic scene",
+  "type": "general",
+  "duration": 30,
+  "timestamp": "2025-10-22T17:06:06.995852",
+  "script": "**\n\nTitle: \"Elegance in Motion\"\n\nNarrator (Voiceover): \"In a world where time stands still, beauty is the only constant.\"\n\nScene 1: 10 seconds\n\n(The camera pans over a dimly lit cityscape at night, with neon lights reflecting off wet pavement. The sound of a lone saxophone plays in the background.)\n\nNarrator (Voiceover): \"Where the hustle and bustle of everyday life gives way to the serenity of the night.\"\n\nScene 2: 10 seconds\n\n(A close-up shot of a woman, dressed in a flowing evening gown, walking down a deserted street. The camera follows her, moving in tandem with her stride.)\n\nNarrator (Voiceover): \"And in this moment, all that matters is the elegance of the human form.\"\n\nScene 3: 10 seconds\n\n(The camera cuts to a medium shot of the woman, now standing in front of a sleek black sedan. She opens the door and slips inside, the sound of the engine roaring to life as the car drives away into the night.)\n\nNarrator (Voiceover): \"A fleeting glimpse of beauty, lost in the city's endless motion.\"\n\n**",
+  "storyboard": "**\n\nScene 1: 10 seconds\n\n* Duration: 10 seconds\n* Visual composition: Establishing shot with a mix of high-angle and low-angle shots to create a sense of depth and dimensionality.\n* Camera angle: Over-the-shoulder shot (OTS) looking down on the cityscape, then cut to a medium shot (MS) showing the neon lights reflecting off the wet pavement.\n* Framing: Wide shot (WS) with a slight tilt-up, emphasizing the vertical lines of the buildings and the horizontal lines of the street.\n* Action/movement: The camera slowly pans over the cityscape, revealing the neon lights and the sounds of the saxophone playing in the background.\n* Key visual elements: Neon lights, wet pavement, and the distant hum of the saxophone.\n* Transitions: None.\n\nScene 2: 10 seconds\n\n* Duration: 10 seconds\n* Visual composition: Close-up shot (CU) with a focus on the woman's face and figure.\n* Camera angle: Eye-level shot (ELS) looking directly at the woman, then cut to a MS showing her walking down the street.\n* Framing: CU of the woman's face, then MS showing her walking down the street, with a slight over-the-shoulder shot (OTS) looking at her from behind.\n* Action/movement: The camera follows the woman as she walks down the street, capturing her elegance and poise.\n* Key visual elements: The woman's flowing evening gown, the deserted street, and the sound of her footsteps.\n* Transitions: Cut from the CU to the MS.\n\nScene 3: 10 seconds\n\n* Duration: 10 seconds\n* Visual composition: Medium shot (MS) with a focus on the woman getting into the car.\n* Camera angle: Point-of-view (POV) shot looking through the windshield as the car drives away, then cut to a MS showing the woman slipping inside.\n* Framing: MS of the woman getting into the car, with a slight tilt-down emphasizing the vertical lines of the car and the horizontal lines of the street.\n* Action/movement: The camera captures the woman's movements as she gets into the car and drives away into the night.\n* Key visual elements: The sleek black sedan, the woman's evening gown, and the sound of the engine roaring to life.\n* Transitions: Cut from the MS to the POV shot.",
+  "scenes": [
+    {
+      "description": "Scene 1: 10 seconds",
+      "details": [
+        "* Duration: 10 seconds",
+        "* Visual composition: Establishing shot with a mix of high-angle and low-angle shots to create a sense of depth and dimensionality.",
+        "* Camera angle: Over-the-shoulder shot (OTS) looking down on the cityscape, then cut to a medium shot (MS) showing the neon lights reflecting off the wet pavement.",
+        "* Framing: Wide shot (WS) with a slight tilt-up, emphasizing the vertical lines of the buildings and the horizontal lines of the street.",
+        "* Action/movement: The camera slowly pans over the cityscape, revealing the neon lights and the sounds of the saxophone playing in the background.",
+        "* Key visual elements: Neon lights, wet pavement, and the distant hum of the saxophone.",
+        "* Transitions: None."
+      ]
+    },
+    {
+      "description": "Scene 2: 10 seconds",
+      "details": [
+        "* Duration: 10 seconds",
+        "* Visual composition: Close-up shot (CU) with a focus on the woman's face and figure.",
+        "* Camera angle: Eye-level shot (ELS) looking directly at the woman, then cut to a MS showing her walking down the street.",
+        "* Framing: CU of the woman's face, then MS showing her walking down the street, with a slight over-the-shoulder shot (OTS) looking at her from behind.",
+        "* Action/movement: The camera follows the woman as she walks down the street, capturing her elegance and poise.",
+        "* Key visual elements: The woman's flowing evening gown, the deserted street, and the sound of her footsteps.",
+        "* Transitions: Cut from the CU to the MS."
+      ]
+    },
+    {
+      "description": "Scene 3: 10 seconds",
+      "details": [
+        "* Duration: 10 seconds",
+        "* Visual composition: Medium shot (MS) with a focus on the woman getting into the car.",
+        "* Camera angle: Point-of-view (POV) shot looking through the windshield as the car drives away, then cut to a MS showing the woman slipping inside.",
+        "* Framing: MS of the woman getting into the car, with a slight tilt-down emphasizing the vertical lines of the car and the horizontal lines of the street.",
+        "* Action/movement: The camera captures the woman's movements as she gets into the car and drives away into the night.",
+        "* Key visual elements: The sleek black sedan, the woman's evening gown, and the sound of the engine roaring to life.",
+        "* Transitions: Cut from the MS to the POV shot."
+      ]
+    }
+  ]
+}

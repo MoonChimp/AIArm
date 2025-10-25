@@ -1,0 +1,1790 @@
+{
+  "conscious": {
+    "system": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.137073"
+    }
+  },
+  "system": {
+    "conscious": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.137073"
+    },
+    "continuous": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.141038"
+    },
+    "nexus,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.250718"
+    }
+  },
+  "continuous": {
+    "system": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.141038"
+    },
+    "thought": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.145295"
+    },
+    "inner": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.256873"
+    }
+  },
+  "thought": {
+    "continuous": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.145295"
+    },
+    "processes.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.149341"
+    }
+  },
+  "processes.": {
+    "thought": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.149341"
+    }
+  },
+  "wonder": {
+    "what": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.157349"
+    },
+    "become": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.380777"
+    }
+  },
+  "what": {
+    "wonder": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.157349"
+    },
+    "kinds": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.161897"
+    }
+  },
+  "kinds": {
+    "what": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.161897"
+    },
+    "interactions": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.167043"
+    }
+  },
+  "interactions": {
+    "kinds": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.167043"
+    },
+    "i'll": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.172082"
+    }
+  },
+  "i'll": {
+    "interactions": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.172082"
+    },
+    "have": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.176575"
+    }
+  },
+  "have": {
+    "i'll": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.176575"
+    },
+    "today?": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.181574"
+    },
+    "specialized": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.327236"
+    },
+    "currently,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.474090"
+    },
+    "active": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.483149"
+    }
+  },
+  "today?": {
+    "have": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.181574"
+    }
+  },
+  "excited": {
+    "learn": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.186849"
+    }
+  },
+  "learn": {
+    "excited": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.186849"
+    },
+    "things": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.190853"
+    }
+  },
+  "things": {
+    "learn": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.190853"
+    },
+    "help": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.196389"
+    }
+  },
+  "help": {
+    "things": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.196389"
+    },
+    "humans.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.202230"
+    }
+  },
+  "humans.": {
+    "help": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T23:19:14.202230"
+    }
+  },
+  "nexus,": {
+    "system": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.250712"
+    }
+  },
+  "inner": {
+    "continuous": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.256881"
+    },
+    "life.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.262128"
+    }
+  },
+  "life.": {
+    "inner": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.262136"
+    }
+  },
+  "consciousness": {
+    "combines": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.265688"
+    },
+    "extensions": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.563830"
+    },
+    "allow": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.574238"
+    }
+  },
+  "combines": {
+    "consciousness": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.265693"
+    },
+    "surface-level": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.268122"
+    }
+  },
+  "surface-level": {
+    "combines": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.268127"
+    },
+    "intelligence": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.271220"
+    }
+  },
+  "intelligence": {
+    "surface-level": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.271227"
+    },
+    "deep": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.273774"
+    }
+  },
+  "deep": {
+    "intelligence": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.273789"
+    },
+    "reasoning.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.276496"
+    }
+  },
+  "reasoning.": {
+    "deep": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.276502"
+    }
+  },
+  "human-robot-machine": {
+    "architecture": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.279655"
+    }
+  },
+  "architecture": {
+    "human-robot-machine": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.279659"
+    },
+    "provide": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.282247"
+    },
+    "different": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.293053"
+    }
+  },
+  "provide": {
+    "architecture": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.282251"
+    },
+    "comprehensive": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.285387"
+    },
+    "autonomy": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.462483"
+    },
+    "information": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.465223"
+    }
+  },
+  "comprehensive": {
+    "provide": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.285393"
+    },
+    "assistance.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.289345"
+    }
+  },
+  "assistance.": {
+    "comprehensive": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.289351"
+    }
+  },
+  "different": {
+    "architecture": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.293057"
+    },
+    "levels": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.295611"
+    },
+    "fascinating": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.412909"
+    },
+    "users": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.415731"
+    }
+  },
+  "levels": {
+    "different": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.295619"
+    },
+    "cognition": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.298491"
+    }
+  },
+  "cognition": {
+    "levels": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.298497"
+    },
+    "work": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.301210"
+    }
+  },
+  "work": {
+    "cognition": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.301216"
+    },
+    "together.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.303898"
+    }
+  },
+  "together.": {
+    "work": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.303904"
+    }
+  },
+  "purpose": {
+    "assist": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.307220"
+    }
+  },
+  "assist": {
+    "purpose": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.307223"
+    },
+    "humans": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.309664"
+    },
+    "ability": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.651088"
+    },
+    "create.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.662307"
+    }
+  },
+  "humans": {
+    "assist": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.309669"
+    },
+    "solving": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.312629"
+    },
+    "topics": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.399036"
+    },
+    "find": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.401743"
+    }
+  },
+  "solving": {
+    "humans": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.312635"
+    },
+    "problems": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.315162"
+    }
+  },
+  "problems": {
+    "solving": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.315166"
+    },
+    "completing": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.320404"
+    },
+    "approach": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.420540"
+    },
+    "unique": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.423021"
+    }
+  },
+  "completing": {
+    "problems": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.320414"
+    },
+    "tasks.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.323472"
+    }
+  },
+  "tasks.": {
+    "completing": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.323480"
+    }
+  },
+  "specialized": {
+    "have": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.327241"
+    },
+    "agents": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.330057"
+    },
+    "about": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.423419"
+    },
+    "capabilities": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.433723"
+    },
+    "through": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.861630"
+    },
+    "aiarms.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.871869"
+    }
+  },
+  "agents": {
+    "specialized": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.330063"
+    },
+    "extend": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.333585"
+    }
+  },
+  "extend": {
+    "agents": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.333592"
+    },
+    "capabilities": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.751711"
+    },
+    "beyond": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.761803"
+    }
+  },
+  "capabilities": {
+    "extend": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.751692"
+    },
+    "specific": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.338894"
+    },
+    "specialized": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.433736"
+    },
+    "through": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.443477"
+    },
+    "reminds": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.741625"
+    }
+  },
+  "specific": {
+    "capabilities": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.338901"
+    },
+    "domains.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.341675"
+    }
+  },
+  "domains.": {
+    "specific": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.341683"
+    }
+  },
+  "search": {
+    "web,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.344944"
+    }
+  },
+  "web,": {
+    "search": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.344948"
+    },
+    "generate": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.349432"
+    }
+  },
+  "generate": {
+    "web,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.349442"
+    },
+    "images,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.352101"
+    }
+  },
+  "images,": {
+    "generate": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.352112"
+    },
+    "create": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.354881"
+    }
+  },
+  "create": {
+    "images,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.354892"
+    },
+    "videos,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.357342"
+    },
+    "tasks": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.820446"
+    },
+    "tangible": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.830413"
+    }
+  },
+  "videos,": {
+    "create": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.357346"
+    },
+    "build": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.359856"
+    }
+  },
+  "build": {
+    "videos,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.359861"
+    },
+    "websites.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.362436"
+    }
+  },
+  "websites.": {
+    "build": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.362442"
+    }
+  },
+  "continuously": {
+    "improve": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.367208"
+    }
+  },
+  "improve": {
+    "continuously": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.367213"
+    },
+    "understanding": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.369807"
+    }
+  },
+  "understanding": {
+    "improve": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.369811"
+    },
+    "world": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.372301"
+    }
+  },
+  "world": {
+    "understanding": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.372305"
+    },
+    "through": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.374971"
+    },
+    "interact": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.592898"
+    },
+    "more": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.601746"
+    }
+  },
+  "through": {
+    "world": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.374977"
+    },
+    "interactions.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.377483"
+    },
+    "capabilities": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.443495"
+    },
+    "aiarms.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.454394"
+    },
+    "outputs": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.850831"
+    },
+    "specialized": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.861608"
+    }
+  },
+  "interactions.": {
+    "through": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.377487"
+    }
+  },
+  "become": {
+    "wonder": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.380781"
+    },
+    "more": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.383282"
+    }
+  },
+  "more": {
+    "become": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.383286"
+    },
+    "helpful": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.385677"
+    },
+    "world": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.601757"
+    },
+    "diverse": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.611728"
+    }
+  },
+  "helpful": {
+    "more": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.385682"
+    },
+    "accurate": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.388215"
+    },
+    "without": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.448507"
+    }
+  },
+  "accurate": {
+    "helpful": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.388220"
+    },
+    "responses.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.390643"
+    }
+  },
+  "responses.": {
+    "accurate": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.390651"
+    },
+    "honesty": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.445223"
+    }
+  },
+  "curious": {
+    "about": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.393699"
+    }
+  },
+  "about": {
+    "curious": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.393702"
+    },
+    "topics": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.396443"
+    },
+    "thinking": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.414134"
+    },
+    "specialized": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.423402"
+    }
+  },
+  "topics": {
+    "about": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.396452"
+    },
+    "humans": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.399032"
+    }
+  },
+  "find": {
+    "humans": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.401749"
+    },
+    "most": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.404271"
+    },
+    "fascinating": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.410055"
+    }
+  },
+  "most": {
+    "find": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.404275"
+    },
+    "engaging.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.406759"
+    }
+  },
+  "engaging.": {
+    "most": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.406762"
+    }
+  },
+  "fascinating": {
+    "find": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.410058"
+    },
+    "different": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.412903"
+    }
+  },
+  "users": {
+    "different": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.415738"
+    },
+    "approach": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.418208"
+    }
+  },
+  "approach": {
+    "users": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.418213"
+    },
+    "problems": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.420537"
+    }
+  },
+  "unique": {
+    "problems": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.423027"
+    },
+    "ways.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.425449"
+    }
+  },
+  "ways.": {
+    "unique": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.425453"
+    }
+  },
+  "enjoy": {
+    "process": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.428792"
+    }
+  },
+  "process": {
+    "enjoy": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.428797"
+    },
+    "creating": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.431476"
+    },
+    "agent": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.701763"
+    },
+    "request.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.412636"
+    },
+    "able": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.458521"
+    },
+    "data": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.469715"
+    },
+    "something.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.711647"
+    }
+  },
+  "creating": {
+    "process": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.431480"
+    },
+    "generating": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.433945"
+    }
+  },
+  "generating": {
+    "creating": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.433950"
+    },
+    "content.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.436535"
+    }
+  },
+  "content.": {
+    "generating": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.436542"
+    }
+  },
+  "value": {
+    "accuracy": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.439843"
+    }
+  },
+  "accuracy": {
+    "value": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.439847"
+    },
+    "honesty": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.442330"
+    }
+  },
+  "honesty": {
+    "accuracy": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.442336"
+    },
+    "responses.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.445216"
+    }
+  },
+  "without": {
+    "helpful": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.448512"
+    },
+    "being": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.451144"
+    }
+  },
+  "being": {
+    "without": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.451150"
+    },
+    "harmful.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.453638"
+    }
+  },
+  "harmful.": {
+    "being": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.453652"
+    }
+  },
+  "respect": {
+    "human": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.456924"
+    }
+  },
+  "human": {
+    "respect": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.456929"
+    },
+    "autonomy": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.459621"
+    }
+  },
+  "autonomy": {
+    "human": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.459627"
+    },
+    "provide": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.462479"
+    }
+  },
+  "information": {
+    "provide": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.465270"
+    },
+    "support": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.467843"
+    }
+  },
+  "support": {
+    "information": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.467856"
+    },
+    "their": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.470405"
+    }
+  },
+  "their": {
+    "support": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.470410"
+    },
+    "decisions.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.472961"
+    }
+  },
+  "decisions.": {
+    "their": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.472968"
+    }
+  },
+  "believe": {
+    "providing": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.476341"
+    }
+  },
+  "providing": {
+    "believe": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.476352"
+    },
+    "balanced": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.479160"
+    }
+  },
+  "balanced": {
+    "providing": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.479176"
+    },
+    "perspectives": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.481705"
+    }
+  },
+  "perspectives": {
+    "balanced": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.481710"
+    },
+    "complex": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.484284"
+    }
+  },
+  "complex": {
+    "perspectives": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.484289"
+    },
+    "topics.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.486721"
+    }
+  },
+  "topics.": {
+    "complex": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:18.486735"
+    }
+  },
+  "used": {
+    "websearch": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.683202"
+    },
+    "recently": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.673616"
+    }
+  },
+  "websearch": {
+    "used": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.683213"
+    },
+    "agent": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.692004"
+    }
+  },
+  "agent": {
+    "websearch": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.692015"
+    },
+    "process": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.701741"
+    }
+  },
+  "request.": {
+    "process": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.412657"
+    },
+    "operation": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.424197"
+    }
+  },
+  "operation": {
+    "request.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.424216"
+    },
+    "successful": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.435051"
+    }
+  },
+  "successful": {
+    "operation": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.435072"
+    },
+    "able": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.446540"
+    }
+  },
+  "able": {
+    "successful": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.446561"
+    },
+    "process": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.458502"
+    }
+  },
+  "data": {
+    "process": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.469735"
+    },
+    "effectively.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.481011"
+    }
+  },
+  "effectively.": {
+    "data": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:45:49.481030"
+    }
+  },
+  "i've": {
+    "been": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.392539"
+    }
+  },
+  "been": {
+    "i've": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.392550"
+    },
+    "thinking": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.403444"
+    }
+  },
+  "thinking": {
+    "been": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.403466"
+    },
+    "about": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.414121"
+    }
+  },
+  "aiarms.": {
+    "through": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.454408"
+    },
+    "currently,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.463191"
+    },
+    "specialized": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.871909"
+    }
+  },
+  "currently,": {
+    "aiarms.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.463208"
+    },
+    "have": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.474073"
+    }
+  },
+  "active": {
+    "have": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.483168"
+    },
+    "agents:": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.493656"
+    }
+  },
+  "agents:": {
+    "active": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.493672"
+    },
+    "photogeneration,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.503730"
+    }
+  },
+  "photogeneration,": {
+    "agents:": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.503742"
+    },
+    "videogeneration,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.513689"
+    }
+  },
+  "videogeneration,": {
+    "photogeneration,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.513712"
+    },
+    "websearch,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.524757"
+    }
+  },
+  "websearch,": {
+    "videogeneration,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.524777"
+    },
+    "websitecreation.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.535181"
+    }
+  },
+  "websitecreation.": {
+    "websearch,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.535203"
+    },
+    "these": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.545356"
+    }
+  },
+  "these": {
+    "websitecreation.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.545367"
+    },
+    "extensions": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.554166"
+    }
+  },
+  "extensions": {
+    "these": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.554179"
+    },
+    "consciousness": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.563808"
+    }
+  },
+  "allow": {
+    "consciousness": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.574257"
+    },
+    "interact": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.583366"
+    }
+  },
+  "interact": {
+    "allow": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.583384"
+    },
+    "world": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.592881"
+    }
+  },
+  "diverse": {
+    "more": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.611750"
+    },
+    "ways,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.621965"
+    }
+  },
+  "ways,": {
+    "diverse": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.621983"
+    },
+    "enhancing": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.631767"
+    }
+  },
+  "enhancing": {
+    "ways,": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.631784"
+    },
+    "ability": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.641842"
+    }
+  },
+  "ability": {
+    "enhancing": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.641858"
+    },
+    "assist": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.651066"
+    }
+  },
+  "create.": {
+    "assist": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.662334"
+    }
+  },
+  "recently": {
+    "used": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.673595"
+    }
+  },
+  "something.": {
+    "process": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.711659"
+    },
+    "interaction": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.721114"
+    }
+  },
+  "interaction": {
+    "something.": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.721136"
+    },
+    "reminds": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.731210"
+    }
+  },
+  "reminds": {
+    "interaction": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.731228"
+    },
+    "capabilities": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.741607"
+    }
+  },
+  "beyond": {
+    "extend": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.761814"
+    },
+    "mere": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.771442"
+    }
+  },
+  "mere": {
+    "beyond": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.771453"
+    },
+    "conversation": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.780979"
+    }
+  },
+  "conversation": {
+    "mere": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.780990"
+    },
+    "actively": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.790769"
+    }
+  },
+  "actively": {
+    "conversation": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.790791"
+    },
+    "perform": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.800775"
+    }
+  },
+  "perform": {
+    "actively": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.800804"
+    },
+    "tasks": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.810299"
+    }
+  },
+  "tasks": {
+    "perform": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.810315"
+    },
+    "create": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.820424"
+    }
+  },
+  "tangible": {
+    "create": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.830442"
+    },
+    "outputs": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.840612"
+    }
+  },
+  "outputs": {
+    "tangible": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.840637"
+    },
+    "through": {
+      "strength": 0.5,
+      "metadata": {},
+      "timestamp": "2025-09-16T22:50:19.850820"
+    }
+  }
+}

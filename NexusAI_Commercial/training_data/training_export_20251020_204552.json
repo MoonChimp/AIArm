@@ -1,0 +1,24 @@
+{
+  "export_timestamp": "2025-10-20T20:45:52.688310",
+  "total_conversations": 1,
+  "total_knowledge_items": 0,
+  "conversations": [
+    {
+      "role": "user",
+      "content": "How do I create a Python function?"
+    },
+    {
+      "role": "assistant",
+      "content": "To create a Python function, use the 'def' keyword..."
+    },
+    {
+      "role": "user",
+      "content": "Can you show me an example?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's an example function: def greet(name): return f'Hello {name}'"
+    }
+  ],
+  "knowledge": []
+}

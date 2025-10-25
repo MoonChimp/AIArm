@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI - Direct</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d0d0d0; /* 25% darker background */
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 160px; /* Doubled from 80px to 160px */
+            height: 160px; /* Doubled from 80px to 160px */
+        }
+        
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: calc(100vh - 180px);
+        }
+        
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .message {
+            padding: 0.8rem 1rem;
+            border-radius: 1rem;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background-color: #3498db;
+            color: white;
+            align-self: flex-end;
+        }
+        
+        .assistant-message {
+            background-color: #f0f0f0;
+            color: #333;
+            align-self: flex-start;
+        }
+        
+        .input-area {
+            display: flex;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+        }
+        
+        .input-area input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .input-area button {
+            padding: 0.8rem 1.5rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .input-area button:hover {
+            background-color: #2980b9;
+        }
+        
+        .system-info {
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            color: #777;
+            background-color: #f8f8f8;
+        }
+        
+        .agent-badge {
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .agent-photo { color: #e74c3c; }
+        .agent-video { color: #9b59b6; }
+        .agent-website { color: #2ecc71; }
+        .agent-search { color: #f39c12; }
+        
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 0.8rem 1rem;
+            border-radius: 1rem;
+        }
+        
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #777;
+            border-radius: 50%;
+            animation: typing 1s infinite;
+            margin: 0 2px;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .status-offline {
+            background-color: #e74c3c;
+        }
+    </style>
+<script src="sd_integration.js"></script><script src="sd_integration.js"></script></head>
+<body>
+    <div class="header">
+        <img src="/NexusLogo.gif" class="logo" alt="Nexus Logo">
+        <h1 style="text-align: right;">NexusAI:EPAA</h1>
+        <div>
+            <span class="status-indicator" id="status-indicator"></span>
+            <span id="status-text">Checking connection...</span>
+        </div>
+    </div>
+    
+    <div class="chat-container">
+        <div class="messages" id="messages">
+            <div class="assistant-message">
+                Welcome to Nexus AI Direct! I'm your all-in-one assistant with multiple capabilities including photo generation, video creation, website design, and web search. How can I help you today?
+            </div>
+        </div>
+        
+        <div class="typing-indicator" id="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    
+    <div class="system-info">
+        NexusAI:EPAA - Enhanced Personal Assistant Agent
+    </div>
+    
+    <script>
+        // DOM elements
+        const messagesContainer = document.getElementById('messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const typingIndicator = document.getElementById('typing-indicator');
+        const statusIndicator = document.getElementById('status-indicator');
+        const statusText = document.getElementById('status-text');
+        
+        // Chat history
+        let chatHistory = [
+            { role: "assistant", content: "Welcome to Nexus AI Direct! I'm your all-in-one assistant with multiple capabilities including photo generation, video creation, website design, and web search. How can I help you today?" }
+        ];
+        
+        // Check Ollama connection
+        async function checkOllamaConnection() {
+            try {
+                const response = await fetch('http://localhost:11434/api/tags');
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Check if EPAA model exists
+                    const hasEPAA = data.models && data.models.some(model => 
+                        model.name === 'nexusai-epaa:latest');
+                    
+                    if (hasEPAA) {
+                        statusIndicator.classList.remove('status-offline');
+                        statusText.textContent = 'Connected to Ollama (NexusAI:EPAA)';
+                        return true;
+                    } else {
+                        // Check if enhanced model exists as fallback
+                        const hasEnhanced = data.models && data.models.some(model => 
+                            model.name === 'nexusai-enhanced:latest');
+                        
+                        if (hasEnhanced) {
+                            statusIndicator.classList.remove('status-offline');
+                            statusText.textContent = 'Connected to Ollama (nexusai - fallback mode)';
+                            return true;
+                        } else {
+                            // Check if original nexusai model is available as fallback
+                            const hasNexus = data.models && data.models.some(model => 
+                                model.name === 'nexusai:latest');
+                            
+                            if (hasNexus) {
+                                statusIndicator.classList.remove('status-offline');
+                                statusText.textContent = 'Connected to Ollama (nexusai - fallback mode)';
+                                return true;
+                            } else {
+                                // No suitable model found
+                                statusIndicator.classList.add('status-offline');
+                                statusText.textContent = 'Model nexusai-epaa not found. Please create it first.';
+                                alert('The enhanced Nexus AI model was not found. Please run the setup script first.');
+                                return false;
+                            }
+                        }
+                    }
+                } else {
+                    throw new Error('Failed to connect to Ollama');
+                }
+            } catch (error) {
+                console.error('Error checking Ollama connection:', error);
+                statusIndicator.classList.add('status-offline');
+                statusText.textContent = 'Failed to connect to Ollama';
+                alert('Failed to connect to Ollama. Please ensure Ollama is running on port 11434.');
+                return false;
+            }
+        }
+        
+        // Functions for image generation
+        async function checkImageGenerationModel() {
+            try {
+                const response = await fetch('http://localhost:11434/api/tags');
+                const data = await response.json();
+                
+                // Look for Stable Diffusion models
+                const hasStableDiffusion = data.models && data.models.some(model => 
+                    model.name.includes('stable-diffusion') || model.name.includes('sdxl'));
+                
+                return hasStableDiffusion;
+            } catch (error) {
+                console.error('Error checking for image models:', error);
+                return false;
+            }
+        }
+        
+        async function generateImage(prompt) {
+            try {
+                // First check for SD prompt generator
+                const response = await fetch('http://localhost:11434/api/tags');
+                const data = await response.json();
+                
+                // Find a suitable image generation model
+                let imageModel = null;
+                const models = data.models || [];
+                
+                // Check for specific models in order of preference
+                if (models.some(m => m.name === 'stability/sdxl:latest')) {
+                    imageModel = 'stability/sdxl:latest';
+                } else if (models.some(m => m.name === 'stability/stable-diffusion:latest')) {
+                    imageModel = 'stability/stable-diffusion:latest';
+                } else if (models.some(m => m.name.includes('stable-diffusion'))) {
+                    // Find any model with stable-diffusion in the name
+                    const sdModel = models.find(m => m.name.includes('stable-diffusion'));
+                    imageModel = sdModel.name;
+                }
+                
+                if (!imageModel) {
+                    console.log('No suitable image generation model found');
+                    return { success: false };
+                }
+                
+                // Improve the prompt if we have the prompt generator
+                let enhancedPrompt = prompt;
+                if (models.some(m => m.name === 'brxce/stable-diffusion-prompt-generator:latest')) {
+                    console.log('Using prompt generator to enhance prompt');
+                    const promptGenResponse = await fetch('http://localhost:11434/api/generate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            model: 'brxce/stable-diffusion-prompt-generator:latest',
+                            prompt: `Create a detailed prompt for stable diffusion based on this description: ${prompt}`,
+                            stream: false
+                        })
+                    });
+                    
+                    if (promptGenResponse.ok) {
+                        const promptData = await promptGenResponse.json();
+                        enhancedPrompt = promptData.response.trim();
+                        console.log('Enhanced prompt:', enhancedPrompt);
+                    }
+                }
+                
+                // Generate the image
+                console.log(`Generating image with model ${imageModel}`);
+                const generateResponse = await fetch('http://localhost:11434/api/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: imageModel,
+                        prompt: enhancedPrompt,
+                        stream: false
+                    })
+                });
+                
+                if (generateResponse.ok) {
+                    const imageData = await generateResponse.json();
+                    if (imageData.images && imageData.images.length > 0) {
+                        return {
+                            success: true,
+                            image: `data:image/jpeg;base64,${imageData.images[0]}`
+                        };
+                    }
+                }
+                
+                return { success: false };
+            } catch (error) {
+                console.error('Error generating image:', error);
+                return { success: false, error: error.toString() };
+            }
+        }
+        
+        function addImageToUI(imageUrl, prompt) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'assistant-message');
+            
+            // Create agent badge
+            const badgeElement = document.createElement('div');
+            badgeElement.classList.add('agent-badge', 'agent-photo');
+            badgeElement.textContent = '📷 Photo Generation Agent';
+            messageElement.appendChild(badgeElement);
+            
+            // Create image element
+            const imageElement = document.createElement('img');
+            imageElement.src = imageUrl;
+            imageElement.alt = prompt;
+            imageElement.style.maxWidth = '100%';
+            imageElement.style.borderRadius = '8px';
+            imageElement.style.marginTop = '10px';
+            messageElement.appendChild(imageElement);
+            
+            // Add caption
+            const captionElement = document.createElement('div');
+            captionElement.textContent = `I've created this image based on your request: "${prompt}"`;
+            captionElement.style.marginTop = '8px';
+            captionElement.style.fontSize = '0.9em';
+            captionElement.style.fontStyle = 'italic';
+            messageElement.appendChild(captionElement);
+            
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // Send message to Ollama
+        async function sendMessageToOllama(message) {
+            try {
+                // First check if the EPAA model is available, otherwise fall back to alternatives
+                const response = await fetch('http://localhost:11434/api/tags');
+                const data = await response.json();
+                
+                // Determine which model to use with priority order
+                let modelToUse = 'nexusai-epaa:latest';
+                
+                // Check if EPAA model exists
+                const hasEPAA = data.models && data.models.some(model => 
+                    model.name === 'nexusai-epaa:latest');
+                
+                // If EPAA model doesn't exist, check for enhanced model
+                if (!hasEPAA) {
+                    const hasEnhanced = data.models && data.models.some(model => 
+                        model.name === 'nexusai-enhanced:latest');
+                    
+                    if (hasEnhanced) {
+                        modelToUse = 'nexusai-enhanced:latest';
+                        console.log('Using fallback model: nexusai-enhanced:latest');
+                    } else {
+                        // If enhanced model doesn't exist, check for regular model
+                        const hasRegular = data.models && data.models.some(model => 
+                            model.name === 'nexusai:latest');
+                        
+                        if (hasRegular) {
+                            modelToUse = 'nexusai:latest';
+                            console.log('Using fallback model: nexusai:latest');
+                        } else {
+                            return 'Error: No suitable Nexus AI model found. Please run the setup script to create the model.';
+                        }
+                    }
+                }
+                
+                // Now make the actual API call
+                const chatResponse = await fetch('http://localhost:11434/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: modelToUse,
+                        messages: chatHistory,
+                        stream: false
+                    })
+                });
+                
+                if (chatResponse.ok) {
+                    const responseData = await chatResponse.json();
+                    return responseData.message.content;
+                } else {
+                    throw new Error('Failed to get response from Ollama');
+                }
+            } catch (error) {
+                console.error('Error sending message to Ollama:', error);
+                return 'Sorry, there was an error communicating with Ollama. Please ensure the service is running.';
+            }
+        }
+        
+        // Add message to UI
+        function addMessageToUI(content, isUser = false) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add(isUser ? 'user-message' : 'assistant-message');
+            
+            // Process message content for agent prefixes
+            if (!isUser) {
+                // Check for agent prefixes
+                const photoMatch = content.match(/Photo Generation Agent: (.*)/);
+                const videoMatch = content.match(/Video Creation Agent: (.*)/);
+                const websiteMatch = content.match(/Website Design Agent: (.*)/);
+                const searchMatch = content.match(/Web Search Agent: (.*)/);
+                
+                if (photoMatch || videoMatch || websiteMatch || searchMatch) {
+                    let agentType, agentContent;
+                    
+                    if (photoMatch) {
+                        agentType = 'photo';
+                        agentContent = photoMatch[1];
+                    } else if (videoMatch) {
+                        agentType = 'video';
+                        agentContent = videoMatch[1];
+                    } else if (websiteMatch) {
+                        agentType = 'website';
+                        agentContent = websiteMatch[1];
+                    } else if (searchMatch) {
+                        agentType = 'search';
+                        agentContent = searchMatch[1];
+                    }
+                    
+                    // Create agent badge
+                    const badgeElement = document.createElement('div');
+                    badgeElement.classList.add('agent-badge', `agent-${agentType}`);
+                    
+                    switch(agentType) {
+                        case 'photo':
+                            badgeElement.textContent = '📷 Photo Generation Agent';
+                            break;
+                        case 'video':
+                            badgeElement.textContent = '🎬 Video Creation Agent';
+                            break;
+                        case 'website':
+                            badgeElement.textContent = '🌐 Website Design Agent';
+                            break;
+                        case 'search':
+                            badgeElement.textContent = '🔍 Web Search Agent';
+                            break;
+                    }
+                    
+                    messageElement.appendChild(badgeElement);
+                    messageElement.appendChild(document.createTextNode(agentContent));
+                } else {
+                    // Regular message
+                    messageElement.textContent = content;
+                }
+            } else {
+                // User message - no processing needed
+                messageElement.textContent = content;
+            }
+            
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // Process user input
+        async function processUserInput() {
+            const message = userInput.value.trim();
+            if (!message) return;
+            
+            // Clear input
+            userInput.value = '';
+            
+            // Add user message to UI
+            addMessageToUI(message, true);
+            
+            // Add to chat history
+            chatHistory.push({ role: "user", content: message });
+            
+            // Check if this is a photo generation request
+            const isPhotoRequest = message.toLowerCase().includes('photo') || 
+                                message.toLowerCase().includes('picture') || 
+                                message.toLowerCase().includes('image') || 
+                                message.toLowerCase().includes('generate') || 
+                                message.toLowerCase().includes('create');
+                                
+            // Show typing indicator
+            typingIndicator.style.display = 'block';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            // If it's a photo request, try to generate an image first
+            if (isPhotoRequest) {
+                try {
+                    // First check if we have access to an image generation model
+                    const hasImageModel = await checkImageGenerationModel();
+                    
+                    if (hasImageModel) {
+                        // Try to generate an image
+                        const imageResult = await generateImage(message);
+                        if (imageResult && imageResult.success) {
+                            // Hide typing indicator
+                            typingIndicator.style.display = 'none';
+                            
+                            // Add image to UI
+                            addImageToUI(imageResult.image, message);
+                            
+                            // Add assistant response to chat history
+                            const imageResponse = `Photo Generation Agent: I've created this image based on your request: "${message}"`;
+                            chatHistory.push({ role: "assistant", content: imageResponse });
+                            return;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error generating image:', error);
+                }
+            }
+            
+            // If we get here, either it wasn't an image request or image generation failed
+            // Proceed with normal text response
+            const response = await sendMessageToOllama(message);
+            
+            // Hide typing indicator
+            typingIndicator.style.display = 'none';
+            
+            // Add assistant response to UI
+            addMessageToUI(response);
+            
+            // Add to chat history
+            chatHistory.push({ role: "assistant", content: response });
+        }
+        
+        // Event listeners
+        sendButton.addEventListener('click', processUserInput);
+        
+        userInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                processUserInput();
+            }
+        });
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            checkOllamaConnection();
+            userInput.focus();
+        });
+    </script>
+</body>
+</html>

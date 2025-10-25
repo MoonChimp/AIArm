@@ -1,0 +1,10 @@
+{
+  "conversation_id": "d55ae097-daa3-4430-ade5-9b9975ae5511",
+  "messages": [
+    {
+      "role": "user",
+      "content": "please generate a photo of a kitten",
+      "timestamp": "2025-09-15T19:03:09.446380"
+    }
+  ]
+}

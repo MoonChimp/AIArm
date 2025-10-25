@@ -1,0 +1,104 @@
+/**
+ * NexusAI Persistent Logo Background
+ * Keeps the logo visible at all times with transparent chat
+ */
+
+/* Add logo as fixed background to main chat area */
+.main-chat {
+    background-color: #0a101a;
+    position: relative;
+}
+
+/* Create circular masked logo background */
+.main-chat::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35vw;
+    height: 35vw;
+    max-width: 400px;
+    max-height: 400px;
+    min-width: 250px;
+    min-height: 250px;
+    background-image: url('../images/NexLogo.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%; /* Perfect circle */
+    opacity: 0.25; /* Subtle visibility */
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: lighten;
+}
+
+/* Ensure chat messages appear above background */
+.msger-chat {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make chat bubbles semi-transparent for logo visibility */
+.msg-bubble {
+    background: rgba(156, 157, 159, 0.15) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Left messages (AI) - more transparency */
+.left-msg .msg-bubble {
+    background: rgba(156, 157, 159, 0.2) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Right messages (User) - themed with transparency */
+.right-msg .msg-bubble {
+    background: rgba(59, 237, 178, 0.25) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(59, 237, 178, 0.3);
+}
+
+/* Enhance text readability */
+.msg-text {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.right-msg .msg-bubble .msg-text {
+    color: rgba(13, 18, 31, 1) !important;
+    text-shadow: none;
+    font-weight: 500;
+}
+
+/* Don't hide .no-chat completely, just reduce opacity when messages start */
+.no-chat.d-none {
+    display: flex !important;
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Adjust input area for better visibility */
+.msger-inputarea .msger-input {
+    background: rgba(156, 157, 159, 0.20) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .main-chat {
+        background-size: 60%;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-chat {
+        background-size: 80%;
+    }
+}

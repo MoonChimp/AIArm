@@ -1,0 +1,13 @@
+App
+
+This is a React Native app for the "Makeover" feature.
+
+## Prerequisites
+
+- Node.js (>=14.0.0)
+- npm (>=6.0.0) or yarn
+- Expo CLI (>=5.0.0)
+
+## Installation
+
+1. Clone this repository:

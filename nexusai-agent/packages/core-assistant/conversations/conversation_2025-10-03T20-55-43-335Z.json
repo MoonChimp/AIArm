@@ -1,0 +1,19 @@
+{
+  "conversation_id": "2025-10-03T20-55-43-335Z",
+  "timestamp": "2025-10-03T20:55:43.335Z",
+  "messages": [
+    {
+      "user": "hi",
+      "timestamp": "2025-10-03T20:55:43.327Z"
+    }
+  ],
+  "metadata": {
+    "version": "2.0",
+    "model_used": "nexusai-agent-enhanced:latest",
+    "total_messages": 1,
+    "mode": "act",
+    "messageCount": 1,
+    "lastUpdated": "2025-10-03T20:55:43.327Z",
+    "autoSaved": true
+  }
+}

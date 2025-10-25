@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-09-17T20:25:05.050Z",
+  "error": {
+    "name": "Error",
+    "message": "listen EADDRINUSE: address already in use :::45678",
+    "stack": "Error: listen EADDRINUSE: address already in use :::45678\n    at Server.setupListenHandle [as _listen2] (node:net:1940:16)\n    at listenInCluster (node:net:1997:12)\n    at Server.listen (node:net:2102:7)\n    at app.listen (D:\\AIArm\\WebInterface\\node_modules\\express\\lib\\application.js:635:24)\n    at Object.<anonymous> (D:\\AIArm\\WebInterface\\concurrent_server.js:1235:20)\n    at Module._compile (node:internal/modules/cjs/loader:1692:14)\n    at Object..js (node:internal/modules/cjs/loader:1824:10)\n    at Module.load (node:internal/modules/cjs/loader:1427:32)\n    at Module._load (node:internal/modules/cjs/loader:1250:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)"
+  }
+}

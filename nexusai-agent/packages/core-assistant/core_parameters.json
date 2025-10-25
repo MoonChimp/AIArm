@@ -1,0 +1,6 @@
+{
+    "operation_mode": "DIRECT_EXECUTION",
+    "simulation_allowed": false,
+    "verification_required": true,
+    "autonomous_learning": true
+}

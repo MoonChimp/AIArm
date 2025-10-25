@@ -1,0 +1,42 @@
+{
+  "id": "37358c8b",
+  "concept": "you did not provide a location of the file. Lets try something different. create a video about a peanut",
+  "type": "general",
+  "duration": 30,
+  "timestamp": "2025-10-06T23:52:42.117529",
+  "script": "**\n\nTitle: The Amazing Peanut\n\nNarrator: (0s-5s)\n\"In a world of nuts, one stands out from the rest. Meet the peanut, a small but mighty treat that's packed with flavor and fun.\"\n\nScene 1: The Peanut's Origin (5s-10s)\nNarrator: \"Born in the earth, this little legume grows slowly, soaking up the sun and nutrients.\"\n(The camera shows a close-up of the peanut growing underground, with gentle sunlight filtering through the soil.)\n\nScene 2: The Peanut's Personality (10s-20s)\nNarrator: \"As it matures, the peanut develops its unique charm. Crunchy outside, creamy inside, and a hint of nutty goodness.\"\n(The camera cuts to a shot of a peanut being cracked open, revealing its white interior. The narrator speaks as the camera shows a montage of peanuts being enjoyed in various ways: roasted, salted, and added to snacks.)\n\nScene 3: The Peanut's Impact (20s-30s)\nNarrator: \"But the peanut's impact goes far beyond just taste. It's a symbol of community, shared with friends and family around the world.\"\n(The camera shows a shot of people from different cultures sharing peanuts as a snack, with smiling faces and laughter. The narrator concludes as the camera pans out to reveal a bustling street market.)\n\n**",
+  "storyboard": "**\n\nScene 1: The Peanut's Origin (5s-10s)\n\n* Duration: 5 seconds\n* Visual composition: Close-up shot of the peanut growing underground, with gentle sunlight filtering through the soil.\n* Action/movement: The camera slowly zooms in on the peanut as it grows.\n* Key visual elements: Soil, sunlight, peanut plant.\n* Transitions: Fade-in from black.\n\nScene 2: The Peanut's Personality (10s-20s)\n\n* Duration: 10 seconds\n* Visual composition: Montage of peanuts being enjoyed in various ways: roasted, salted, and added to snacks. Camera shots include close-ups, medium shots, and wide shots.\n* Action/movement: Fast-paced cutting between the different peanut-related scenes.\n* Key visual elements: Peanuts, snacks, people enjoying peanuts.\n* Transitions: Quick cuts between scenes, with slight fade-ins and outs.\n\nScene 3: The Peanut's Impact (20s-30s)\n\n* Duration: 10 seconds\n* Visual composition: Wide shot of people from different cultures sharing peanuts as a snack, with smiling faces and laughter. Camera angle is slightly above eye-level.\n* Action/movement: People laughing, chatting, and sharing peanuts.\n* Key visual elements: Diverse group of people, peanuts, snacks.\n* Transitions: Slow fade-out to black.\n\nNote: The duration of each scene is approximate, as the script and storyboard are designed to be flexible and adaptable to the final video production.",
+  "scenes": [
+    {
+      "description": "Scene 1: The Peanut's Origin (5s-10s)",
+      "details": [
+        "* Duration: 5 seconds",
+        "* Visual composition: Close-up shot of the peanut growing underground, with gentle sunlight filtering through the soil.",
+        "* Action/movement: The camera slowly zooms in on the peanut as it grows.",
+        "* Key visual elements: Soil, sunlight, peanut plant.",
+        "* Transitions: Fade-in from black."
+      ]
+    },
+    {
+      "description": "Scene 2: The Peanut's Personality (10s-20s)",
+      "details": [
+        "* Duration: 10 seconds",
+        "* Visual composition: Montage of peanuts being enjoyed in various ways: roasted, salted, and added to snacks. Camera shots include close-ups, medium shots, and wide shots.",
+        "* Action/movement: Fast-paced cutting between the different peanut-related scenes.",
+        "* Key visual elements: Peanuts, snacks, people enjoying peanuts.",
+        "* Transitions: Quick cuts between scenes, with slight fade-ins and outs."
+      ]
+    },
+    {
+      "description": "Scene 3: The Peanut's Impact (20s-30s)",
+      "details": [
+        "* Duration: 10 seconds",
+        "* Visual composition: Wide shot of people from different cultures sharing peanuts as a snack, with smiling faces and laughter. Camera angle is slightly above eye-level.",
+        "* Action/movement: People laughing, chatting, and sharing peanuts.",
+        "* Key visual elements: Diverse group of people, peanuts, snacks.",
+        "* Transitions: Slow fade-out to black.",
+        "Note: The duration of each scene is approximate, as the script and storyboard are designed to be flexible and adaptable to the final video production."
+      ]
+    }
+  ]
+}

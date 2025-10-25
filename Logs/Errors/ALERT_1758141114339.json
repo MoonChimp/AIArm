@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-09-17T20:31:54.339Z",
+  "message": "Error threshold exceeded: 6 errors",
+  "errorCounts": {
+    "total": 6,
+    "byType": {
+      "SyntaxError": 5,
+      "UnknownError": 1
+    },
+    "byBridge": {
+      "surface": 2,
+      "deep": 4
+    },
+    "byEndpoint": {},
+    "lastReset": 1758140239633
+  },
+  "lastError": {
+    "message": "Deep bridge error output: ",
+    "stack": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-09-17T20:45:02.434Z",
+  "message": "Error threshold exceeded: 11 errors",
+  "errorCounts": {
+    "total": 11,
+    "byType": {
+      "SyntaxError": 10,
+      "UnknownError": 1
+    },
+    "byBridge": {
+      "surface": 5,
+      "deep": 6
+    },
+    "byEndpoint": {},
+    "lastReset": 1758140239633
+  },
+  "lastError": {
+    "message": "Unexpected token 'L', \"Loaded 42 \"... is not valid JSON",
+    "stack": "SyntaxError: Unexpected token 'L', \"Loaded 42 \"... is not valid JSON\n    at JSON.parse (<anonymous>)\n    at ChildProcess.<anonymous> (D:\\AIArm\\WebInterface\\concurrent_server.js:157:31)\n    at ChildProcess.emit (node:events:507:28)\n    at maybeClose (node:internal/child_process:1101:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:305:5)"
+  }
+}

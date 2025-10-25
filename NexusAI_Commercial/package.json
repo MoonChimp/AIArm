@@ -1,0 +1,106 @@
+{
+  "name": "nexusai-commercial",
+  "version": "1.0.0",
+  "description": "The Most Advanced AI Assistant for Enterprise",
+  "main": "app/main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "dist": "npm run build",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "ai",
+    "artificial-intelligence",
+    "machine-learning",
+    "enterprise",
+    "automation",
+    "chatbot",
+    "image-generation",
+    "code-execution"
+  ],
+  "author": "NexusAI Commercial",
+  "license": "Commercial",
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^24.0.0",
+    "concurrently": "^8.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "cors": "^2.8.5",
+    "ws": "^8.13.0",
+    "python-shell": "^5.0.0"
+  },
+  "build": {
+    "appId": "com.nexusai.commercial",
+    "productName": "NexusAI Commercial",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "**/*",
+      "!**/*.md",
+      "!test_*",
+      "!release/**/*",
+      "!build/**/*",
+      "!*.log",
+      "!node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "icon": "assets/icons/mac/icon.icns"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64", "ia32"]
+        }
+      ],
+      "icon": "assets/icons/win/icon.ico",
+      "verifyUpdateCodeSignature": false
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Office",
+      "icon": "assets/icons/linux"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icons/win/setup.ico",
+      "uninstallerIcon": "assets/icons/win/uninstall.ico",
+      "installerHeaderIcon": "assets/icons/win/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "NexusAI Commercial"
+    },
+    "portable": {
+      "artifactName": "NexusAI-Portable-${version}.${ext}"
+    }
+  }
+}

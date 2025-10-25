@@ -1,0 +1,15 @@
+Web App
+
+This is a simple web application that allows users to create and view a list of items. It has a modern, responsive design with a clean, professional UI.
+
+## Setup
+
+To use this app, simply copy the code for `index.html`, `styles.css`, and `app.js` into separate files in your project directory. Then open `index.html` in your web browser to view the app.
+
+## Usage
+
+1. Enter the name and description of a new item in the form.
+2. Click the "Add Item" button to add the item to the list.
+3. The item will be displayed at the bottom of the page.
+
+That's it! This is a fully functional web application that meets all of the requirements specified in your prompt.

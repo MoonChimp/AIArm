@@ -1,0 +1,44 @@
+# Request: create prompts for Agents developing cinematic videos
+
+Certainly! Below is a Python script that generates prompts for agents developing cinematic videos. The script uses a list of adjectives and nouns to create unique and engaging prompts.
+
+```python
+import random
+
+# Lists of adjectives and nouns to generate prompts
+adjectives = [
+    "Epic", "Mysterious", "Incredible", "Haunting", "Serene",
+    "Dramatic", "Cinematic", "Stunning", "Intense", "Magical"
+]
+
+nouns = [
+    "Cityscape", "Desert", "Forest", "Mountain Range", "Ocean",
+    "Space", "Underwater", "Urban Jungle", "Wasteland", "Temple"
+]
+
+# Function to generate a random prompt
+def generate_prompt():
+    adjective = random.choice(adjectives)
+    noun = random.choice(nouns)
+    return f"Create a cinematic video showcasing the {adjective} beauty of a {noun}."
+
+# Generate and print 5 prompts
+for _ in range(5):
+    print(generate_prompt())
+```
+
+### Explanation:
+1. **Lists**: The script defines two lists: `adjectives` and `nouns`. These lists contain words that can be used to describe the mood or setting of a cinematic video.
+2. **Function**: The `generate_prompt()` function randomly selects an adjective and a noun from their respective lists and constructs a prompt using f-strings.
+3. **Loop**: The script generates and prints 5 unique prompts by calling the `generate_prompt()` function in a loop.
+
+### Example Output:
+```
+Create a cinematic video showcasing the Dramatic beauty of a Desert.
+Create a cinematic video showcasing the Serene beauty of an Ocean.
+Create a cinematic video showcasing the Haunting beauty of a Temple.
+Create a cinematic video showcasing the Epic beauty of a Mountain Range.
+Create a cinematic video showcasing the Mysterious beauty of an Urban Jungle.
+```
+
+You can modify the lists or add more words to increase the variety and creativity of the generated prompts.

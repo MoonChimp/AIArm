@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Music Generator App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>🎵 Music Generator</h1>
+            <p>AI-powered music creation tool</p>
+        </header>
+        
+        <main class="music-controls">
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="genre">Genre:</label>
+                    <select id="genre">
+                        <option value="electronic">Electronic</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="classical">Classical</option>
+                        <option value="rock">Rock</option>
+                        <option value="ambient">Ambient</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="tempo">Tempo:</label>
+                    <input type="range" id="tempo" min="60" max="180" value="120">
+                    <span id="tempo-value">120 BPM</span>
+                </div>
+                
+                <button id="generate-btn" class="generate-btn">🎼 Generate Music</button>
+            </div>
+            
+            <div class="playback-area">
+                <div id="waveform"></div>
+                <div class="playback-controls">
+                    <button id="play-btn" class="control-btn" disabled>▶️ Play</button>
+                    <button id="pause-btn" class="control-btn" disabled>⏸️ Pause</button>
+                    <button id="stop-btn" class="control-btn" disabled>⏹️ Stop</button>
+                    <button id="download-btn" class="control-btn" disabled>💾 Download</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

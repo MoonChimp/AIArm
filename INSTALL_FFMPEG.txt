@@ -1,0 +1,37 @@
+FFMPEG Installation Instructions
+================================
+
+FFmpeg is required for MP4 video generation and MP3 audio conversion.
+
+OPTION 1 - Quick Install (Recommended):
+---------------------------------------
+1. Open PowerShell as Administrator
+2. Run: choco install ffmpeg -y
+3. Restart your terminal
+
+OPTION 2 - Manual Install:
+--------------------------
+1. Download from: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
+2. Extract to: C:\ffmpeg
+3. Add to PATH:
+   - Open System Properties > Environment Variables
+   - Edit "Path" variable
+   - Add: C:\ffmpeg\bin
+4. Restart terminal and verify: ffmpeg -version
+
+OPTION 3 - Remove Lock File (if Chocolatey failed):
+---------------------------------------------------
+1. Open PowerShell as Administrator
+2. Remove lock: Remove-Item "C:\ProgramData\chocolatey\lib\c00565a56f0e64a50f2ea5badcb97694d43e0755" -Force
+3. Try again: choco install ffmpeg -y
+
+Current Status:
+---------------
+✓ gTTS installed - MP3 generation via Google TTS
+✓ pyttsx3 installed - MP3 generation via offline TTS
+✓ Pillow installed - Image processing
+✓ MoviePy installed - Video editing
+✗ FFmpeg - Required for video rendering (not critical for audio)
+
+You can generate MP3 files NOW without FFmpeg!
+FFmpeg is only needed for MP4 video creation.

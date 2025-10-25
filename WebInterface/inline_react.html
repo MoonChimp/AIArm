@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIArm Crystalline Multi-Agent Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide-react@0.263.1/dist/umd/lucide-react.min.js"></script>
+    <script>
+        // Define the AIArmInterface component directly in the HTML
+        function AIArmInterface() {
+            // React hooks
+            const [activeAgent, setActiveAgent] = React.useState('orchestrator');
+            const [thoughts, setThoughts] = React.useState([]);
+            const [inputValue, setInputValue] = React.useState('');
+            const [isProcessing, setIsProcessing] = React.useState(false);
+            const [energyPulse, setEnergyPulse] = React.useState(0);
+            const canvasRef = React.useRef(null);
+            
+            // Icons setup
+            const Brain = lucideReact.Brain;
+            const Zap = lucideReact.Zap;
+            const Database = lucideReact.Database;
+            const FileText = lucideReact.FileText;
+            const Search = lucideReact.Search;
+            const Settings = lucideReact.Settings;
+            const Activity = lucideReact.Activity;
+            const Palette = lucideReact.Palette;
+            const Cog = lucideReact.Cog;
+            
+            // Crystalline energy effect
+            React.useEffect(() => {
+                const interval = setInterval(() => {
+                    setEnergyPulse(prev => (prev + 1) % 100);
+                }, 50);
+                return () => clearInterval(interval);
+            }, []);
+            
+            // Animated background crystals
+            React.useEffect(() => {
+                const canvas = canvasRef.current;
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                
+                const crystals = Array.from({ length: 12 }, () => ({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 60 + 20,
+                    rotation: Math.random() * Math.PI * 2,
+                    rotationSpeed: (Math.random() - 0.5) * 0.02,
+                    pulse: Math.random() * Math.PI * 2
+                }));
+                
+                const animate = () => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    crystals.forEach(crystal => {
+                        ctx.save();
+                        ctx.translate(crystal.x, crystal.y);
+                        ctx.rotate(crystal.rotation);
+                        
+                        const pulseIntensity = (Math.sin(crystal.pulse + energyPulse * 0.1) + 1) * 0.5;
+                        const alpha = 0.1 + pulseIntensity * 0.15;
+                        
+                        // Draw hexagonal crystal
+                        ctx.beginPath();
+                        for (let i = 0; i < 6; i++) {
+                            const angle = (i * Math.PI) / 3;
+                            const x = Math.cos(angle) * crystal.size;
+                            const y = Math.sin(angle) * crystal.size;
+                            if (i === 0) ctx.moveTo(x, y);
+                            else ctx.lineTo(x, y);
+                        }
+                        ctx.closePath();
+                        
+                        // Crystal fill with gradient
+                        const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, crystal.size);
+                        gradient.addColorStop(0, `rgba(64, 224, 255, ${alpha})`);
+                        gradient.addColorStop(0.7, `rgba(138, 43, 226, ${alpha * 0.5})`);
+                        gradient.addColorStop(1, `rgba(75, 0, 130, ${alpha * 0.2})`);
+                        
+                        ctx.fillStyle = gradient;
+                        ctx.fill();
+                        
+                        // Energy lines
+                        ctx.strokeStyle = `rgba(0, 255, 255, ${alpha * 2})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                        
+                        ctx.restore();
+                        
+                        crystal.rotation += crystal.rotationSpeed;
+                        crystal.pulse += 0.05;
+                    });
+                    
+                    requestAnimationFrame(animate);
+                };
+                
+                const animationId = requestAnimationFrame(animate);
+                
+                // Handle window resize
+                const handleResize = () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                };
+                
+                window.addEventListener('resize', handleResize);
+                
+                return () => {
+                    cancelAnimationFrame(animationId);
+                    window.removeEventListener('resize', handleResize);
+                };
+            }, [energyPulse]);
+            
+            // Get system status periodically
+            React.useEffect(() => {
+                const fetchSystemStatus = async () => {
+                    try {
+                        const response = await fetch('/api/status');
+                        const data = await response.json();
+                        
+                        if (data.success) {
+                            // Update system metrics if needed
+                            console.log('System status:', data.status);
+                        }
+                    } catch (error) {
+                        console.error('Error fetching system status:', error);
+                    }
+                };
+                
+                // Fetch status immediately and then every 30 seconds
+                fetchSystemStatus();
+                const intervalId = setInterval(fetchSystemStatus, 30000);
+                
+                return () => clearInterval(intervalId);
+            }, []);
+            
+            const agents = [
+                { id: 'orchestrator', name: 'Orchestrator', icon: Brain, color: 'from-cyan-400 to-blue-500', description: 'Central coordination' },
+                { id: 'research', name: 'Research Agent', icon: Search, color: 'from-emerald-400 to-teal-500', description: 'Information gathering' },
+                { id: 'content', name: 'Content Creator', icon: FileText, color: 'from-purple-400 to-indigo-500', description: 'Document generation' },
+                { id: 'design', name: 'Visual Designer', icon: Palette, color: 'from-pink-400 to-rose-500', description: 'UI/UX design' },
+                { id: 'systems', name: 'Systems Integration', icon: Cog, color: 'from-orange-400 to-red-500', description: 'API & automation' },
+                { id: 'planning', name: 'Strategy Planner', icon: Activity, color: 'from-violet-400 to-purple-500', description: 'Project planning' },
+                { id: 'files', name: 'File Manager', icon: Database, color: 'from-blue-400 to-cyan-500', description: 'File operations' },
+                { id: 'reasoning', name: 'Continuous Reasoning', icon: Zap, color: 'from-yellow-400 to-amber-500', description: 'Deep analysis' }
+            ];
+            
+            const handleSubmit = async () => {
+                if (!inputValue.trim()) return;
+                
+                setIsProcessing(true);
+                
+                // Add user input to thought stream
+                const newThought = {
+                    id: Date.now(),
+                    content: inputValue,
+                    agent: activeAgent,
+                    timestamp: new Date().toLocaleTimeString(),
+                    type: 'user_input'
+                };
+                
+                setThoughts(prev => [newThought, ...prev]);
+                
+                try {
+                    // Send request to server API
+                    const response = await fetch('/api/process', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            input: inputValue,
+                            activeAgent: activeAgent
+                        }),
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success && data.responses) {
+                        // Add agent responses with staggered timing
+                        data.responses.forEach((response, index) => {
+                            setTimeout(() => {
+                                setThoughts(prev => [{
+                                    ...response,
+                                    id: Date.now() + index, // Ensure unique IDs
+                                    timestamp: response.timestamp || new Date().toLocaleTimeString(),
+                                    type: response.type || 'agent_response'
+                                }, ...prev]);
+                            }, index * 1500);
+                        });
+                    } else {
+                        // Handle error response
+                        setThoughts(prev => [{
+                            id: Date.now() + 1,
+                            content: 'Error processing request. Please try again.',
+                            agent: 'orchestrator',
+                            timestamp: new Date().toLocaleTimeString(),
+                            type: 'agent_response'
+                        }, ...prev]);
+                    }
+                } catch (error) {
+                    console.error('Error submitting request:', error);
+                    // Add error message to thought stream
+                    setThoughts(prev => [{
+                        id: Date.now() + 1,
+                        content: 'Connection error. Please check that the AIArm server is running.',
+                        agent: 'orchestrator',
+                        timestamp: new Date().toLocaleTimeString(),
+                        type: 'agent_response'
+                    }, ...prev]);
+                } finally {
+                    setIsProcessing(false);
+                    setInputValue('');
+                }
+            };
+            
+            const getAgentInfo = (agentId) => {
+                return agents.find(agent => agent.id === agentId) || agents[0];
+            };
+            
+            return React.createElement('div', { className: "min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden" },
+                // Animated Crystal Background
+                React.createElement('canvas', { 
+                    ref: canvasRef,
+                    className: "absolute inset-0 pointer-events-none opacity-30",
+                    style: { zIndex: 0 }
+                }),
+                
+                // Main Content
+                React.createElement('div', { className: "relative z-10 flex h-screen" },
+                    // Left Sidebar - Agent Selection
+                    React.createElement('div', { className: "w-80 bg-black/20 backdrop-blur-md border-r border-cyan-500/30 p-6" },
+                        React.createElement('div', { className: "mb-8" },
+                            React.createElement('h1', { className: "text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2" }, "AIArm System"),
+                            React.createElement('p', { className: "text-cyan-300/80 text-sm" }, "Multi-Agent Intelligence Platform")
+                        ),
+                        
+                        // Agent Grid
+                        React.createElement('div', { className: "space-y-3" },
+                            agents.map((agent) => {
+                                const Icon = agent.icon;
+                                const isActive = activeAgent === agent.id;
+                                
+                                return React.createElement('div', {
+                                    key: agent.id,
+                                    onClick: () => setActiveAgent(agent.id),
+                                    className: `relative p-4 rounded-xl cursor-pointer transition-all duration-300 ${
+                                        isActive 
+                                            ? 'bg-gradient-to-r ' + agent.color + ' shadow-lg shadow-cyan-500/25 transform scale-105' 
+                                            : 'bg-white/5 hover:bg-white/10 border border-cyan-500/20'
+                                    }`
+                                },
+                                    // Crystal-like border effect
+                                    isActive && React.createElement('div', { className: "absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500/20 to-transparent animate-pulse" }),
+                                    
+                                    React.createElement('div', { className: "relative flex items-center space-x-3" },
+                                        React.createElement('div', { className: `p-2 rounded-lg ${isActive ? 'bg-white/20' : 'bg-cyan-500/10'}` },
+                                            React.createElement(Icon, { size: 20, className: isActive ? 'text-white' : 'text-cyan-400' })
+                                        ),
+                                        React.createElement('div', {},
+                                            React.createElement('h3', { className: `font-semibold ${isActive ? 'text-white' : 'text-cyan-100'}` }, agent.name),
+                                            React.createElement('p', { className: `text-xs ${isActive ? 'text-cyan-100' : 'text-cyan-300/70'}` }, agent.description)
+                                        )
+                                    ),
+                                    
+                                    // Energy effect for active agent
+                                    isActive && React.createElement('div', { className: "absolute -inset-0.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 opacity-20 blur animate-pulse" })
+                                );
+                            })
+                        ),
+                        
+                        // System Status
+                        React.createElement('div', { className: "mt-8 p-4 bg-black/30 rounded-xl border border-cyan-500/20" },
+                            React.createElement('h3', { className: "text-cyan-300 font-semibold mb-3" }, "System Status"),
+                            React.createElement('div', { className: "space-y-2 text-sm" },
+                                React.createElement('div', { className: "flex justify-between" },
+                                    React.createElement('span', { className: "text-cyan-100/70" }, "Active Agents"),
+                                    React.createElement('span', { className: "text-cyan-400" }, agents.length)
+                                ),
+                                React.createElement('div', { className: "flex justify-between" },
+                                    React.createElement('span', { className: "text-cyan-100/70" }, "Thoughts Processed"),
+                                    React.createElement('span', { className: "text-cyan-400" }, thoughts.length)
+                                ),
+                                React.createElement('div', { className: "flex justify-between" },
+                                    React.createElement('span', { className: "text-cyan-100/70" }, "Status"),
+                                    React.createElement('span', { className: "text-green-400 flex items-center" },
+                                        React.createElement('div', { className: "w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" }),
+                                        "Online"
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    
+                    // Main Interface
+                    React.createElement('div', { className: "flex-1 flex flex-col" },
+                        // Header
+                        React.createElement('div', { className: "p-6 bg-black/20 backdrop-blur-md border-b border-cyan-500/30" },
+                            React.createElement('div', { className: "flex items-center justify-between" },
+                                React.createElement('div', {},
+                                    React.createElement('h2', { className: "text-2xl font-bold text-cyan-100" }, getAgentInfo(activeAgent).name),
+                                    React.createElement('p', { className: "text-cyan-300/70" }, getAgentInfo(activeAgent).description)
+                                ),
+                                
+                                // Energy indicator
+                                React.createElement('div', { className: "flex items-center space-x-4" },
+                                    React.createElement('div', { className: "flex items-center space-x-2" },
+                                        React.createElement(Zap, { size: 20, className: "text-cyan-400" }),
+                                        React.createElement('div', { className: "w-32 h-2 bg-black/30 rounded-full overflow-hidden" },
+                                            React.createElement('div', { 
+                                                className: "h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full transition-all duration-300",
+                                                style: { width: `${Math.sin(energyPulse * 0.1) * 20 + 80}%` }
+                                            })
+                                        )
+                                    ),
+                                    
+                                    React.createElement('button', { className: "p-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 transition-colors" },
+                                        React.createElement(Settings, { size: 18, className: "text-cyan-400" })
+                                    )
+                                )
+                            )
+                        ),
+                        
+                        // Thought Stream
+                        React.createElement('div', { className: "flex-1 p-6 overflow-y-auto" },
+                            React.createElement('div', { className: "max-w-4xl mx-auto space-y-4" },
+                                thoughts.length === 0 ? (
+                                    React.createElement('div', { className: "text-center py-12" },
+                                        React.createElement('div', { className: "w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 flex items-center justify-center" },
+                                            React.createElement(Brain, { size: 32, className: "text-cyan-400" })
+                                        ),
+                                        React.createElement('h3', { className: "text-xl font-semibold text-cyan-100 mb-2" }, "Ready to Assist"),
+                                        React.createElement('p', { className: "text-cyan-300/70" }, "Enter your request below to begin multi-agent processing")
+                                    )
+                                ) : (
+                                    thoughts.map((thought) => {
+                                        const agentInfo = getAgentInfo(thought.agent);
+                                        const Icon = agentInfo.icon;
+                                        
+                                        return React.createElement('div', {
+                                            key: thought.id,
+                                            className: `p-4 rounded-xl border transition-all duration-300 ${
+                                                thought.type === 'user_input' 
+                                                    ? 'bg-gradient-to-r from-purple-500/20 to-indigo-500/20 border-purple-500/30 ml-12' 
+                                                    : 'bg-black/20 border-cyan-500/20 mr-12'
+                                            }`
+                                        },
+                                            React.createElement('div', { className: "flex items-start space-x-3" },
+                                                React.createElement('div', { 
+                                                    className: `p-2 rounded-lg flex-shrink-0 ${
+                                                        thought.type === 'user_input' 
+                                                            ? 'bg-purple-500/20' 
+                                                            : 'bg-gradient-to-r ' + agentInfo.color + ' bg-opacity-20'
+                                                    }`
+                                                },
+                                                    React.createElement(Icon, { size: 16, className: "text-cyan-400" })
+                                                ),
+                                                
+                                                React.createElement('div', { className: "flex-1" },
+                                                    React.createElement('div', { className: "flex items-center justify-between mb-2" },
+                                                        React.createElement('span', { className: "font-semibold text-cyan-100" },
+                                                            thought.type === 'user_input' ? 'You' : agentInfo.name
+                                                        ),
+                                                        React.createElement('span', { className: "text-xs text-cyan-300/50" },
+                                                            thought.timestamp
+                                                        )
+                                                    ),
+                                                    React.createElement('p', { className: "text-cyan-100/80 leading-relaxed" },
+                                                        thought.content
+                                                    )
+                                                )
+                                            )
+                                        );
+                                    })
+                                ),
+                                
+                                // Processing indicator
+                                isProcessing && React.createElement('div', { className: "flex items-center justify-center p-8" },
+                                    React.createElement('div', { className: "flex items-center space-x-3 text-cyan-400" },
+                                        React.createElement('div', { className: "flex space-x-1" },
+                                            [0, 1, 2].map((i) => (
+                                                React.createElement('div', {
+                                                    key: i,
+                                                    className: "w-2 h-2 bg-cyan-400 rounded-full animate-pulse",
+                                                    style: { animationDelay: `${i * 0.2}s` }
+                                                })
+                                            ))
+                                        ),
+                                        React.createElement('span', {}, "Processing with multi-agent coordination...")
+                                    )
+                                )
+                            )
+                        ),
+                        
+                        // Input Area
+                        React.createElement('div', { className: "p-6 bg-black/20 backdrop-blur-md border-t border-cyan-500/30" },
+                            React.createElement('div', { className: "max-w-4xl mx-auto" },
+                                React.createElement('div', { className: "flex space-x-4" },
+                                    React.createElement('div', { className: "flex-1 relative" },
+                                        React.createElement('textarea', {
+                                            value: inputValue,
+                                            onChange: (e) => setInputValue(e.target.value),
+                                            onKeyDown: (e) => {
+                                                if (e.key === 'Enter' && !e.shiftKey) {
+                                                    e.preventDefault();
+                                                    handleSubmit();
+                                                }
+                                            },
+                                            placeholder: "Enter your request for multi-agent processing...",
+                                            className: "w-full p-4 bg-black/30 border border-cyan-500/30 rounded-xl text-cyan-100 placeholder-cyan-300/50 resize-none focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all",
+                                            rows: 3,
+                                            disabled: isProcessing
+                                        }),
+                                        
+                                        // Crystal effect on focus
+                                        React.createElement('div', { className: "absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500/10 to-transparent opacity-0 hover:opacity-100 transition-opacity pointer-events-none" })
+                                    ),
+                                    
+                                    React.createElement('button', {
+                                        onClick: handleSubmit,
+                                        disabled: isProcessing || !inputValue.trim(),
+                                        className: "px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 disabled:from-gray-600 disabled:to-gray-700 rounded-xl font-semibold transition-all duration-300 disabled:cursor-not-allowed transform hover:scale-105 disabled:scale-100 shadow-lg shadow-cyan-500/25"
+                                    },
+                                        React.createElement('div', { className: "flex items-center space-x-2" },
+                                            React.createElement(Zap, { size: 18 }),
+                                            React.createElement('span', {}, "Process")
+                                        )
+                                    )
+                                ),
+                                
+                                React.createElement('div', { className: "mt-3 flex items-center justify-between text-sm text-cyan-300/60" },
+                                    React.createElement('span', {}, "Press Enter to submit, Shift+Enter for new line"),
+                                    React.createElement('span', {}, "Active: ", getAgentInfo(activeAgent).name)
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            overflow: hidden;
+        }
+        
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+    </style>
+</head>
+<body>
+    <!-- React Root -->
+    <div id="root"></div>
+    
+    <script>
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                // Render React component
+                ReactDOM.render(
+                    React.createElement(AIArmInterface),
+                    document.getElementById('root')
+                );
+                console.log("React component rendered successfully!");
+            } catch (error) {
+                console.error('Error rendering React component:', error);
+                document.getElementById('root').innerHTML = `
+                    <div style="padding: 20px; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 4px; margin: 20px;">
+                        <h3>Error Loading Interface</h3>
+                        <p>${error.message}</p>
+                        <p>Please try the simplified interface at: <a href="/crystalline.html">Simplified Interface</a></p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

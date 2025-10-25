@@ -1,0 +1,59 @@
+[
+  {
+    "id": "be94be39a8e6",
+    "timestamp": "2025-10-20T20:45:52.684004",
+    "type": "memory_to_training",
+    "source": "conversation_memory",
+    "format": "json",
+    "items_transferred": 6,
+    "output_file": "D:\\AIArm\\NexusAI_Commercial\\knowledge_transfer\\memory_dump_be94be39a8e6.json"
+  },
+  {
+    "id": "6ef2509a4666",
+    "timestamp": "2025-10-20T20:45:52.686841",
+    "type": "knowledge_to_training",
+    "source": "learning_system",
+    "format": "json",
+    "facts_transferred": 5,
+    "corrections_transferred": 2,
+    "output_file": "D:\\AIArm\\NexusAI_Commercial\\knowledge_transfer\\knowledge_dump_6ef2509a4666.json"
+  },
+  {
+    "id": "822d6b92ad91",
+    "timestamp": "2025-10-20T21:02:31.903115",
+    "type": "memory_to_training",
+    "source": "conversation_memory",
+    "format": "json",
+    "items_count": 6,
+    "output_file": "D:\\AIArm\\NexusAI_Commercial\\knowledge_transfer\\memory_dump_822d6b92ad91.json"
+  },
+  {
+    "id": "c5d20b2aa64c",
+    "timestamp": "2025-10-20T21:02:31.945543",
+    "type": "knowledge_to_training",
+    "source": "learning_system",
+    "format": "json",
+    "facts_transferred": 5,
+    "corrections_transferred": 2,
+    "output_file": "D:\\AIArm\\NexusAI_Commercial\\knowledge_transfer\\knowledge_dump_c5d20b2aa64c.json"
+  },
+  {
+    "id": "38385e2aac84",
+    "timestamp": "2025-10-20T21:07:21.307673",
+    "type": "memory_to_training",
+    "source": "conversation_memory",
+    "format": "json",
+    "items_count": 6,
+    "output_file": "D:\\AIArm\\NexusAI_Commercial\\knowledge_transfer\\memory_dump_38385e2aac84.json"
+  },
+  {
+    "id": "d5b34c4051ff",
+    "timestamp": "2025-10-20T21:07:21.310970",
+    "type": "knowledge_to_training",
+    "source": "learning_system",
+    "format": "json",
+    "facts_transferred": 5,
+    "corrections_transferred": 2,
+    "output_file": "D:\\AIArm\\NexusAI_Commercial\\knowledge_transfer\\knowledge_dump_d5b34c4051ff.json"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "active_agents": [
+    "PhotoGeneration",
+    "VideoGeneration",
+    "WebsiteCreation",
+    "WebSearch"
+  ]
+}

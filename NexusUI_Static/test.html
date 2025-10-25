@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nexus UI Test</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%);
+            color: white;
+            font-family: Arial;
+            padding: 50px;
+        }
+        .status { padding: 20px; background: rgba(124, 58, 237, 0.2); border-radius: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Nexus UI Diagnostic</h1>
+    <div class="status" id="react-status">Checking React...</div>
+    <div class="status" id="api-status">Checking API...</div>
+    <div class="status" id="error-log"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/axios@1.6.0/dist/axios.min.js"></script>
+
+    <script>
+        // Check React
+        document.getElementById('react-status').innerHTML =
+            typeof React !== 'undefined' ? '✓ React loaded' : '✗ React failed to load';
+
+        // Check API
+        fetch('http://localhost:5000/api/status')
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('api-status').innerHTML =
+                    '✓ API connected: ' + JSON.stringify(data);
+            })
+            .catch(err => {
+                document.getElementById('api-status').innerHTML =
+                    '✗ API error: ' + err.message;
+            });
+
+        // Capture errors
+        window.onerror = function(msg, url, line, col, error) {
+            document.getElementById('error-log').innerHTML +=
+                '<br>ERROR: ' + msg + ' at ' + line + ':' + col;
+        };
+    </script>
+</body>
+</html>

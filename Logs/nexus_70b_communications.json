@@ -1,0 +1,24 @@
+{
+    "ResponseLength":  81,
+    "CommanderNexusResponse":  "ERROR: Cannot connect to Commander Nexus 70B. Is Ollama running? Check: ollama ps",
+    "ProcessingTime":  {
+                           "Ticks":  2864680,
+                           "Days":  0,
+                           "Hours":  0,
+                           "Milliseconds":  286,
+                           "Minutes":  0,
+                           "Seconds":  0,
+                           "TotalDays":  3.3156018518518518E-06,
+                           "TotalHours":  7.9574444444444444E-05,
+                           "TotalMilliseconds":  286.468,
+                           "TotalMinutes":  0.004774466666666667,
+                           "TotalSeconds":  0.286468
+                       },
+    "Command":  "STATUS",
+    "Success":  false,
+    "Timestamp":  "2025-06-28 20:06:29",
+    "ArmRequest":  "AI ARM OPERATIONAL REPORT [2025-06-28 20:06:01]\nREQUEST TYPE: System Status Query\nSYSTEMS: All AI Arms reporting\nSTATUS: Operational and awaiting directives\nREQUESTING: Current Commander Nexus operational status and priorities",
+    "Model":  "commander-nexus-70b:latest",
+    "Context":  "",
+    "ModelCapacity":  "70B Enhanced"
+}

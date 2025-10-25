@@ -1,0 +1,5 @@
+on Android
+
+1. Ensure you have Android Studio and SDK installed.
+2. Connect your Android device via USB or start an emulator.
+3. Run the following command to build and run the app on Android:

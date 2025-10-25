@@ -1,0 +1,70 @@
+{
+  "timestamp": "2025-09-17T01:59:50.959Z",
+  "alerts": [
+    {
+      "type": "MEMORY_USAGE",
+      "message": "Memory usage is high: 91%",
+      "value": 91,
+      "threshold": 80
+    },
+    {
+      "type": "BRIDGE_DOWN",
+      "message": "Surface bridge is not running",
+      "bridge": "surface"
+    },
+    {
+      "type": "BRIDGE_DOWN",
+      "message": "Deep bridge is not running",
+      "bridge": "deep"
+    }
+  ],
+  "metrics": {
+    "startTime": 1758073055563,
+    "uptime": 1334.8901646,
+    "memoryUsage": {
+      "rss": 51666944,
+      "heapTotal": 11051008,
+      "heapUsed": 10051312,
+      "external": 2279921,
+      "percentUsed": 91
+    },
+    "cpuUsage": {
+      "user": 16000,
+      "system": 0,
+      "percent": 29
+    },
+    "requestStats": {
+      "total": 16,
+      "success": 16,
+      "error": 0,
+      "avgResponseTime": 5848.875
+    },
+    "bridgeStats": {
+      "surface": {
+        "requests": 8,
+        "success": 8,
+        "error": 0,
+        "avgResponseTime": 249.75
+      },
+      "deep": {
+        "requests": 8,
+        "success": 8,
+        "error": 0,
+        "avgResponseTime": 11448
+      }
+    },
+    "pendingRequests": {
+      "surface": 0,
+      "deep": 0
+    },
+    "lastUpdate": 1758074390959,
+    "bridgeStatus": {
+      "surface": false,
+      "deep": false
+    },
+    "innerLifeStatus": {
+      "running": true,
+      "enabled": true
+    }
+  }
+}

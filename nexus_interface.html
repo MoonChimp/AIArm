@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander Nexus Control Interface</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #00ff88; height: 100vh; overflow: hidden;
+        }
+        .container {
+            display: grid; grid-template-columns: 300px 1fr;
+            grid-template-rows: 60px 1fr 120px; height: 100vh; gap: 1px; background: #000;
+        }
+        .header {
+            grid-column: 1 / -1; background: linear-gradient(90deg, #1e3c72, #2a5298);
+            display: flex; align-items: center; padding: 0 20px; border-bottom: 2px solid #00ff88;
+        }
+        .header h1 { color: #00ff88; font-size: 24px; text-shadow: 0 0 10px #00ff88; }
+        .status-indicator {
+            margin-left: auto; padding: 8px 16px; border-radius: 20px; font-weight: bold;
+            background: #ff6b6b; color: #fff; animation: pulse 2s infinite;
+        }
+        .status-indicator.connected { background: #00ff88; color: #000; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .sidebar {
+            background: #1a1a2e; padding: 20px; border-right: 1px solid #00ff88; overflow-y: auto;
+        }
+        .quick-action {
+            background: #16213e; border: 1px solid #00ff88; color: #00ff88; padding: 10px;
+            margin: 5px 0; cursor: pointer; border-radius: 5px; transition: all 0.3s; font-size: 12px;
+        }
+        .quick-action:hover { background: #00ff88; color: #000; }
+        .chat-area { background: #0f0f23; padding: 20px; overflow-y: auto; }
+        .message {
+            margin: 15px 0; padding: 15px; border-radius: 10px; animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .user-message {
+            background: linear-gradient(135deg, #2a5298, #1e3c72); border-left: 4px solid #00ff88; margin-left: 50px;
+        }
+        .nexus-message {
+            background: linear-gradient(135deg, #1a1a2e, #16213e); border-left: 4px solid #ff6b6b; margin-right: 50px;
+        }
+        .message-header { font-weight: bold; font-size: 14px; margin-bottom: 8px; }
+        .input-area {
+            background: #1a1a2e; padding: 20px; display: flex; gap: 10px; border-top: 1px solid #00ff88;
+        }
+        #messageInput {
+            flex: 1; background: #0f0f23; border: 2px solid #00ff88; color: #00ff88; padding: 15px;
+            border-radius: 10px; font-family: inherit; font-size: 14px; resize: vertical; min-height: 50px;
+        }
+        .send-btn {
+            background: linear-gradient(135deg, #00ff88, #00cc6a); border: none; color: #000;
+            padding: 15px 25px; border-radius: 10px; cursor: pointer; font-weight: bold;
+        }
+        .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ COMMANDER NEXUS CONTROL INTERFACE</h1>
+            <div class="status-indicator" id="statusIndicator">DISCONNECTED</div>
+        </div>
+        <div class="sidebar">
+            <h3>QUICK ACTIONS</h3>
+            <div class="quick-action" onclick="sendCommand('CREATE_VIDEO', 'Epic dragon flying over mountains')">🎬 Create Dragon Video</div>
+            <div class="quick-action" onclick="sendCommand('STATUS', '')">📊 System Status</div>
+            <div class="quick-action" onclick="sendCommand('OPEN_PROGRAM', 'notepad')">📝 Open Notepad</div>
+            <div class="quick-action" onclick="sendCommand('CREATE_VIDEO', 'Futuristic cityscape with flying cars')">🏙️ City Video</div>
+            <div class="quick-action" onclick="sendCommand('OPEN_PROGRAM', 'RunwayML')">🚀 Launch RunwayML</div>
+        </div>
+        <div class="chat-area" id="chatArea">
+            <div class="message nexus-message">
+                <div class="message-header">⚡ COMMANDER NEXUS INITIALIZING</div>
+                Establishing connection to AI delegation framework... Please start the web bridge service.
+            </div>
+        </div>
+        <div class="input-area">
+            <textarea id="messageInput" placeholder="Enter command for Commander Nexus (unlimited space)..."></textarea>
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()">EXECUTE</button>
+        </div>
+    </div>
+
+    <script>
+        let commandId = 1;
+        let isConnected = false;
+        
+        function addMessage(sender, content) {
+            const chatArea = document.getElementById('chatArea');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender === 'USER' ? 'user-message' : 'nexus-message'}`;
+            messageDiv.innerHTML = `
+                <div class="message-header">${sender === 'USER' ? '👤 USER' : '⚡ COMMANDER NEXUS'} - ${new Date().toLocaleTimeString()}</div>
+                <div style="white-space: pre-wrap;">${content}</div>
+            `;
+            chatArea.appendChild(messageDiv);
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        async function sendCommand(command, prompt = '') {
+            if (!isConnected) {
+                addMessage('NEXUS', 'ERROR: Web bridge service not running. Please start the service first.');
+                return;
+            }
+
+            const cmdData = {
+                id: commandId++,
+                command: command,
+                prompt: prompt,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Write command to file system (this is a simulation for the demo)
+                // In a real implementation, this would use a file API or web server
+                addMessage('USER', `${command}${prompt ? ' ' + prompt : ''}`);
+                addMessage('NEXUS', 'Processing command through AI Arm framework...\n\nPlease use the command line interface for actual execution:\nD:\\AIArm\\nexus_command.bat ' + command + (prompt ? ' "" "' + prompt + '"' : ''));
+                
+            } catch (error) {
+                addMessage('NEXUS', 'ERROR: Could not send command - ' + error.message);
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            input.value = '';
+            
+            // Parse the message to extract command and prompt
+            const parts = message.split(' ');
+            const command = parts[0].toUpperCase();
+            const prompt = parts.slice(1).join(' ');
+            
+            sendCommand(command, prompt);
+        }
+
+        function checkConnection() {
+            // This would check if the web bridge service is running
+            // For now, we'll simulate this check
+            fetch('file:///D:/AIArm/WebInterface/service_status.txt')
+                .then(response => response.text())
+                .then(status => {
+                    if (status.includes('RUNNING')) {
+                        isConnected = true;
+                        document.getElementById('statusIndicator').textContent = 'CONNECTED';
+                        document.getElementById('statusIndicator').className = 'status-indicator connected';
+                        document.getElementById('sendBtn').disabled = false;
+                    }
+                })
+                .catch(() => {
+                    isConnected = false;
+                    document.getElementById('statusIndicator').textContent = 'DISCONNECTED';
+                    document.getElementById('statusIndicator').className = 'status-indicator';
+                    document.getElementById('sendBtn').disabled = true;
+                });
+        }
+
+        document.getElementById('messageInput').addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') { sendMessage(); }
+        });
+
+        // Check connection status periodically
+        setInterval(checkConnection, 2000);
+        checkConnection();
+        
+        // Add initial instructions
+        setTimeout(() => {
+            addMessage('NEXUS', 'To enable full communication:\n\n1. Open PowerShell as Administrator\n2. Run: D:\\AIArm\\web_bridge.ps1 -Start\n3. Refresh this page\n\nFor now, use the command line interface:\nD:\\AIArm\\nexus_command.bat STATUS');
+        }, 1000);
+    </script>
+</body>
+</html>

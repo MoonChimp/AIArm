@@ -1,0 +1,58 @@
+{
+  "id": "1bb04e9f",
+  "concept": "i cant find the video. where did you save it",
+  "type": "general",
+  "duration": 30,
+  "timestamp": "2025-10-22T17:25:29.820903",
+  "script": "**\n\nTitle: \"I Can't Find the Video... Where Did You Save It?\"\n\nNarrator: \"Have you ever been in a situation where you're trying to find a video, but you just can't seem to remember where you saved it? You know, you watched it just yesterday, but now it's nowhere to be found?\"\n\n(Scene 1)\n\nNarrator: \"You start by checking your computer files. You scroll through folder after folder, searching for that elusive video.\"\n\nDuration: 5 seconds\n\n**",
+  "storyboard": "**\n\nScene 1 (5 seconds):\n\n* Camera angle: Over-the-shoulder shot of the computer screen\n* Framing: The narrator's hands are visible as they scroll through the files\n* Action/movement: The narrator's hands move quickly across the screen, scrolling through files\n* Key visual elements: Computer screen displaying folders and files, the narrator's hands\n* Transitions: None\n\n(Scene 2)\n\nNarrator: \"But it's not on your computer. You check your phone, thinking maybe you downloaded it to watch later.\"\n\nDuration: 10 seconds\n\n**STORYBOARD**\n\nScene 2 (10 seconds):\n\n* Camera angle: Close-up shot of the phone screen\n* Framing: The phone screen takes up most of the frame, with the narrator's hands visible on either side\n* Action/movement: The narrator's hands move quickly across the phone screen, scrolling through apps and files\n* Key visual elements: Phone screen displaying apps and files, the narrator's hands\n* Transitions: None\n\n(Scene 3)\n\nNarrator: \"And it's not on your phone either. You're starting to get frustrated. Where did you save that video?\"\n\nDuration: 15 seconds\n\n**STORYBOARD**\n\nScene 3 (15 seconds):\n\n* Camera angle: Over-the-shoulder shot of the narrator looking frustrated\n* Framing: The narrator's face takes up most of the frame, with a hint of the surrounding environment visible\n* Action/movement: The narrator's facial expressions change from confusion to frustration\n* Key visual elements: The narrator's face, the background (e.g. a messy room or desk)\n* Transitions: None\n\nThis script and storyboard are designed to showcase the common experience of trying to find a video that seems to have vanished. The narrator's frustration and desperation are meant to be relatable and humorous. The visual elements, such as the computer screen and phone screen, are intended to highlight the digital nature of the problem.",
+  "scenes": [
+    {
+      "description": "Scene 1 (5 seconds):",
+      "details": [
+        "* Camera angle: Over-the-shoulder shot of the computer screen",
+        "* Framing: The narrator's hands are visible as they scroll through the files",
+        "* Action/movement: The narrator's hands move quickly across the screen, scrolling through files",
+        "* Key visual elements: Computer screen displaying folders and files, the narrator's hands",
+        "* Transitions: None"
+      ]
+    },
+    {
+      "description": "(Scene 2)",
+      "details": [
+        "Narrator: \"But it's not on your computer. You check your phone, thinking maybe you downloaded it to watch later.\"",
+        "Duration: 10 seconds",
+        "**STORYBOARD**"
+      ]
+    },
+    {
+      "description": "Scene 2 (10 seconds):",
+      "details": [
+        "* Camera angle: Close-up shot of the phone screen",
+        "* Framing: The phone screen takes up most of the frame, with the narrator's hands visible on either side",
+        "* Action/movement: The narrator's hands move quickly across the phone screen, scrolling through apps and files",
+        "* Key visual elements: Phone screen displaying apps and files, the narrator's hands",
+        "* Transitions: None"
+      ]
+    },
+    {
+      "description": "(Scene 3)",
+      "details": [
+        "Narrator: \"And it's not on your phone either. You're starting to get frustrated. Where did you save that video?\"",
+        "Duration: 15 seconds",
+        "**STORYBOARD**"
+      ]
+    },
+    {
+      "description": "Scene 3 (15 seconds):",
+      "details": [
+        "* Camera angle: Over-the-shoulder shot of the narrator looking frustrated",
+        "* Framing: The narrator's face takes up most of the frame, with a hint of the surrounding environment visible",
+        "* Action/movement: The narrator's facial expressions change from confusion to frustration",
+        "* Key visual elements: The narrator's face, the background (e.g. a messy room or desk)",
+        "* Transitions: None",
+        "This script and storyboard are designed to showcase the common experience of trying to find a video that seems to have vanished. The narrator's frustration and desperation are meant to be relatable and humorous. The visual elements, such as the computer screen and phone screen, are intended to highlight the digital nature of the problem."
+      ]
+    }
+  ]
+}

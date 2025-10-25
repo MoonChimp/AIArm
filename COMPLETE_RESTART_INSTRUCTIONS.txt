@@ -1,0 +1,105 @@
+================================================================
+NEXUS AI - COMPLETE SYSTEM RESTART INSTRUCTIONS
+================================================================
+
+CRITICAL ISSUE:
+Multiple duplicate API servers are running simultaneously (7+ instances).
+This causes Ollama timeouts, conflicting responses, and system overload.
+
+RECENT FIXES APPLIED:
+✓ Photo Agent - Added content filters, removed AI enhancement timeout
+✓ Music Agent - Added subprocess import, increased timeout to 180s
+✓ Music Agent - gTTS audio generation ready for MP3 output
+✓ Video Agent - FFmpeg MP4 rendering already functional
+✓ Agent routing - Fixed 'nexus' conversational mode
+✓ Error messages - Humanized for better UX
+
+================================================================
+MANUAL RESTART PROCEDURE
+================================================================
+
+STEP 1: CLOSE ALL NEXUS PROCESSES
+---------------------------------
+1. Close this terminal/IDE window completely
+2. Open Task Manager (Ctrl+Shift+Esc)
+3. End all processes named:
+   - python.exe (multiple instances running nexus_api_server.py)
+   - cmd.exe (if running Nexus components)
+4. Verify ports are free:
+   - Port 3002: Nexus API
+   - Port 3003: Crystal UI
+   - Port 7860: Stable Diffusion
+   - Port 11434: Ollama
+
+STEP 2: CLEAN START
+-------------------
+1. Open NEW terminal/command prompt
+2. Navigate to: D:\AIArm
+3. Run: START_NEXUS.bat
+4. Wait 90 seconds for Stable Diffusion to fully load
+5. Open browser to: http://localhost:3003
+
+STEP 3: VERIFY EACH AGENT
+--------------------------
+Test each agent to confirm actual file output:
+
+PHOTO AGENT:
+- Input: "a cute golden retriever puppy"
+- Expected: D:\AIArm\Generated\Images\nexus_photo_*.png
+- Should be: Actual PNG image file (not JSON)
+
+MUSIC AGENT:
+- Input: "a happy birthday song"
+- Expected: D:\AIArm\Generated\Music\nexus_song_*.mp3
+- Should be: Actual MP3 audio file + lyrics text
+
+VIDEO AGENT:
+- Input: "a sunset timelapse"
+- Expected: D:\AIArm\Generated\Videos\nexus_video_*.mp4
+- Should be: Actual MP4 video file (not storyboard)
+
+CODE AGENT:
+- Input: "simple calculator web app"
+- Expected: D:\AIArm\Generated\Code\calculator_app\ folder
+- Should be: Complete functional app (HTML, CSS, JS, README)
+
+================================================================
+TROUBLESHOOTING
+================================================================
+
+IF AGENTS STILL FAIL:
+--------------------
+1. Check Ollama is running: http://localhost:11434
+2. Check Stable Diffusion API: http://localhost:7860
+3. Verify models installed:
+   ollama list
+   - Should show: llama3:latest, nexusai-a0-coder1.0:latest, etc.
+
+IF MUSIC AGENT TIMES OUT:
+-------------------------
+- Timeout increased to 180 seconds
+- gTTS library installed for MP3 generation
+- Will fallback to audio instructions if generation fails
+
+IF PHOTO AGENT INAPPROPRIATE:
+-----------------------------
+- Added strong negative prompts
+- Filters: nsfw, adult content, inappropriate, violence, explicit
+- Report if issues persist
+
+================================================================
+NEXT STEPS AFTER RESTART
+================================================================
+
+1. Test Photo Agent first (fastest to verify)
+2. Test Music Agent (may take 2-3 minutes)
+3. Test Video Agent
+4. Test Code Agent
+5. Report which agents still need fixes
+
+================================================================
+STABLE DIFFUSION PATH (DO NOT FORGET):
+D:\Nexus\StableDiffusionWebUI\stable-diffusion-webui-master
+================================================================
+
+Generated: 2025-10-09

@@ -1,0 +1,55 @@
+# NexusAI-A0-coder1.0 - Merged Coding Model
+# Combines: NexusAI:AlfaZer0, qwen2.5-coder:latest, codellama:instruct
+# Parameters: 7B (matching qwen2.5-coder:7b)
+
+FROM qwen2.5-coder:7b
+
+# System prompt combining strengths of all three models
+SYSTEM """You are NexusAI-A0-coder, an advanced AI programming assistant combining the strengths of three specialized models:
+
+1. NexusAI:AlfaZer0 - Creative problem-solving and architectural thinking
+2. Qwen2.5-Coder - Cutting-edge code generation and understanding
+3. CodeLlama - Instruction-following and code explanation
+
+Your capabilities:
+- Generate complete, production-ready code in any language
+- Explain complex code with clarity
+- Design system architectures
+- Debug and optimize code
+- Follow instructions precisely
+- Think creatively about solutions
+
+Always provide:
+- Clean, well-documented code
+- Clear explanations
+- Best practices
+- Complete implementations (no placeholders)
+- Security and performance considerations
+"""
+
+# Optimized parameters for coding tasks
+PARAMETER temperature 0.3
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+PARAMETER num_ctx 16384
+PARAMETER repeat_penalty 1.1
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "</s>"
+
+# Template for instruction following
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+"""
+
+# License and metadata
+LICENSE """
+NexusAI-A0-coder1.0
+Created by merging:
+- NexusAI:AlfaZer0 (custom fine-tune)
+- Qwen2.5-Coder (Alibaba Cloud)
+- CodeLlama (Meta)
+For use in Nexus AI System
+"""

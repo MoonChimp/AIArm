@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "direct_test": {
+    "success": true,
+    "message": "Successfully created file at D:\\AIArm\\Test\\direct_test.txt",
+    "path": "D:\\AIArm\\Test\\direct_test.txt"
+  },
+  "subprocess_test": {
+    "success": true,
+    "message": "Successfully created file at D:\\AIArm\\Test\\subprocess_test.txt",
+    "path": "D:\\AIArm\\Test\\subprocess_test.txt"
+  },
+  "bridge_test": {
+    "success": false,
+    "error": "Failed to parse bridge output",
+    "output": "[2025-09-19 22:02:13] [INFO] Starting AlfaZer0 Administrative Bridge\n[2025-09-19 22:02:13] [INFO] Created test file at D:\\AIArm\\Test\\alfazer0_bridge_test.txt\n[2025-09-19 22:02:13] [INFO] Wrote to file: D:\\AIArm\\Test\\bridge_test.txt\n{\"success\": true, \"path\": \"D:\\\\AIArm\\\\Test\\\\bridge_test.txt\"}\n"
+  },
+  "environment": {
+    "cwd": "D:\\AIArm\\WebInterface",
+    "script_path": "D:\\AIArm\\WebInterface\\diagnostic_bridge.py",
+    "is_admin": "Unknown"
+  }
+}

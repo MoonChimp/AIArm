@@ -1,0 +1,17 @@
+- **HomeScreen**: Main screen with a welcome message.
+- **ProfileScreen**: Screen for viewing and editing user profile.
+- **SettingsScreen**: Screen for application settings.
+
+## Features
+
+- Complete navigation using React Navigation.
+- Functional components for each screen.
+- Production-ready code.
+
+## Contributing
+
+Feel free to contribute by opening issues or pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

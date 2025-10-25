@@ -1,0 +1,20 @@
+Audio Generation Instructions for 'Can You Create A Heavy Metal'
+============================================================
+
+To generate audio for this song:
+
+Option 1 - Suno AI (Recommended):
+  1. Go to https://suno.ai
+  2. Input: can you create a heavy metal song cover of The Aramaic Lords Prayer
+  3. Style: rock
+  4. Download as MP3
+
+Option 2 - Local Tools:
+  Install: pip install bark gTTS pyttsx3
+  Then run Nexus again
+
+Song Data:
+  Title: Can You Create A Heavy Metal
+  Style: rock
+  Tempo: 120 BPM
+  Key: C

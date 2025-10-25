@@ -1,0 +1,17 @@
+{
+  "name": "nexusai-agent-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "versions/*"
+  ],
+  "scripts": {
+    "bootstrap": "npm install",
+    "build": "npm run build --workspaces",
+    "start:essential": "npm start --workspace=essential-version",
+    "start:basic": "npm start --workspace=basic-version",
+    "start:pro": "npm start --workspace=pro-version",
+    "start:full-a0": "npm start --workspace=full-a0-integration-version"
+  },
+  "devDependencies": {}
+}

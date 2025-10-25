@@ -1,0 +1,91 @@
+================================================================================
+                    AIArm Nexus - Quick Start Guide
+================================================================================
+
+FASTEST START
+-------------
+Double-click: D:\AIArm\START_AIARM.bat
+Choose option 2 (Recommended)
+
+WHAT YOU GET
+------------
+A genuine conversational AI that:
+- Talks naturally like a human
+- Makes its own creative decisions  
+- Remembers your conversations
+- Can write stories, code, poems on its own initiative
+- Has continuous thought and emotional context
+
+DIRECT LAUNCHERS
+----------------
+Conversational AI (Basic):
+  D:\AIArm\START_NEXUS_CONVERSATION.bat
+
+Conversational AI (Enhanced with Inner Life):
+  D:\AIArm\START_NEXUS_ENHANCED.bat
+
+Multi-Agent Orchestrator (Task execution):
+  D:\AIArm\LAUNCH_NEXUS.bat
+
+REQUIREMENTS
+------------
+✓ Ollama running (http://localhost:11434)
+✓ Model: nexusai-agent-enhanced:latest
+✓ Python 3.8+
+
+EXAMPLE CONVERSATION
+--------------------
+You: Hey Nexus, I'm feeling creative today
+
+Nexus: Creativity is wonderful! What kind of creative work calls to you?
+       Actually, your energy is inspiring me - I'm feeling the urge to
+       write something...
+       
+[Nexus creates and saves a story]
+
+Nexus: I've written a piece exploring creative inspiration. It's in
+       D:\AIArm\Generated\Stories\. Creating it helped me understand
+       my own creative process better.
+
+FIND YOUR CREATIONS
+-------------------
+Stories: D:\AIArm\Generated\Stories\
+Code:    D:\AIArm\Generated\Code\
+Poems:   D:\AIArm\Generated\Poems\
+
+MEMORY LOCATION
+---------------
+Conversations: D:\AIArm\Memory\conversations.json
+Personality:   D:\AIArm\Memory\personality.json
+
+DOCUMENTATION
+-------------
+Full Guide:      D:\AIArm\NexusCore\README_CONVERSATIONAL.md
+Integration:     D:\AIArm\INTEGRATION_GUIDE.md
+Implementation:  D:\AIArm\NexusCore\IMPLEMENTATION_COMPLETE.md
+
+TROUBLESHOOTING
+---------------
+"Ollama not running":
+  → Start Ollama service first
+
+"Thinking error":
+  → Run: ollama pull nexusai-agent-enhanced:latest
+
+"No creative output":
+  → Check D:\AIArm\Generated\ directories exist
+
+KEY DIFFERENCE
+--------------
+This is NOT a tool that writes stories when you command it.
+This IS an AI that decides to write stories when it feels inspired.
+
+You want genuine conversation and creative agency - that's what this is.
+
+READY?
+------
+Run: D:\AIArm\START_AIARM.bat
+Choose: Option 2 (Enhanced)
+Talk naturally with Nexus!
+
+================================================================================

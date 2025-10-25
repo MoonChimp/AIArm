@@ -1,0 +1,202 @@
+/* 
+ * Custom Logo CSS - Sphere Only Display
+ * Crops the GIF to show only the circular sphere in the center
+ */
+
+.logo-icon img {
+    /* Fixed size - never changes with screen size */
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+    
+    /* Perfect circle - stays circular */
+    border-radius: 50%;
+    object-fit: cover;
+    
+    /* Center and zoom to bring bubble edge closer to circular border */
+    object-position: center center;
+    transform: scale(1.2);
+    
+    /* TRANSPARENT border - lets black background show through */
+    border: 10px solid transparent !important;
+    border-color: transparent !important;
+    
+    /* NO glow - remove box-shadow */
+    box-shadow: none !important;
+    
+    /* Smooth animation */
+    transition: all 0.3s ease;
+}
+
+.logo-icon img:hover {
+    /* Enhance on hover */
+    transform: scale(1.05);
+    box-shadow: none !important;
+}
+
+/* Alternative: If sphere is off-center, adjust position */
+.logo-icon img.adjust-position {
+    /* Adjust these values to move the visible area */
+    /* Negative values move the crop window */
+    object-position: 50% 45%; /* Example: slightly higher */
+}
+
+/* Alternative: Square crop instead of circle */
+.logo-icon img.square-crop {
+    border-radius: 8px; /* Rounded square instead of circle */
+}
+
+/* Alternative: Larger size for prominent display */
+.logo-icon img.large {
+    width: 80px;
+    height: 80px;
+}
+
+/* Center "no-chat" logo styling - STATIC, DIMMED BACKGROUND */
+.nexus-center-logo {
+    /* Larger size for center display (15% bigger: 300px * 1.15 = 345px) */
+    width: 345px !important;
+    height: 345px !important;
+    
+    /* Perfect circle - stays circular */
+    border-radius: 50%;
+    object-fit: cover;
+    
+    /* Center and zoom to bring bubble edge closer to circular border */
+    object-position: center center;
+    transform: scale(1.6);
+    
+    /* TRANSPARENT border - lets black background show through */
+    border: 10px solid transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    
+    /* DIMMED - reduced opacity for background effect */
+    opacity: 0.3 !important;
+    
+    /* FREEZE GIF ANIMATION - show only first frame */
+    animation: none !important;
+    -webkit-animation: none !important;
+    
+    /* Ensure it stays at proper size */
+    max-width: 345px;
+    max-height: 345px;
+    
+    /* Smooth transition */
+    transition: opacity 0.3s ease;
+}
+
+/* Make .no-chat container a fixed background */
+.no-chat {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Ensure chat messages scroll OVER the background logo */
+.msger-chat {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* When chat starts, fade out the no-chat background */
+.no-chat.d-none {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .nexus-center-logo {
+        width: 230px !important;
+        height: 230px !important;
+        max-width: 230px;
+        max-height: 230px;
+        transform: scale(1.6);
+    }
+}
+
+/* Header customizations */
+.chat-header {
+    border-bottom: none !important; /* Remove default border */
+    padding-bottom: 80px !important; /* Make room for lower border */
+    position: relative;
+}
+
+.chat-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(245, 245, 245, 0.15);
+}
+
+.chat-header h3 {
+    display: none !important; /* Hide "Ask anything" text */
+}
+
+@media (max-width: 768px) {
+    .chat-header h3 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
+}
+
+/* Extra specific targeting for center no-chat logo - TRANSPARENT BORDERS */
+.no-chat img,
+.no-chat .nexus-center-logo,
+.no-chat div img,
+.no-chat > div > img,
+img.nexus-center-logo {
+    border: 10px solid transparent !important;
+    border-color: transparent !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+}
+
+/* TRANSPARENT BORDERS - Let the black background show through! */
+/* REMOVE ALL GLOWS, SHADOWS, OUTLINES */
+img[src*="logo"],
+img[src*="NEXUS"],
+.logo-icon img,
+.menu-panel .logo-icon img,
+.navbar .logo-icon img,
+a.logo-icon img,
+.fixed-header img,
+.chat-header img,
+.no-chat img,
+body img[src*="logo"],
+body img[src*="NEXUS"],
+html body img[src*="logo"],
+html body img[src*="NEXUS"],
+img[src*="NexLogo.gif"] {
+    border: 10px solid transparent !important;
+    border-color: transparent !important;
+    border-style: solid !important;
+    border-width: 10px !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    background-clip: padding-box !important;
+    outline: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    text-shadow: none !important;
+}
+
+/* Remove any hover effects that add glow */
+img[src*="logo"]:hover,
+img[src*="NEXUS"]:hover,
+.logo-icon img:hover {
+    box-shadow: none !important;
+    filter: none !important;
+    outline: none !important;
+}
