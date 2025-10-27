@@ -1,0 +1,21 @@
+Loaded 1000 thoughts
+Loaded associative memory with 1672 connections
+Loaded emotional state
+Loaded 1672 concepts
+Traceback (most recent call last):
+  File "D:\AIArm\InnerLife\memory_visualizer.py", line 638, in <module>
+    main()
+    ~~~~^^
+  File "D:\AIArm\InnerLife\memory_visualizer.py", line 625, in main
+    visualizer.start_server()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AIArm\InnerLife\memory_visualizer.py", line 587, in start_server
+    self.server = socketserver.TCPServer(("", self.port), handler)
+                  ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moonc\AppData\Local\Programs\Python\Python313\Lib\socketserver.py", line 457, in __init__
+    self.server_bind()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\moonc\AppData\Local\Programs\Python\Python313\Lib\socketserver.py", line 478, in server_bind
+    self.socket.bind(self.server_address)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted

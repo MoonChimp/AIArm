@@ -1,0 +1,26 @@
+Error loading config.json: Unexpected token '}', "} 
+" is not valid JSON
+Using default configuration
+[2025-09-17T01:37:35.469Z] Starting HRM Error Monitor
+node:fs:2409
+    return binding.writeFileUtf8(
+                   ^
+
+Error: EBUSY: resource busy or locked, open 'D:\AIArm\Logs\error_monitor.log'
+    at Object.writeFileSync (node:fs:2409:20)
+    at Object.appendFileSync (node:fs:2491:6)
+    at logMessage (D:\AIArm\WebInterface\error_monitor.js:36:6)
+    at startMonitoring (D:\AIArm\WebInterface\error_monitor.js:368:3)
+    at Object.<anonymous> (D:\AIArm\WebInterface\error_monitor.js:388:1)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Object..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  errno: -4082,
+  code: 'EBUSY',
+  syscall: 'open',
+  path: 'D:\\AIArm\\Logs\\error_monitor.log'
+}
+
+Node.js v24.3.0

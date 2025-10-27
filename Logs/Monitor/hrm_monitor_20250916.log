@@ -1,0 +1,53 @@
+[2025-09-16 08:52:18] [INFO] ================================================================================
+[2025-09-16 08:52:18] [INFO] HRM System Monitor Starting
+[2025-09-16 08:52:18] [INFO] ================================================================================
+[2025-09-16 08:52:18] [INFO] Starting HRM System Monitor
+[2025-09-16 08:52:18] [INFO] Monitoring system at http://localhost:45678/api/status
+[2025-09-16 08:52:18] [INFO] Checking every 60 seconds
+[2025-09-16 08:52:18] [INFO] Logs will be written to D:\AIArm\Logs\Monitor
+[2025-09-16 21:37:34] [INFO] ================================================================================
+[2025-09-16 21:37:34] [INFO] HRM System Monitor Starting
+[2025-09-16 21:37:34] [INFO] ================================================================================
+[2025-09-16 21:37:34] [INFO] Starting HRM System Monitor
+[2025-09-16 21:37:34] [INFO] Monitoring system at http://localhost:45678/api/status
+[2025-09-16 21:37:34] [INFO] Checking every 60 seconds
+[2025-09-16 21:37:34] [INFO] Logs will be written to D:\AIArm\Logs\Monitor
+[2025-09-16 21:37:36] [INFO] System status: OK (Response time: 2.14s)
+[2025-09-16 21:38:37] [INFO] System status: OK (Response time: 0.68s)
+[2025-09-16 21:39:38] [INFO] System status: OK (Response time: 0.65s)
+[2025-09-16 21:40:38] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 21:41:39] [INFO] System status: OK (Response time: 0.58s)
+[2025-09-16 21:42:40] [INFO] System status: OK (Response time: 0.66s)
+[2025-09-16 21:43:40] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 21:44:41] [INFO] System status: OK (Response time: 0.53s)
+[2025-09-16 21:45:41] [INFO] System status: OK (Response time: 0.64s)
+[2025-09-16 21:46:42] [INFO] System status: OK (Response time: 0.65s)
+[2025-09-16 21:47:43] [INFO] System status: OK (Response time: 0.64s)
+[2025-09-16 21:48:43] [INFO] System status: OK (Response time: 0.71s)
+[2025-09-16 21:49:44] [INFO] System status: OK (Response time: 0.64s)
+[2025-09-16 21:50:45] [INFO] System status: OK (Response time: 0.66s)
+[2025-09-16 21:51:45] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 21:52:46] [INFO] System status: OK (Response time: 0.60s)
+[2025-09-16 21:53:47] [INFO] System status: OK (Response time: 0.60s)
+[2025-09-16 21:54:47] [INFO] System status: OK (Response time: 0.59s)
+[2025-09-16 21:55:48] [INFO] System status: OK (Response time: 0.59s)
+[2025-09-16 21:56:48] [INFO] System status: OK (Response time: 0.59s)
+[2025-09-16 21:57:49] [INFO] System status: OK (Response time: 0.74s)
+[2025-09-16 21:58:50] [INFO] System status: OK (Response time: 0.70s)
+[2025-09-16 21:59:50] [INFO] System status: OK (Response time: 0.63s)
+[2025-09-16 22:01:55] [INFO] System status: OK (Response time: 0.53s)
+[2025-09-16 22:02:56] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 22:03:56] [INFO] System status: OK (Response time: 0.58s)
+[2025-09-16 22:04:57] [INFO] System status: OK (Response time: 0.59s)
+[2025-09-16 22:05:58] [INFO] System status: OK (Response time: 0.61s)
+[2025-09-16 22:06:58] [INFO] System status: OK (Response time: 0.57s)
+[2025-09-16 22:07:59] [INFO] System status: OK (Response time: 0.64s)
+[2025-09-16 22:08:59] [INFO] System status: OK (Response time: 0.57s)
+[2025-09-16 22:10:00] [INFO] System status: OK (Response time: 0.57s)
+[2025-09-16 22:11:00] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 22:12:01] [INFO] System status: OK (Response time: 0.71s)
+[2025-09-16 22:13:02] [INFO] System status: OK (Response time: 0.57s)
+[2025-09-16 22:14:02] [INFO] System status: OK (Response time: 0.61s)
+[2025-09-16 22:15:03] [INFO] System status: OK (Response time: 0.61s)
+[2025-09-16 22:16:04] [INFO] System status: OK (Response time: 0.58s)
+[2025-09-16 22:17:04] [INFO] System status: OK (Response time: 0.61s)

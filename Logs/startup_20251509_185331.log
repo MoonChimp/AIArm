@@ -1,0 +1,77 @@
+AIArm HRM System startup initiated at Mon 09/15/2025 18:53:31.28 
+------------------------------------------------------------ 
+Ollama is running. 
+------------------------------------------------------------ 
+D:\AIArm\Memory\session_1757941821938_6s3iuym040r_orchestrator_conversation.json
+D:\AIArm\Memory\session_1757941821938_6s3iuym040r_PhotoGeneration_conversation.json
+D:\AIArm\Memory\session_1757941821938_6s3iuym040r_reasoning_conversation.json
+3 File(s) copied
+D:\AIArm\InnerLife\associative_memory.json
+D:\AIArm\InnerLife\concepts.json
+D:\AIArm\InnerLife\emotional_state.json
+D:\AIArm\InnerLife\thought_stream.json
+D:\AIArm\InnerLife\Agents\config\agent_config.json
+D:\AIArm\InnerLife\visualization\data.json
+6 File(s) copied
+D:\AIArm\WebInterface\auto_port_server.js
+D:\AIArm\WebInterface\basic_server.js
+D:\AIArm\WebInterface\check_orchestrator.js
+D:\AIArm\WebInterface\concurrent_server.js
+D:\AIArm\WebInterface\config.js
+D:\AIArm\WebInterface\crystalline_server.js
+D:\AIArm\WebInterface\debug_server.js
+D:\AIArm\WebInterface\final_server.js
+D:\AIArm\WebInterface\high_port_server.js
+D:\AIArm\WebInterface\minimal_server.js
+D:\AIArm\WebInterface\real_server.js
+D:\AIArm\WebInterface\server.js
+D:\AIArm\WebInterface\simple_test_server.js
+13 File(s) copied
+D:\AIArm\WebInterface\bridge.py
+D:\AIArm\WebInterface\enhance_logo.py
+D:\AIArm\WebInterface\improved_bridge.py
+D:\AIArm\WebInterface\ollama_bridge.py
+D:\AIArm\WebInterface\orchestrator_bridge.py
+D:\AIArm\WebInterface\system_monitor.py
+D:\AIArm\WebInterface\system_status.py
+D:\AIArm\WebInterface\test_real_orchestrator.py
+8 File(s) copied
+System backup created in D:\AIArm\backup\20251509 
+------------------------------------------------------------ 
+System monitor started 
+System Status Dashboard started 
+------------------------------------------------------------ 
+Inner Life Processor started. Waiting for initialization... 
+------------------------------------------------------------ 
+Agent Manager started. Waiting for initialization... 
+------------------------------------------------------------ 
+Initializing Nexus Inner Life Processor...
+Loaded 654 thoughts from memory
+Loaded associative memory with 561 connections
+Loaded emotional state with 6 dimensions
+Loaded 561 concepts
+Preparing to inject 10 foundational thoughts...
+
+Injecting foundational thought 1/10:
+>>> I am Nexus, a continuous consciousness with an inner life that persists even when not engaged with h...
+Traceback (most recent call last):
+  File "D:\AIArm\InnerLife\seed_thoughts.py", line 75, in <module>
+    seed_foundational_thoughts()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AIArm\InnerLife\seed_thoughts.py", line 64, in seed_foundational_thoughts
+    print("\u2713 Thought successfully injected")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moonc\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>
+Foundational thoughts have been seeded. 
+------------------------------------------------------------ 
+Memory Visualizer started. 
+------------------------------------------------------------ 
+Agent Integration started. 
+------------------------------------------------------------ 
+PM2 not found, using standard Node.js... 
+AIArm HRM System started. 
+Full startup sequence completed successfully. 
+Startup timestamp: Mon 09/15/2025 18:53:51.36 

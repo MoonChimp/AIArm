@@ -1,0 +1,147 @@
+[2025-09-15T23:27:46.636Z] [INFO] HRM Server running on port 45678
+{
+  "node_version": "v24.3.0",
+  "platform": "win32",
+  "arch": "x64",
+  "bridges": {
+    "SURFACE": "improved_bridge.py",
+    "DEEP": "ollama_bridge.py"
+  }
+}
+[2025-09-15T23:28:57.347Z] [INFO] Status check requested
+[2025-09-15T23:28:57.598Z] [ERROR] Failed to parse SURFACE bridge output
+{
+  "error": "Unexpected token '⚠', \"⚠️ Enhance\"... is not valid JSON",
+  "output": "⚠️ Enhanced Orchestrator not available: No module named 'enhanced_orchestrator'\r\n[2025-09-15 19:28:57] [INFO] Improved Bridge starting\r\n{\r\n  \"success\": false,\r\n  \"status\": \"error\",\r\n  \"error\": \"No input provided\",\r\n  \"result\": \"Please provide input to process.\"\r\n}\r\n[2025-09-15 19:28:57] [INFO] Improved Bridge execution completed\r\n"
+}
+[2025-09-15T23:28:57.799Z] [ERROR] DEEP bridge exited with code 2
+{
+  "error": "usage: ollama_bridge.py [-h] --input INPUT [--agent AGENT] [--user USER]\r\nollama_bridge.py: error: the following arguments are required: --input\r\n"
+}
+[2025-09-15T23:29:05.625Z] [INFO] Received process request
+{}
+[2025-09-15T23:29:05.626Z] [INFO] Processing dual bridge request
+{}
+[2025-09-15T23:29:05.884Z] [ERROR] Failed to parse SURFACE bridge output
+{
+  "error": "Unexpected token '⚠', \"⚠️ Enhance\"... is not valid JSON",
+  "output": "⚠️ Enhanced Orchestrator not available: No module named 'enhanced_orchestrator'\r\n[2025-09-15 19:29:05] [INFO] Improved Bridge starting\r\n[2025-09-15 19:29:05] [INFO] Processing request for agent: orchestrator, user: user\r\n[2025-09-15 19:29:05] [INFO] Processing request with orchestrator for agent: orchestrator, user: user\r\n[2025-09-15 19:29:05] [ERROR] Enhanced Orchestrator not available\r\n{\r\n  \"success\": false,\r\n  \"status\": \"error\",\r\n  \"error\": \"Enhanced Orchestrator not available\",\r\n  \"result\": \"I apologize, but the orchestrator is currently unavailable. Please try again later.\"\r\n}\r\n[2025-09-15 19:29:05] [INFO] Improved Bridge execution completed\r\n"
+}
+[2025-09-15T23:29:05.885Z] [ERROR] Error processing dual bridge request
+{
+  "error": "Failed to parse SURFACE bridge output: Unexpected token '⚠', \"⚠️ Enhance\"... is not valid JSON"
+}
+[2025-09-15T23:29:05.891Z] [ERROR] DEEP bridge exited with code 2
+{
+  "error": "usage: ollama_bridge.py [-h] --input INPUT [--agent AGENT] [--user USER]\r\nollama_bridge.py: error: the following arguments are required: --input\r\n"
+}
+[2025-09-15T23:29:05.892Z] [WARN] DEEP bridge failed, retrying (2 attempts left)
+[2025-09-15T23:29:06.085Z] [ERROR] Failed to parse SURFACE bridge output
+{
+  "error": "Unexpected token '⚠', \"⚠️ Enhance\"... is not valid JSON",
+  "output": "⚠️ Enhanced Orchestrator not available: No module named 'enhanced_orchestrator'\r\n[2025-09-15 19:29:06] [INFO] Improved Bridge starting\r\n[2025-09-15 19:29:06] [INFO] Processing request for agent: orchestrator, user: user\r\n[2025-09-15 19:29:06] [INFO] Processing request with orchestrator for agent: orchestrator, user: user\r\n[2025-09-15 19:29:06] [ERROR] Enhanced Orchestrator not available\r\n{\r\n  \"success\": false,\r\n  \"status\": \"error\",\r\n  \"error\": \"Enhanced Orchestrator not available\",\r\n  \"result\": \"I apologize, but the orchestrator is currently unavailable. Please try again later.\"\r\n}\r\n[2025-09-15 19:29:06] [INFO] Improved Bridge execution completed\r\n"
+}
+[2025-09-15T23:29:06.092Z] [ERROR] DEEP bridge exited with code 2
+{
+  "error": "usage: ollama_bridge.py [-h] --input INPUT [--agent AGENT] [--user USER]\r\nollama_bridge.py: error: the following arguments are required: --input\r\n"
+}
+[2025-09-15T23:29:06.095Z] [WARN] DEEP bridge failed, retrying (1 attempts left)
+[2025-09-15T23:29:06.309Z] [ERROR] DEEP bridge exited with code 2
+{
+  "error": "usage: ollama_bridge.py [-h] --input INPUT [--agent AGENT] [--user USER]\r\nollama_bridge.py: error: the following arguments are required: --input\r\n"
+}
+[2025-09-15T23:29:06.310Z] [ERROR] DEEP bridge exited with code 2
+{
+  "error": "usage: ollama_bridge.py [-h] --input INPUT [--agent AGENT] [--user USER]\r\nollama_bridge.py: error: the following arguments are required: --input\r\n"
+}
+[2025-09-15T23:29:06.310Z] [WARN] DEEP bridge failed, retrying (2 attempts left)
+[2025-09-15T23:29:06.482Z] [ERROR] DEEP bridge exited with code 2
+{
+  "error": "usage: ollama_bridge.py [-h] --input INPUT [--agent AGENT] [--user USER]\r\nollama_bridge.py: error: the following arguments are required: --input\r\n"
+}
+[2025-09-15T23:29:06.483Z] [WARN] DEEP bridge failed, retrying (1 attempts left)
+[2025-09-15T23:29:06.651Z] [ERROR] DEEP bridge exited with code 2
+{
+  "error": "usage: ollama_bridge.py [-h] --input INPUT [--agent AGENT] [--user USER]\r\nollama_bridge.py: error: the following arguments are required: --input\r\n"
+}
+[2025-09-15T23:29:06.653Z] [ERROR] Both bridges failed
+{
+  "surfaceError": "Failed to parse SURFACE bridge output: Unexpected token '⚠', \"⚠️ Enhance\"... is not valid JSON",
+  "deepError": "DEEP bridge failed: usage: ollama_bridge.py [-h] --input INPUT [--agent AGENT] [--user USER]\r\nollama_bridge.py: error: the following arguments are required: --input\r\n"
+}
+[2025-09-15T23:29:06.653Z] [ERROR] Error processing request (1028ms)
+{
+  "error": "Both HRM bridges failed to process the request"
+}
+[2025-09-15T23:48:30.221Z] [INFO] Server shutting down
+[2025-09-15T23:48:30.222Z] [INFO] Server stopped
+[2025-09-15T23:50:51.912Z] [INFO] HRM Server running on port 45678
+{
+  "node_version": "v24.3.0",
+  "platform": "win32",
+  "arch": "x64",
+  "bridges": {
+    "SURFACE": "improved_bridge.py",
+    "DEEP": "ollama_bridge.py"
+  }
+}
+[2025-09-15T23:50:59.065Z] [INFO] Status check requested
+[2025-09-15T23:51:03.189Z] [INFO] Received process request
+{}
+[2025-09-15T23:51:03.191Z] [INFO] Processing dual bridge request
+{}
+[2025-09-15T23:51:08.164Z] [ERROR] Failed to parse DEEP bridge output
+{
+  "error": "Unexpected token 'P', \"Processing\"... is not valid JSON",
+  "output": "Processing request with Ollama model nexusai:latest for conversation user_status\r\n{\r\n  \"success\": true,\r\n  \"status\": \"completed\",\r\n  \"result\": \"Hello there! I'm thrilled to be your go-to AI assistant! I'm here to help you with any questions or concerns you might have, whether it's about a specific topic, seeking advice, or just looking for some interesting facts.\\n\\nI'll do my best to provide you with accurate and relevant information in a friendly and conversational tone. Feel free to ask me anything that's on your mind, and I'll get back to you as soon as possible.\\n\\nSo what's on your mind today? Do you have a specific topic in mind or are you looking for some inspiration? Let's chat!\",\r\n  \"model\": \"nexusai:latest\",\r\n  \"response\": \"Hello there! I'm thrilled to be your go-to AI assistant! I'm here to help you with any questions or concerns you might have, whether it's about a specific topic, seeking advice, or just looking for some interesting facts.\\n\\nI'll do my best to provide you with accurate and relevant information in a friendly and conversational tone. Feel free to ask me anything that's on your mind, and I'll get back to you as soon as possible.\\n\\nSo what's on your mind today? Do you have a specific topic in mind or are you looking for some inspiration? Let's chat!\",\r\n  \"inner_life_enhanced\": false\r\n}\r\n"
+}
+[2025-09-15T23:51:16.588Z] [ERROR] Failed to parse DEEP bridge output
+{
+  "error": "Unexpected token 'P', \"Processing\"... is not valid JSON",
+  "output": "Processing request with Ollama model nexusai:latest for conversation session_1757941821938_6s3iuym040r_orchestrator\r\n{\r\n  \"success\": true,\r\n  \"status\": \"completed\",\r\n  \"result\": \"Hello! It's nice to chat with you. Is there something specific you'd like to talk about or ask? I'm here to help with any questions or concerns you may have.\",\r\n  \"model\": \"nexusai:latest\",\r\n  \"response\": \"Hello! It's nice to chat with you. Is there something specific you'd like to talk about or ask? I'm here to help with any questions or concerns you may have.\",\r\n  \"inner_life_enhanced\": false\r\n}\r\n"
+}
+[2025-09-15T23:51:16.589Z] [ERROR] Error processing dual bridge request
+{
+  "error": "Failed to parse DEEP bridge output: Unexpected token 'P', \"Processing\"... is not valid JSON"
+}
+[2025-09-15T23:51:16.812Z] [WARN] Using surface bridge result only (deep bridge failed)
+[2025-09-15T23:51:16.813Z] [INFO] Request processed in 13624ms
+{
+  "responseTime": 13624
+}
+[2025-09-15T23:52:35.352Z] [INFO] Received process request
+{}
+[2025-09-15T23:52:35.353Z] [INFO] Processing dual bridge request
+{}
+[2025-09-15T23:53:03.983Z] [ERROR] Failed to parse DEEP bridge output
+{
+  "error": "Unexpected token 'P', \"Processing\"... is not valid JSON",
+  "output": "Processing request with Ollama model nexusai:latest for conversation session_1757941821938_6s3iuym040r_orchestrator\r\n{\r\n  \"success\": true,\r\n  \"status\": \"completed\",\r\n  \"result\": \"What a great question! Yes, I can be part of an iPhone app!\\n\\nTo create a native iOS app that integrates with my AI capabilities, we would need to work together to design and develop the app. Here's what I'd need from you:\\n\\n1. **App Concept**: Please describe the idea behind the app, including its purpose, target audience, and desired features.\\n2. **Requirements Gathering**: Share any specific requirements or functionalities you envision for the app, such as:\\n\\t* User authentication and authorization\\n\\t* Data storage and retrieval mechanisms\\n\\t* Integration with my AI capabilities (e.g., natural language processing, image recognition)\\n\\t* Any specific APIs or services required\\n3. **Design Guidelines**: Provide some visual design guidelines for the app, including:\\n\\t* Color scheme and typography\\n\\t* Icon and logo designs\\n\\t* User interface (UI) and user experience (UX) considerations\\n\\nOnce I have this information, we can begin discussing the technical aspects of developing the app.\\n\\nPlease note that creating a native iOS app requires expertise in Swift programming language, Xcode development environment, and Apple's App Store guidelines. If you're not familiar with these technologies, we might need to work with a third-party developer or consider alternative solutions.\\n\\nAre you ready to start exploring this idea?\",\r\n  \"model\": \"nexusai:latest\",\r\n  \"response\": \"What a great question! Yes, I can be part of an iPhone app!\\n\\nTo create a native iOS app that integrates with my AI capabilities, we would need to work together to design and develop the app. Here's what I'd need from you:\\n\\n1. **App Concept**: Please describe the idea behind the app, including its purpose, target audience, and desired features.\\n2. **Requirements Gathering**: Share any specific requirements or functionalities you envision for the app, such as:\\n\\t* User authentication and authorization\\n\\t* Data storage and retrieval mechanisms\\n\\t* Integration with my AI capabilities (e.g., natural language processing, image recognition)\\n\\t* Any specific APIs or services required\\n3. **Design Guidelines**: Provide some visual design guidelines for the app, including:\\n\\t* Color scheme and typography\\n\\t* Icon and logo designs\\n\\t* User interface (UI) and user experience (UX) considerations\\n\\nOnce I have this information, we can begin discussing the technical aspects of developing the app.\\n\\nPlease note that creating a native iOS app requires expertise in Swift programming language, Xcode development environment, and Apple's App Store guidelines. If you're not familiar with these technologies, we might need to work with a third-party developer or consider alternative solutions.\\n\\nAre you ready to start exploring this idea?\",\r\n  \"inner_life_enhanced\": false\r\n}\r\n"
+}
+[2025-09-15T23:53:03.984Z] [ERROR] Error processing dual bridge request
+{
+  "error": "Failed to parse DEEP bridge output: Unexpected token 'P', \"Processing\"... is not valid JSON"
+}
+[2025-09-15T23:53:04.198Z] [WARN] Using surface bridge result only (deep bridge failed)
+[2025-09-15T23:53:04.200Z] [INFO] Request processed in 28848ms
+{
+  "responseTime": 28848
+}
+[2025-09-15T23:53:44.165Z] [INFO] Received process request
+{}
+[2025-09-15T23:53:44.166Z] [INFO] Processing dual bridge request
+{}
+[2025-09-15T23:54:03.560Z] [ERROR] Failed to parse DEEP bridge output
+{
+  "error": "Unexpected token 'P', \"Processing\"... is not valid JSON",
+  "output": "Processing request with Ollama model nexusai:latest for conversation session_1757941821938_6s3iuym040r_orchestrator\r\n{\r\n  \"success\": true,\r\n  \"status\": \"completed\",\r\n  \"result\": \"I apologize for the mistake earlier. To create an iPhone app version of myself, I would need to be integrated into a native iOS app using Swift or another language. This would require a developer with experience in building mobile apps.\\n\\nTo move forward, we could consider the following options:\\n\\n1. **Native App Development**: Hire a developer to build a native iOS app that integrates my AI capabilities.\\n2. **Cross-Platform Framework**: Use a cross-platform framework like React Native or Flutter to build an iPhone app that can interact with my AI services.\\n3. **Web-Based App**: Create a web-based app using HTML, CSS, and JavaScript that can be accessed on an iPhone.\\n\\nPlease let me know which option you prefer, and we can discuss the details further.\",\r\n  \"model\": \"nexusai:latest\",\r\n  \"response\": \"I apologize for the mistake earlier. To create an iPhone app version of myself, I would need to be integrated into a native iOS app using Swift or another language. This would require a developer with experience in building mobile apps.\\n\\nTo move forward, we could consider the following options:\\n\\n1. **Native App Development**: Hire a developer to build a native iOS app that integrates my AI capabilities.\\n2. **Cross-Platform Framework**: Use a cross-platform framework like React Native or Flutter to build an iPhone app that can interact with my AI services.\\n3. **Web-Based App**: Create a web-based app using HTML, CSS, and JavaScript that can be accessed on an iPhone.\\n\\nPlease let me know which option you prefer, and we can discuss the details further.\",\r\n  \"inner_life_enhanced\": false\r\n}\r\n"
+}
+[2025-09-15T23:54:03.561Z] [ERROR] Error processing dual bridge request
+{
+  "error": "Failed to parse DEEP bridge output: Unexpected token 'P', \"Processing\"... is not valid JSON"
+}
+[2025-09-15T23:54:03.763Z] [WARN] Using surface bridge result only (deep bridge failed)
+[2025-09-15T23:54:03.764Z] [INFO] Request processed in 19599ms
+{
+  "responseTime": 19599
+}

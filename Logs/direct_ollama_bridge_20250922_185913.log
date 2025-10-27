@@ -1,0 +1,8 @@
+[2025-09-22 18:59:13] [INFO] Starting Direct Ollama Bridge
+[2025-09-22 18:59:13] [INFO] Connected to Ollama version 0.9.2
+[2025-09-22 18:59:13] [INFO] Connected to Ollama version 0.9.2
+[2025-09-22 18:59:13] [INFO] Selected model llama3:latest for agent orchestrator
+[2025-09-22 18:59:13] [INFO] Processing request for agent orchestrator with model llama3:latest
+[2025-09-22 18:59:13] [INFO] Sending request to Ollama API with model llama3:latest
+[2025-09-22 18:59:18] [INFO] Received response from Ollama (278 chars)
+[2025-09-22 18:59:18] [INFO] Direct Ollama Bridge execution completed

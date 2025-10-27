@@ -1,0 +1,9 @@
+[2025-09-17T01:13:17.400Z] System monitor started
+[2025-09-17T01:13:17.404Z] Checking system health every 60 seconds
+[2025-09-17T01:13:17.404Z] Maximum automatic restarts per day: 3
+[2025-09-17T01:13:17.405Z] Checking system health...
+[2025-09-17T01:13:17.406Z] Status file is too old: 37 minutes
+[2025-09-17T01:13:17.424Z] Server connection error: 
+[2025-09-17T01:13:17.425Z] System health check failed
+[2025-09-17T01:13:17.425Z] Initiating system restart (1/3 for today)
+[2025-09-17T01:13:17.426Z] Executing restart script...

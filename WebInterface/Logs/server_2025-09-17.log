@@ -1,0 +1,396 @@
+[2025-09-17T00:05:00.279Z] [INFO] Status check requested
+[2025-09-17T00:05:36.455Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:06:08.149Z] [INFO] Status check requested
+[2025-09-17T00:06:08.374Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:06:24.219Z] [INFO] Received process request
+{}
+[2025-09-17T00:06:24.220Z] [INFO] Processing dual bridge request
+{}
+[2025-09-17T00:06:24.545Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:06:24.552Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:06:24.807Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:06:24.807Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:06:25.047Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:06:25.047Z] [ERROR] Error processing dual bridge request
+{
+  "error": "SURFACE bridge failed: usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:06:25.330Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:06:25.330Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:06:25.622Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:06:25.622Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:06:25.867Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:07:13.159Z] [INFO] Status check requested
+[2025-09-17T00:07:13.426Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:07:14.132Z] [WARN] Using deep bridge result only (surface bridge failed)
+[2025-09-17T00:07:14.133Z] [INFO] Request processed in 49914ms
+{
+  "responseTime": 49914
+}
+[2025-09-17T00:08:18.174Z] [INFO] Status check requested
+[2025-09-17T00:08:18.372Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:09:23.192Z] [INFO] Status check requested
+[2025-09-17T00:09:23.390Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:09:53.598Z] [INFO] Received process request
+{}
+[2025-09-17T00:09:53.598Z] [INFO] Processing dual bridge request
+{}
+[2025-09-17T00:09:53.907Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:09:53.908Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:09:54.188Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:09:54.188Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:09:54.436Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:09:54.436Z] [ERROR] Error processing dual bridge request
+{
+  "error": "SURFACE bridge failed: usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:09:54.676Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:09:54.676Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:09:54.977Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:09:54.977Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:09:55.187Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:10:28.216Z] [INFO] Status check requested
+[2025-09-17T00:10:28.473Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:11:05.558Z] [WARN] Using deep bridge result only (surface bridge failed)
+[2025-09-17T00:11:05.558Z] [INFO] Request processed in 71960ms
+{
+  "responseTime": 71960
+}
+[2025-09-17T00:11:33.238Z] [INFO] Status check requested
+[2025-09-17T00:11:33.441Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:12:38.246Z] [INFO] Status check requested
+[2025-09-17T00:12:38.448Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:12:39.829Z] [INFO] Received process request
+{}
+[2025-09-17T00:12:39.829Z] [INFO] Processing dual bridge request
+{}
+[2025-09-17T00:12:40.109Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:12:40.109Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:12:40.364Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:12:40.364Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:12:40.582Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:12:40.582Z] [ERROR] Error processing dual bridge request
+{
+  "error": "SURFACE bridge failed: usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:12:40.805Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:12:40.806Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:12:41.054Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:12:41.055Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:12:41.345Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:13:43.263Z] [INFO] Status check requested
+[2025-09-17T00:13:43.488Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:14:41.356Z] [WARN] DEEP bridge timed out, retrying (2 attempts left)
+[2025-09-17T00:14:48.281Z] [INFO] Status check requested
+[2025-09-17T00:14:48.499Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:15:53.302Z] [INFO] Status check requested
+[2025-09-17T00:15:53.533Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:16:41.369Z] [WARN] DEEP bridge timed out, retrying (1 attempts left)
+[2025-09-17T00:16:48.506Z] [ERROR] DEEP bridge timed out after all retry attempts
+[2025-09-17T00:16:58.320Z] [INFO] Status check requested
+[2025-09-17T00:16:58.549Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:18:00.255Z] [WARN] Using deep bridge result only (surface bridge failed)
+[2025-09-17T00:18:00.256Z] [INFO] Request processed in 320427ms
+{
+  "responseTime": 320427
+}
+[2025-09-17T00:18:03.340Z] [INFO] Status check requested
+[2025-09-17T00:18:03.600Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:19:08.364Z] [INFO] Status check requested
+[2025-09-17T00:19:08.557Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:20:13.380Z] [INFO] Status check requested
+[2025-09-17T00:20:13.573Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:21:18.384Z] [INFO] Status check requested
+[2025-09-17T00:21:18.595Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:09.850Z] [INFO] Received process request
+{}
+[2025-09-17T00:22:09.850Z] [INFO] Processing dual bridge request
+{}
+[2025-09-17T00:22:10.061Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:10.061Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:22:10.261Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:10.262Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:22:10.443Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:10.443Z] [ERROR] Error processing dual bridge request
+{
+  "error": "SURFACE bridge failed: usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:10.633Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:10.633Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:22:10.835Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:10.835Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:22:11.049Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:23.408Z] [INFO] Status check requested
+[2025-09-17T00:22:23.628Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:22:46.909Z] [WARN] Using deep bridge result only (surface bridge failed)
+[2025-09-17T00:22:46.910Z] [INFO] Request processed in 37060ms
+{
+  "responseTime": 37060
+}
+[2025-09-17T00:23:28.426Z] [INFO] Status check requested
+[2025-09-17T00:23:28.642Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:24:33.442Z] [INFO] Status check requested
+[2025-09-17T00:24:33.640Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:15.968Z] [INFO] Received process request
+{}
+[2025-09-17T00:25:15.969Z] [INFO] Processing dual bridge request
+{}
+[2025-09-17T00:25:16.181Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:16.182Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:25:16.386Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:16.387Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:25:16.570Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:16.571Z] [ERROR] Error processing dual bridge request
+{
+  "error": "SURFACE bridge failed: usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:16.761Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:16.761Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:25:16.960Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:16.961Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:25:17.161Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:38.477Z] [INFO] Status check requested
+[2025-09-17T00:25:38.721Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:25:45.433Z] [WARN] Using deep bridge result only (surface bridge failed)
+[2025-09-17T00:25:45.433Z] [INFO] Request processed in 29465ms
+{
+  "responseTime": 29465
+}
+[2025-09-17T00:26:43.501Z] [INFO] Status check requested
+[2025-09-17T00:26:43.693Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:27:48.514Z] [INFO] Status check requested
+[2025-09-17T00:27:48.722Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:28:53.541Z] [INFO] Status check requested
+[2025-09-17T00:28:53.704Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:29:58.564Z] [INFO] Status check requested
+[2025-09-17T00:29:58.729Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:31:03.581Z] [INFO] Status check requested
+[2025-09-17T00:31:03.765Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:32:08.608Z] [INFO] Status check requested
+[2025-09-17T00:32:08.773Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:33:13.623Z] [INFO] Status check requested
+[2025-09-17T00:33:13.786Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:34:18.631Z] [INFO] Status check requested
+[2025-09-17T00:34:18.822Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:35:23.668Z] [INFO] Status check requested
+[2025-09-17T00:35:23.834Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:36:25.810Z] [INFO] Received process request
+{}
+[2025-09-17T00:36:25.810Z] [INFO] Processing dual bridge request
+{}
+[2025-09-17T00:36:26.029Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:36:26.029Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:36:26.223Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:36:26.223Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:36:26.425Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:36:26.425Z] [ERROR] Error processing dual bridge request
+{
+  "error": "SURFACE bridge failed: usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:36:26.616Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:36:26.617Z] [WARN] SURFACE bridge failed, retrying (2 attempts left)
+[2025-09-17T00:36:26.810Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:36:26.810Z] [WARN] SURFACE bridge failed, retrying (1 attempts left)
+[2025-09-17T00:36:27.011Z] [ERROR] SURFACE bridge exited with code 2
+{
+  "error": "usage: improved_bridge.py [-h] [--input INPUT] [--agent AGENT] [--user USER]\r\nimproved_bridge.py: error: unrecognized arguments: --json\r\n"
+}
+[2025-09-17T00:36:54.967Z] [WARN] Using deep bridge result only (surface bridge failed)
+[2025-09-17T00:36:54.967Z] [INFO] Request processed in 29157ms
+{
+  "responseTime": 29157
+}
+[2025-09-17T01:11:56.954Z] [INFO] Server shutting down
+[2025-09-17T01:11:56.956Z] [INFO] Server stopped

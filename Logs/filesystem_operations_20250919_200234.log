@@ -1,0 +1,12 @@
+[2025-09-19 20:02:34] [INFO] FileSystem Operations starting
+[2025-09-19 20:02:34] [INFO] Input provided via command line: {"operation":"get_file_info","path":"D:\\"}
+[2025-09-19 20:02:34] [INFO] Getting file info: D:\
+[2025-09-19 20:02:34] [INFO] Returning result: {
+  "success": true,
+  "info": {
+    "size": 65536,
+    "created": "2025-06-09T15:20:49.626042",
+    "modified": "2025-09-16T20:42:20.018988",
+    "accessed": "2025-09-19T19:58:31.154819",
+    "is_dir
+[2025-09-19 20:02:34] [INFO] FileSystem Operations execution completed

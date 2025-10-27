@@ -1,0 +1,14 @@
+[2025-09-19 21:52:23] [INFO] FileSystem Operations starting
+[2025-09-19 21:52:23] [INFO] Input provided via command line: {"operation":"list_directory","path":"D:\\"}
+[2025-09-19 21:52:23] [INFO] Listing directory: D:\
+[2025-09-19 21:52:23] [INFO] Returning result: {
+  "success": true,
+  "items": [
+    {
+      "name": "  +   `mkdir SSH_Keys`",
+      "type": "file",
+      "path": "D:\\  +   `mkdir SSH_Keys`"
+    },
+    {
+      "name": "  +   `mkdir SSH_Keys`.pub"
+[2025-09-19 21:52:23] [INFO] FileSystem Operations execution completed

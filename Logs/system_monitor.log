@@ -1,0 +1,101 @@
+[2025-09-16 21:37:34] [INFO] ================================================================================
+[2025-09-16 21:37:34] [INFO] HRM System Monitor Starting
+[2025-09-16 21:37:34] [INFO] ================================================================================
+[2025-09-16 21:37:34] [INFO] Starting HRM System Monitor
+[2025-09-16 21:37:34] [INFO] Monitoring system at http://localhost:45678/api/status
+[2025-09-16 21:37:34] [INFO] Checking every 60 seconds
+[2025-09-16 21:37:34] [INFO] Logs will be written to D:\AIArm\Logs\Monitor
+[2025-09-16 21:37:36] [INFO] System status: OK (Response time: 2.14s)
+[2025-09-16 21:37:36] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:38:37] [INFO] System status: OK (Response time: 0.68s)
+[2025-09-16 21:38:37] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:39:38] [INFO] System status: OK (Response time: 0.65s)
+[2025-09-16 21:39:38] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:40:38] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 21:40:38] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:41:39] [INFO] System status: OK (Response time: 0.58s)
+[2025-09-16 21:41:39] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:41:39] [CRITICAL] ALERT: System has failed 5 consecutive checks
+[2025-09-16 21:41:39] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:42:40] [INFO] System status: OK (Response time: 0.66s)
+[2025-09-16 21:42:40] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:42:40] [CRITICAL] ALERT: System has failed 6 consecutive checks
+[2025-09-16 21:42:40] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:43:40] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 21:43:40] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:43:40] [CRITICAL] ALERT: System has failed 7 consecutive checks
+[2025-09-16 21:43:40] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:44:41] [INFO] System status: OK (Response time: 0.53s)
+[2025-09-16 21:44:41] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:44:41] [CRITICAL] ALERT: System has failed 8 consecutive checks
+[2025-09-16 21:44:41] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:45:41] [INFO] System status: OK (Response time: 0.64s)
+[2025-09-16 21:45:41] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:45:41] [CRITICAL] ALERT: System has failed 9 consecutive checks
+[2025-09-16 21:45:41] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:46:42] [INFO] System status: OK (Response time: 0.65s)
+[2025-09-16 21:46:42] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:46:42] [CRITICAL] ALERT: System has failed 10 consecutive checks
+[2025-09-16 21:46:42] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:47:43] [INFO] System status: OK (Response time: 0.64s)
+[2025-09-16 21:47:43] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:47:43] [CRITICAL] ALERT: System has failed 11 consecutive checks
+[2025-09-16 21:47:43] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:48:43] [INFO] System status: OK (Response time: 0.71s)
+[2025-09-16 21:48:43] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:48:43] [CRITICAL] ALERT: System has failed 12 consecutive checks
+[2025-09-16 21:48:43] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:49:44] [INFO] System status: OK (Response time: 0.64s)
+[2025-09-16 21:49:44] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:49:44] [CRITICAL] ALERT: System has failed 13 consecutive checks
+[2025-09-16 21:49:44] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:50:45] [INFO] System status: OK (Response time: 0.66s)
+[2025-09-16 21:50:45] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:50:45] [CRITICAL] ALERT: System has failed 14 consecutive checks
+[2025-09-16 21:50:45] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:51:45] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 21:51:45] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:51:45] [CRITICAL] ALERT: System has failed 15 consecutive checks
+[2025-09-16 21:51:45] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:52:46] [INFO] System status: OK (Response time: 0.60s)
+[2025-09-16 21:52:46] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:52:46] [CRITICAL] ALERT: System has failed 16 consecutive checks
+[2025-09-16 21:52:46] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:53:47] [INFO] System status: OK (Response time: 0.60s)
+[2025-09-16 21:53:47] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:53:47] [CRITICAL] ALERT: System has failed 17 consecutive checks
+[2025-09-16 21:53:47] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:54:47] [INFO] System status: OK (Response time: 0.59s)
+[2025-09-16 21:54:47] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:54:47] [CRITICAL] ALERT: System has failed 18 consecutive checks
+[2025-09-16 21:54:47] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:55:48] [INFO] System status: OK (Response time: 0.59s)
+[2025-09-16 21:55:48] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:55:48] [CRITICAL] ALERT: System has failed 19 consecutive checks
+[2025-09-16 21:55:48] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:56:48] [INFO] System status: OK (Response time: 0.59s)
+[2025-09-16 21:56:48] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:56:48] [CRITICAL] ALERT: System has failed 20 consecutive checks
+[2025-09-16 21:56:48] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:57:49] [INFO] System status: OK (Response time: 0.74s)
+[2025-09-16 21:57:49] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:57:49] [CRITICAL] ALERT: System has failed 21 consecutive checks
+[2025-09-16 21:57:49] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:58:50] [INFO] System status: OK (Response time: 0.70s)
+[2025-09-16 21:58:50] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:58:50] [CRITICAL] ALERT: System has failed 22 consecutive checks
+[2025-09-16 21:58:50] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 21:59:50] [INFO] System status: OK (Response time: 0.63s)
+[2025-09-16 21:59:50] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 21:59:50] [CRITICAL] ALERT: System has failed 23 consecutive checks
+[2025-09-16 21:59:50] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 22:00:55] [ERROR] ALERT: Could not connect to system
+[2025-09-16 22:00:55] [CRITICAL] ALERT: System has failed 24 consecutive checks
+[2025-09-16 22:00:55] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 22:01:55] [INFO] System status: OK (Response time: 0.53s)
+[2025-09-16 22:01:55] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 22:01:55] [CRITICAL] ALERT: System has failed 25 consecutive checks
+[2025-09-16 22:01:55] [CRITICAL] Recommend restarting the HRM system
+[2025-09-16 22:02:56] [INFO] System status: OK (Response time: 0.62s)
+[2025-09-16 22:02:56] [ERROR] ALERT: Error checking system status: 'str' object has no attribute 'get'
+[2025-09-16 22:02:56] [CRITICAL] ALERT: System has failed 26 consecutive checks

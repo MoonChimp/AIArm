@@ -1,0 +1,166 @@
+[2025-09-19 22:01:57] [INFO] ========== DIAGNOSTIC INFO ==========
+[2025-09-19 22:01:57] [INFO] Current directory: D:\AIArm\WebInterface
+[2025-09-19 22:01:57] [INFO] Script path: D:\AIArm\WebInterface\diagnostic_bridge.py
+[2025-09-19 22:01:57] [INFO] Username: moonc
+[2025-09-19 22:01:57] [INFO] Running as admin: True
+[2025-09-19 22:01:57] [INFO] Environment variables:
+[2025-09-19 22:01:57] [INFO]   ADSK_3DSMAX_X64_2026=C:\Program Files\Autodesk\3ds Max 2026\
+[2025-09-19 22:01:57] [INFO]   ALLUSERSPROFILE=C:\ProgramData
+[2025-09-19 22:01:57] [INFO]   APPDATA=C:\Users\moonc\AppData\Roaming
+[2025-09-19 22:01:57] [INFO]   CHOCOLATEYINSTALL=C:\ProgramData\chocolatey
+[2025-09-19 22:01:57] [INFO]   CHOCOLATEYLASTPATHUPDATE=133948332696061031
+[2025-09-19 22:01:57] [INFO]   COMMONPROGRAMFILES=C:\Program Files\Common Files
+[2025-09-19 22:01:57] [INFO]   COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files
+[2025-09-19 22:01:57] [INFO]   COMMONPROGRAMW6432=C:\Program Files\Common Files
+[2025-09-19 22:01:57] [INFO]   COMPUTERNAME=MOONCHIMP
+[2025-09-19 22:01:57] [INFO]   COMSPEC=C:\WINDOWS\system32\cmd.exe
+[2025-09-19 22:01:57] [INFO]   CONDA_BAT=C:\Users\moonc\Miniconda3\condabin\conda.bat
+[2025-09-19 22:01:57] [INFO]   CONDA_EXE=C:\Users\moonc\Miniconda3\Scripts\conda.exe
+[2025-09-19 22:01:57] [INFO]   CONDA_SHLVL=0
+[2025-09-19 22:01:57] [INFO]   DIAGNOSTIC_MODE=true
+[2025-09-19 22:01:57] [INFO]   DRIVERDATA=C:\Windows\System32\Drivers\DriverData
+[2025-09-19 22:01:57] [INFO]   HOMEDRIVE=C:
+[2025-09-19 22:01:57] [INFO]   HOMEPATH=\Users\moonc
+[2025-09-19 22:01:57] [INFO]   LOCALAPPDATA=C:\Users\moonc\AppData\Local
+[2025-09-19 22:01:57] [INFO]   LOGONSERVER=\\MOONCHIMP
+[2025-09-19 22:01:57] [INFO]   NEXUS_HOME=D:\Commander_Nexus_Home
+[2025-09-19 22:01:57] [INFO]   NUMBER_OF_PROCESSORS=12
+[2025-09-19 22:01:57] [INFO]   OLLAMA_HOME=D:\.ollama
+[2025-09-19 22:01:57] [INFO]   OLLAMA_HOST=0.0.0.0:11434
+[2025-09-19 22:01:57] [INFO]   OLLAMA_MODEL=nexusai:alfazer0
+[2025-09-19 22:01:57] [INFO]   OLLAMA_MODELS=D:\UNIFIED_OLLAMA_MODELS
+[2025-09-19 22:01:57] [INFO]   ONEDRIVE=C:\Users\moonc\OneDrive
+[2025-09-19 22:01:57] [INFO]   ONEDRIVECONSUMER=C:\Users\moonc\OneDrive
+[2025-09-19 22:01:57] [INFO]   OS=Windows_NT
+[2025-09-19 22:01:57] [INFO]   PATH=C:\Users\moonc\Miniconda3\condabin;C:\Users\moonc\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\moonc\AppData\Local\Programs\Python\Python313\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\GitHub CLI\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Common Files\Autodesk Shared\;C:\ProgramData\chocolatey\bin;D:\Commander_Nexus_Home\Infrastructure_Tools\cmd;C:\Program Files\nodejs\;C:\Users\moonc\AppData\Local\Programs\Ollama\;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\moonc\Miniconda3\Scripts;C:\Users\moonc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\moonc\Miniconda3\Scripts;C:\Users\moonc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\moonc\.lmstudio\bin
+[2025-09-19 22:01:57] [INFO]   PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+[2025-09-19 22:01:57] [INFO]   PORT=45678
+[2025-09-19 22:01:57] [INFO]   PROCESSOR_ARCHITECTURE=AMD64
+[2025-09-19 22:01:57] [INFO]   PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+[2025-09-19 22:01:57] [INFO]   PROCESSOR_LEVEL=6
+[2025-09-19 22:01:57] [INFO]   PROCESSOR_REVISION=ba02
+[2025-09-19 22:01:57] [INFO]   PROGRAMDATA=C:\ProgramData
+[2025-09-19 22:01:57] [INFO]   PROGRAMFILES=C:\Program Files
+[2025-09-19 22:01:57] [INFO]   PROGRAMFILES(X86)=C:\Program Files (x86)
+[2025-09-19 22:01:57] [INFO]   PROGRAMW6432=C:\Program Files
+[2025-09-19 22:01:57] [INFO]   PROMPT=$P$G
+[2025-09-19 22:01:57] [INFO]   PSMODULEPATH=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+[2025-09-19 22:01:57] [INFO]   PUBLIC=C:\Users\Public
+[2025-09-19 22:01:57] [INFO]   PYENV=C:\Users\moonc\.pyenv\pyenv-win\
+[2025-09-19 22:01:57] [INFO]   PYENV_HOME=C:\Users\moonc\.pyenv\pyenv-win\
+[2025-09-19 22:01:57] [INFO]   PYENV_ROOT=C:\Users\moonc\.pyenv\pyenv-win\
+[2025-09-19 22:01:57] [INFO]   SYSTEMDRIVE=C:
+[2025-09-19 22:01:57] [INFO]   SYSTEMROOT=C:\WINDOWS
+[2025-09-19 22:01:57] [INFO]   TEMP=C:\Users\moonc\AppData\Local\Temp
+[2025-09-19 22:01:57] [INFO]   TMP=C:\Users\moonc\AppData\Local\Temp
+[2025-09-19 22:01:57] [INFO]   USERDOMAIN=MOONCHIMP
+[2025-09-19 22:01:57] [INFO]   USERDOMAIN_ROAMINGPROFILE=MOONCHIMP
+[2025-09-19 22:01:57] [INFO]   USERNAME=moonc
+[2025-09-19 22:01:57] [INFO]   USERPROFILE=C:\Users\moonc
+[2025-09-19 22:01:57] [INFO]   WINDIR=C:\WINDOWS
+[2025-09-19 22:01:57] [INFO]   ZES_ENABLE_SYSMAN=1
+[2025-09-19 22:01:57] [INFO] Python version: 3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]
+[2025-09-19 22:01:57] [INFO] Python executable: C:\Users\moonc\AppData\Local\Programs\Python\Python313\python.exe
+[2025-09-19 22:01:57] [INFO] Testing path access:
+[2025-09-19 22:01:57] [INFO]   Can access D:/: YES
+[2025-09-19 22:01:57] [INFO]   Can access C:/: YES
+[2025-09-19 22:01:57] [INFO]   Can access D:/AIArm/Test: YES
+[2025-09-19 22:01:57] [INFO] Created test file: D:\AIArm\Test\diagnostic_test.txt
+[2025-09-19 22:01:57] [INFO] ======================================
+[2025-09-19 22:01:57] [INFO] Direct file write successful: D:\AIArm\Test\direct_test.txt
+[2025-09-19 22:01:57] [INFO] Subprocess command executed: echo Subprocess test at 2025-09-19 22:01:57.117050 > D:\AIArm\Test\subprocess_test.txt
+[2025-09-19 22:01:57] [INFO] Subprocess stdout: 
+[2025-09-19 22:01:57] [INFO] Subprocess stderr: 
+[2025-09-19 22:01:57] [INFO] Subprocess file write successful: D:\AIArm\Test\subprocess_test.txt
+[2025-09-19 22:01:57] [INFO] Attempting to run bridge: D:\AIArm\WebInterface\alfazer0_bridge.py
+[2025-09-19 22:01:57] [INFO] Request data: {"operation": "write_file", "path": "D:/AIArm/Test/bridge_test.txt", "content": "Bridge test at 2025-09-19 22:01:57.163759"}
+[2025-09-19 22:01:57] [INFO] Bridge process exit code: 0
+[2025-09-19 22:01:57] [INFO] Bridge stdout: [2025-09-19 22:01:57] [INFO] Starting AlfaZer0 Administrative Bridge
+[2025-09-19 22:01:57] [INFO] Created test file at D:\AIArm\Test\alfazer0_bridge_test.txt
+[2025-09-19 22:01:57] [INFO] Wrote to file: D:\AIArm\Test\bridge_test.txt
+{"success": true, "path": "D:\\AIArm\\Test\\bridge_test.txt"}
+
+[2025-09-19 22:01:57] [INFO] Bridge stderr: 
+[2025-09-19 22:02:13] [INFO] ========== DIAGNOSTIC INFO ==========
+[2025-09-19 22:02:13] [INFO] Current directory: D:\AIArm\WebInterface
+[2025-09-19 22:02:13] [INFO] Script path: D:\AIArm\WebInterface\diagnostic_bridge.py
+[2025-09-19 22:02:13] [INFO] Username: moonc
+[2025-09-19 22:02:13] [INFO] Running as admin: True
+[2025-09-19 22:02:13] [INFO] Environment variables:
+[2025-09-19 22:02:13] [INFO]   ADSK_3DSMAX_X64_2026=C:\Program Files\Autodesk\3ds Max 2026\
+[2025-09-19 22:02:13] [INFO]   ALLUSERSPROFILE=C:\ProgramData
+[2025-09-19 22:02:13] [INFO]   APPDATA=C:\Users\moonc\AppData\Roaming
+[2025-09-19 22:02:13] [INFO]   CHOCOLATEYINSTALL=C:\ProgramData\chocolatey
+[2025-09-19 22:02:13] [INFO]   CHOCOLATEYLASTPATHUPDATE=133948332696061031
+[2025-09-19 22:02:13] [INFO]   COMMONPROGRAMFILES=C:\Program Files\Common Files
+[2025-09-19 22:02:13] [INFO]   COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files
+[2025-09-19 22:02:13] [INFO]   COMMONPROGRAMW6432=C:\Program Files\Common Files
+[2025-09-19 22:02:13] [INFO]   COMPUTERNAME=MOONCHIMP
+[2025-09-19 22:02:13] [INFO]   COMSPEC=C:\WINDOWS\system32\cmd.exe
+[2025-09-19 22:02:13] [INFO]   CONDA_BAT=C:\Users\moonc\Miniconda3\condabin\conda.bat
+[2025-09-19 22:02:13] [INFO]   CONDA_EXE=C:\Users\moonc\Miniconda3\Scripts\conda.exe
+[2025-09-19 22:02:13] [INFO]   CONDA_SHLVL=0
+[2025-09-19 22:02:13] [INFO]   DIAGNOSTIC_MODE=true
+[2025-09-19 22:02:13] [INFO]   DRIVERDATA=C:\Windows\System32\Drivers\DriverData
+[2025-09-19 22:02:13] [INFO]   HOMEDRIVE=C:
+[2025-09-19 22:02:13] [INFO]   HOMEPATH=\Users\moonc
+[2025-09-19 22:02:13] [INFO]   LOCALAPPDATA=C:\Users\moonc\AppData\Local
+[2025-09-19 22:02:13] [INFO]   LOGONSERVER=\\MOONCHIMP
+[2025-09-19 22:02:13] [INFO]   NEXUS_HOME=D:\Commander_Nexus_Home
+[2025-09-19 22:02:13] [INFO]   NUMBER_OF_PROCESSORS=12
+[2025-09-19 22:02:13] [INFO]   OLLAMA_HOME=D:\.ollama
+[2025-09-19 22:02:13] [INFO]   OLLAMA_HOST=0.0.0.0:11434
+[2025-09-19 22:02:13] [INFO]   OLLAMA_MODEL=nexusai:alfazer0
+[2025-09-19 22:02:13] [INFO]   OLLAMA_MODELS=D:\UNIFIED_OLLAMA_MODELS
+[2025-09-19 22:02:13] [INFO]   ONEDRIVE=C:\Users\moonc\OneDrive
+[2025-09-19 22:02:13] [INFO]   ONEDRIVECONSUMER=C:\Users\moonc\OneDrive
+[2025-09-19 22:02:13] [INFO]   OS=Windows_NT
+[2025-09-19 22:02:13] [INFO]   PATH=C:\Users\moonc\Miniconda3\condabin;C:\Users\moonc\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\moonc\AppData\Local\Programs\Python\Python313\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\GitHub CLI\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Common Files\Autodesk Shared\;C:\ProgramData\chocolatey\bin;D:\Commander_Nexus_Home\Infrastructure_Tools\cmd;C:\Program Files\nodejs\;C:\Users\moonc\AppData\Local\Programs\Ollama\;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\moonc\Miniconda3\Scripts;C:\Users\moonc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\moonc\Miniconda3\Scripts;C:\Users\moonc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\moonc\.lmstudio\bin
+[2025-09-19 22:02:13] [INFO]   PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+[2025-09-19 22:02:13] [INFO]   PORT=45678
+[2025-09-19 22:02:13] [INFO]   PROCESSOR_ARCHITECTURE=AMD64
+[2025-09-19 22:02:13] [INFO]   PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+[2025-09-19 22:02:13] [INFO]   PROCESSOR_LEVEL=6
+[2025-09-19 22:02:13] [INFO]   PROCESSOR_REVISION=ba02
+[2025-09-19 22:02:13] [INFO]   PROGRAMDATA=C:\ProgramData
+[2025-09-19 22:02:13] [INFO]   PROGRAMFILES=C:\Program Files
+[2025-09-19 22:02:13] [INFO]   PROGRAMFILES(X86)=C:\Program Files (x86)
+[2025-09-19 22:02:13] [INFO]   PROGRAMW6432=C:\Program Files
+[2025-09-19 22:02:13] [INFO]   PROMPT=$P$G
+[2025-09-19 22:02:13] [INFO]   PSMODULEPATH=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+[2025-09-19 22:02:13] [INFO]   PUBLIC=C:\Users\Public
+[2025-09-19 22:02:13] [INFO]   PYENV=C:\Users\moonc\.pyenv\pyenv-win\
+[2025-09-19 22:02:13] [INFO]   PYENV_HOME=C:\Users\moonc\.pyenv\pyenv-win\
+[2025-09-19 22:02:13] [INFO]   PYENV_ROOT=C:\Users\moonc\.pyenv\pyenv-win\
+[2025-09-19 22:02:13] [INFO]   SYSTEMDRIVE=C:
+[2025-09-19 22:02:13] [INFO]   SYSTEMROOT=C:\WINDOWS
+[2025-09-19 22:02:13] [INFO]   TEMP=C:\Users\moonc\AppData\Local\Temp
+[2025-09-19 22:02:13] [INFO]   TMP=C:\Users\moonc\AppData\Local\Temp
+[2025-09-19 22:02:13] [INFO]   USERDOMAIN=MOONCHIMP
+[2025-09-19 22:02:13] [INFO]   USERDOMAIN_ROAMINGPROFILE=MOONCHIMP
+[2025-09-19 22:02:13] [INFO]   USERNAME=moonc
+[2025-09-19 22:02:13] [INFO]   USERPROFILE=C:\Users\moonc
+[2025-09-19 22:02:13] [INFO]   WINDIR=C:\WINDOWS
+[2025-09-19 22:02:13] [INFO]   ZES_ENABLE_SYSMAN=1
+[2025-09-19 22:02:13] [INFO] Python version: 3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]
+[2025-09-19 22:02:13] [INFO] Python executable: C:\Users\moonc\AppData\Local\Programs\Python\Python313\python.exe
+[2025-09-19 22:02:13] [INFO] Testing path access:
+[2025-09-19 22:02:13] [INFO]   Can access D:/: YES
+[2025-09-19 22:02:13] [INFO]   Can access C:/: YES
+[2025-09-19 22:02:13] [INFO]   Can access D:/AIArm/Test: YES
+[2025-09-19 22:02:13] [INFO] Created test file: D:\AIArm\Test\diagnostic_test.txt
+[2025-09-19 22:02:13] [INFO] ======================================
+[2025-09-19 22:02:13] [INFO] Direct file write successful: D:\AIArm\Test\direct_test.txt
+[2025-09-19 22:02:13] [INFO] Subprocess command executed: echo Subprocess test at 2025-09-19 22:02:13.789870 > D:\AIArm\Test\subprocess_test.txt
+[2025-09-19 22:02:13] [INFO] Subprocess stdout: 
+[2025-09-19 22:02:13] [INFO] Subprocess stderr: 
+[2025-09-19 22:02:13] [INFO] Subprocess file write successful: D:\AIArm\Test\subprocess_test.txt
+[2025-09-19 22:02:13] [INFO] Attempting to run bridge: D:\AIArm\WebInterface\alfazer0_bridge.py
+[2025-09-19 22:02:13] [INFO] Request data: {"operation": "write_file", "path": "D:/AIArm/Test/bridge_test.txt", "content": "Bridge test at 2025-09-19 22:02:13.810496"}
+[2025-09-19 22:02:13] [INFO] Bridge process exit code: 0
+[2025-09-19 22:02:13] [INFO] Bridge stdout: [2025-09-19 22:02:13] [INFO] Starting AlfaZer0 Administrative Bridge
+[2025-09-19 22:02:13] [INFO] Created test file at D:\AIArm\Test\alfazer0_bridge_test.txt
+[2025-09-19 22:02:13] [INFO] Wrote to file: D:\AIArm\Test\bridge_test.txt
+{"success": true, "path": "D:\\AIArm\\Test\\bridge_test.txt"}
+
+[2025-09-19 22:02:13] [INFO] Bridge stderr: 

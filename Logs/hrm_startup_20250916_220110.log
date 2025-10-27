@@ -1,0 +1,38 @@
+[Tue 09/16/2025 22:01:10.11] Starting Nexus HRM Architecture - Production System 
+[Tue 09/16/2025 22:01:10.16] Selected port: 45678 
+[Tue 09/16/2025 22:01:10.17] Checking Ollama availability 
+[Tue 09/16/2025 22:01:10.20] Available Ollama models: 
+NAME                                              ID              SIZE      MODIFIED    
+nexusai:latest                                    8f1398f3a56b    4.7 GB    6 days ago     
+llama3:latest                                     365c0bd3c000    4.7 GB    6 days ago     
+llama3.2:latest                                   a80c4f17acd5    2.0 GB    3 weeks ago    
+m/videotitlemodel:latest                          a7c5674e32e4    4.7 GB    4 weeks ago    
+hemanth/classicalmusiccomposer:latest             d31e71dcb912    3.8 GB    4 weeks ago    
+llamusic/llamusic:3b                              1b04048f7011    2.0 GB    4 weeks ago    
+llava:34b                                         3d2d24f46674    20 GB     4 weeks ago    
+brxce/stable-diffusion-prompt-generator:latest    474a09318a2e    4.1 GB    4 weeks ago    
+bakllava:7b                                       3dd68bd4447c    4.7 GB    4 weeks ago    
+llava:13b                                         0d0eb4d7f485    8.0 GB    4 weeks ago    
+nomic-embed-text:latest                           0a109f422b47    274 MB    5 weeks ago    
+qwen2.5-coder:latest                              dae161e27b0e    4.7 GB    5 weeks ago    
+mxbai-embed-large:latest                          468836162de7    669 MB    5 weeks ago    
+qwen2.5-coder:7b                                  dae161e27b0e    4.7 GB    5 weeks ago    
+nexus-human-agent:latest                          08c8b697cc29    4.7 GB    6 weeks ago    
+nexus-human:latest                                a8732b9e1877    4.7 GB    6 weeks ago    
+nexus-enhanced:latest                             a2bd2d77cb3d    7.3 GB    6 weeks ago    
+nexus-ai:latest                                   881ee06898c9    7.3 GB    6 weeks ago    
+[Tue 09/16/2025 22:01:10.26] Checking for required Ollama models 
+[Tue 09/16/2025 22:01:10.32] Creating necessary directories 
+[Tue 09/16/2025 22:01:10.32] Directory structure created 
+[Tue 09/16/2025 22:01:10.32] Cleaning up orphaned processes 
+[Tue 09/16/2025 22:01:10.32] Found Node.js process: No 
+[Tue 09/16/2025 22:01:10.95] Found Inner Life process: MOONCHIMP,95932 
+[Tue 09/16/2025 22:01:10.95] Found Inner Life process: MOONCHIMP,31924 
+[Tue 09/16/2025 22:01:11.38] Starting Inner Life Processor 
+[Tue 09/16/2025 22:01:21.17] Starting Agent Manager 
+[Tue 09/16/2025 22:01:26.21] Seeding foundational thoughts 
+[Tue 09/16/2025 22:01:26.40] Starting Memory Visualizer 
+[Tue 09/16/2025 22:01:26.43] Starting Agent Integration 
+[Tue 09/16/2025 22:01:26.46] Starting System Monitor 
+[Tue 09/16/2025 22:01:26.49] Starting HRM Architecture server on port 45678 
+[Tue 09/16/2025 22:01:26.65] Starting server process 

@@ -1,0 +1,15 @@
+2025-10-25 00:06:22,864 - NexusUE5API - INFO - ------------------------------------------------------------
+2025-10-25 00:08:32,694 - NexusUE5API - INFO - Agent image status reset to available
+2025-10-25 00:10:51,741 - NexusUE5API - INFO - ------------------------------------------------------------
+2025-10-25 00:11:29,853 - NexusUE5API - INFO - Agent code status reset to available
+2025-10-25 00:18:30,317 - NexusUE5API - INFO - SUCCESS: Nexus AI UE5 API Server initialized successfully
+2025-10-25 00:18:30,317 - NexusUE5API - INFO - STARTUP: Starting Nexus AI UE5 API Server...
+2025-10-25 00:18:30,317 - NexusUE5API - INFO - NETWORK: Server will run on http://localhost:8000
+2025-10-25 00:18:30,317 - NexusUE5API - INFO - INTERFACE: UE5 interfaces can connect to this API
+2025-10-25 00:18:30,324 - NexusUE5API - INFO - BACKEND: Make sure your Python AI backend is running
+2025-10-25 00:18:30,324 - NexusUE5API - INFO - ============================================================
+2025-10-25 00:18:30,369 - NexusUE5API - INFO - SUCCESS: Nexus AI UE5 API Server initialized successfully
+2025-10-25 00:23:11,308 - NexusUE5API - INFO - Agent image status reset to available
+2025-10-25 00:23:11,324 - NexusUE5API - INFO - Agent code status reset to available
+2025-10-25 00:23:11,325 - NexusUE5API - INFO - Agent story status reset to available
+2025-10-25 00:23:11,340 - NexusUE5API - INFO - Agent websearch status reset to available

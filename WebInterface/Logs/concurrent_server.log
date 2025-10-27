@@ -1,0 +1,4 @@
+[2025-09-17T01:13:17.521Z] AIArm HRM Architecture server running on port 45678
+[2025-09-17T01:13:17.523Z] Surface Bridge: improved_bridge.py
+[2025-09-17T01:13:17.524Z] Open your browser and navigate to: http://localhost:45678
+[2025-09-17T01:13:17.524Z] Deep Bridge: ollama_bridge.py
