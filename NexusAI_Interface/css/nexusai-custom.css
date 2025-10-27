@@ -1,0 +1,141 @@
+﻿:root {
+    --nexus-cyan: #00ffff;
+    --nexus-blue: #0088ff;
+    --nexus-glow: rgba(0, 255, 255, 0.3);
+}
+
+.nexusai-interface {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: 'Inter', sans-serif;
+    color: var(--nexus-cyan);
+    background: linear-gradient(135deg, rgba(0, 8, 20, 0.95), rgba(0, 20, 40, 0.95));
+    border-radius: 20px;
+    box-shadow: 0 0 50px var(--nexus-glow);
+}
+
+.status-bar {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--nexus-glow);
+    padding: 12px 24px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.status {
+    color: var(--nexus-cyan);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.status-success { color: #00ff00; }
+.status-error { color: #ff0000; }
+
+.response-container {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--nexus-glow);
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.user-message, .ai-message {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.user-message {
+    background: rgba(0, 100, 255, 0.2);
+    border-left: 3px solid var(--nexus-blue);
+}
+
+.ai-message {
+    background: rgba(0, 255, 255, 0.1);
+    border-left: 3px solid var(--nexus-cyan);
+}
+
+.message-text {
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.timestamp {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.capabilities-arsenal {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--nexus-glow);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.capability-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.capability-btn {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--nexus-glow);
+    color: var(--nexus-cyan);
+    padding: 14px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.capability-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 20px var(--nexus-glow);
+    transform: translateY(-2px);
+}
+
+.input-container {
+    display: flex;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--nexus-glow);
+}
+
+#user-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--nexus-glow);
+    color: #ffffff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+#user-input:focus {
+    border-color: var(--nexus-cyan);
+    box-shadow: 0 0 15px var(--nexus-glow);
+}
+
+.send-button {
+    background: linear-gradient(135deg, var(--nexus-cyan), var(--nexus-blue));
+    border: none;
+    color: #000000;
+    padding: 14px 35px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.send-button:hover {
+    box-shadow: 0 0 25px var(--nexus-glow);
+    transform: scale(1.05);
+}

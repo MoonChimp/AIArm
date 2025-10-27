@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusAI - AI Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --nexus-cyan: #00ffff;
+            --nexus-blue: #0088ff;
+            --nexus-dark: #000814;
+            --nexus-darker: #000000;
+            --nexus-glow: rgba(0, 255, 255, 0.4);
+            --nexus-border: rgba(0, 255, 255, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(ellipse at center, #001d3d 0%, #000814 50%, #000000 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            color: var(--nexus-cyan);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Grid */
+        .background-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--nexus-cyan), var(--nexus-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px var(--nexus-glow);
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: rgba(0, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--nexus-border);
+            border-radius: 15px;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--nexus-cyan);
+            box-shadow: 0 0 15px var(--nexus-cyan);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .status-dot.offline {
+            background: #ff0000;
+            box-shadow: 0 0 15px #ff0000;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .status-text {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Artifact Display */
+        .artifact-panel {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--nexus-border);
+            border-radius: 20px;
+            padding: 30px;
+            min-height: 400px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .artifact-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .panel-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .artifact-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            color: rgba(0, 255, 255, 0.4);
+            font-size: 14px;
+        }
+
+        /* Capabilities Panel */
+        .capabilities-panel {
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .capability-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .capability-btn {
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid var(--nexus-border);
+            border-radius: 12px;
+            padding: 18px 20px;
+            color: var(--nexus-cyan);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .capability-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .capability-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .capability-btn:hover {
+            background: rgba(0, 255, 255, 0.15);
+            border-color: var(--nexus-cyan);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .capability-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Response Area */
+        .response-panel {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--nexus-border);
+            border-radius: 20px;
+            padding: 25px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            animation: slideIn 0.4s ease-out;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            background: rgba(0, 100, 255, 0.15);
+            border-left: 4px solid var(--nexus-blue);
+            margin-left: 40px;
+        }
+
+        .message.ai {
+            background: rgba(0, 255, 255, 0.1);
+            border-left: 4px solid var(--nexus-cyan);
+            margin-right: 40px;
+        }
+
+        .message-text {
+            color: #ffffff;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .message-time {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            text-align: right;
+        }
+
+        /* Input Area */
+        .input-panel {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--nexus-border);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        #user-input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--nexus-border);
+            border-radius: 12px;
+            padding: 18px 22px;
+            color: #ffffff;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #user-input:focus {
+            border-color: var(--nexus-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        #user-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        #send-btn {
+            background: linear-gradient(135deg, var(--nexus-cyan), var(--nexus-blue));
+            border: none;
+            border-radius: 12px;
+            padding: 18px 40px;
+            color: #000000;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #send-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        #send-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        #send-btn:hover {
+            box-shadow: 0 0 30px var(--nexus-glow);
+            transform: scale(1.05);
+        }
+
+        #send-btn:active {
+            transform: scale(0.98);
+        }
+
+        #send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #send-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Scrollbar */
+        .response-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .response-panel::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+        }
+
+        .response-panel::-webkit-scrollbar-thumb {
+            background: var(--nexus-border);
+            border-radius: 4px;
+        }
+
+        .response-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 255, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-grid"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">NEXUSAI</div>
+            <div class="tagline">AI Command Center</div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-indicator">
+                <div class="status-dot" id="status-dot"></div>
+                <span class="status-text" id="status-text">CONNECTING...</span>
+            </div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.5);">
+                <span id="current-time"></span>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Artifact Display -->
+            <div class="artifact-panel">
+                <div class="panel-title">⚡ Artifact Display</div>
+                <div class="artifact-content" id="artifact-display">
+                    <div>Generated content will appear here</div>
+                </div>
+            </div>
+
+            <!-- Capabilities -->
+            <div class="capabilities-panel">
+                <div class="artifact-panel">
+                    <div class="panel-title">🚀 Capabilities</div>
+                    <div class="capability-grid">
+                        <button class="capability-btn" data-capability="image"><span>🎨 Image Generation</span></button>
+                        <button class="capability-btn" data-capability="video"><span>🎬 Video Creation</span></button>
+                        <button class="capability-btn" data-capability="music"><span>🎵 Music Generation</span></button>
+                        <button class="capability-btn" data-capability="website"><span>🌐 Website Builder</span></button>
+                        <button class="capability-btn" data-capability="ui"><span>🎨 UI Design</span></button>
+                        <button class="capability-btn" data-capability="code"><span>💻 Code Generation</span></button>
+                        <button class="capability-btn" data-capability="trading"><span>📈 Trading Signals</span></button>
+                        <button class="capability-btn" data-capability="analysis"><span>📊 Analysis</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Response Area -->
+        <div class="response-panel" id="response-area">
+            <!-- Messages appear here -->
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-panel">
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Enter your command or question..." />
+                <button id="send-btn"><span>SEND</span></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // NexusAI Connector
+        class NexusAI {
+            constructor() {
+                this.apiUrl = 'http://127.0.0.1:8001';
+                this.init();
+            }
+
+            async init() {
+                await this.testConnection();
+                this.setupEventListeners();
+                this.updateClock();
+                setInterval(() => this.updateClock(), 1000);
+            }
+
+            async testConnection() {
+                try {
+                    const response = await fetch(`${this.apiUrl}/health`);
+                    if (response.ok) {
+                        this.updateStatus('CONNECTED', true);
+                    } else {
+                        this.updateStatus('BACKEND OFFLINE', false);
+                    }
+                } catch (error) {
+                    this.updateStatus('BACKEND OFFLINE', false);
+                }
+            }
+
+            updateStatus(text, connected) {
+                const statusText = document.getElementById('status-text');
+                const statusDot = document.getElementById('status-dot');
+                statusText.textContent = text;
+                if (connected) {
+                    statusDot.classList.remove('offline');
+                } else {
+                    statusDot.classList.add('offline');
+                }
+            }
+
+            updateClock() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                document.getElementById('current-time').textContent = timeString;
+            }
+
+            setupEventListeners() {
+                const input = document.getElementById('user-input');
+                const sendBtn = document.getElementById('send-btn');
+                const capabilityBtns = document.querySelectorAll('.capability-btn');
+
+                sendBtn.addEventListener('click', () => this.sendMessage());
+                input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                });
+
+                capabilityBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const capability = btn.dataset.capability;
+                        this.handleCapability(capability);
+                    });
+                });
+            }
+
+            async sendMessage() {
+                const input = document.getElementById('user-input');
+                const message = input.value.trim();
+                if (!message) return;
+
+                this.displayMessage(message, 'user');
+                input.value = '';
+
+                const sendBtn = document.getElementById('send-btn');
+                sendBtn.disabled = true;
+                sendBtn.querySelector('span').textContent = 'SENDING...';
+
+                try {
+                    const response = await fetch(`${this.apiUrl}/chat`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: message, user_id: 'web' })
+                    });
+
+                    const data = await response.json();
+                    if (data.status === 'success') {
+                        this.displayMessage(data.response, 'ai');
+                    } else {
+                        this.displayMessage('Error: ' + data.response, 'ai');
+                    }
+                } catch (error) {
+                    this.displayMessage('Connection error: ' + error.message, 'ai');
+                } finally {
+                    sendBtn.disabled = false;
+                    sendBtn.querySelector('span').textContent = 'SEND';
+                }
+            }
+
+            async handleCapability(capability) {
+                const input = document.getElementById('user-input');
+                const prompt = input.value.trim() || `Generate ${capability}`;
+                
+                this.displayMessage(`[${capability.toUpperCase()}] ${prompt}`, 'user');
+                input.value = '';
+
+                try {
+                    const response = await fetch(`${this.apiUrl}/command`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            command: `/generate_${capability}`, 
+                            parameters: { prompt: prompt }
+                        })
+                    });
+
+                    const data = await response.json();
+                    if (data.status === 'success') {
+                        this.displayMessage(data.response, 'ai');
+                    }
+                } catch (error) {
+                    this.displayMessage('Error: ' + error.message, 'ai');
+                }
+            }
+
+            displayMessage(text, type) {
+                const responseArea = document.getElementById('response-area');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${type}`;
+                messageDiv.innerHTML = `
+                    <div class="message-text">${text}</div>
+                    <div class="message-time">${new Date().toLocaleTimeString()}</div>
+                `;
+                responseArea.appendChild(messageDiv);
+                responseArea.scrollTop = responseArea.scrollHeight;
+            }
+        }
+
+        // Initialize
+        const nexusAI = new NexusAI();
+    </script>
+</body>
+</html>
+
