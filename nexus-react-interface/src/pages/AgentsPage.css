@@ -1,0 +1,127 @@
+/* Agents Page Styles */
+
+.agents-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 150px);
+}
+
+.agents-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.agents-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 0.75rem 0;
+  background: linear-gradient(135deg, #00d4ff 0%, #0096ff 50%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.agents-header p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.agent-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.agent-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.agent-card:active {
+  transform: translateY(-2px);
+}
+
+.agent-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.agent-card:hover .agent-icon {
+  background: rgba(0, 212, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.agent-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 0.5rem 0;
+}
+
+.agent-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .agents-page {
+    padding: 1rem;
+  }
+
+  .agents-header h1 {
+    font-size: 2rem;
+  }
+
+  .agents-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .agent-card {
+    padding: 1.25rem;
+  }
+
+  .agent-icon {
+    font-size: 2.5rem;
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agents-grid {
+    grid-template-columns: 1fr;
+  }
+}
