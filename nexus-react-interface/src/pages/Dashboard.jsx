@@ -152,53 +152,27 @@ export default function Dashboard() {
         <h2>NeXus Agents</h2>
         <div className="agents-grid">
           {agents.map(agent => (
-            agent.external ? (
-              <a
-                key={agent.id}
-                href={agent.path}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`agent-card ${agent.status}`}
-              >
-                <div className="agent-icon">{agent.icon}</div>
-                <h3>{agent.name}</h3>
-                <p>{agent.description}</p>
-                {agent.capabilities && (
-                  <div className="agent-capabilities">
-                    {agent.capabilities.map((cap, idx) => (
-                      <span key={idx} className="capability-badge">{cap}</span>
-                    ))}
-                  </div>
-                )}
-                <div className="agent-status">
-                  <span className={`status-badge ${agent.status}`}>
-                    {agent.status === 'online' ? 'Online' : 'Coming Soon'}
-                  </span>
+            <Link
+              key={agent.id}
+              to={agent.path}
+              className={`agent-card ${agent.status}`}
+            >
+              <div className="agent-icon">{agent.icon}</div>
+              <h3>{agent.name}</h3>
+              <p>{agent.description}</p>
+              {agent.capabilities && (
+                <div className="agent-capabilities">
+                  {agent.capabilities.map((cap, idx) => (
+                    <span key={idx} className="capability-badge">{cap}</span>
+                  ))}
                 </div>
-              </a>
-            ) : (
-              <Link
-                key={agent.id}
-                to={agent.path}
-                className={`agent-card ${agent.status}`}
-              >
-                <div className="agent-icon">{agent.icon}</div>
-                <h3>{agent.name}</h3>
-                <p>{agent.description}</p>
-                {agent.capabilities && (
-                  <div className="agent-capabilities">
-                    {agent.capabilities.map((cap, idx) => (
-                      <span key={idx} className="capability-badge">{cap}</span>
-                    ))}
-                  </div>
-                )}
-                <div className="agent-status">
-                  <span className={`status-badge ${agent.status}`}>
-                    {agent.status === 'online' ? 'Online' : 'Coming Soon'}
-                  </span>
-                </div>
-              </Link>
-            )
+              )}
+              <div className="agent-status">
+                <span className={`status-badge ${agent.status}`}>
+                  {agent.status === 'online' ? 'Online' : 'Coming Soon'}
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
