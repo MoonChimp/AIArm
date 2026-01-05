@@ -11,6 +11,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '💬',
       path: '/chat',
+      external: false,
       capabilities: ['Natural Language', 'Code Assistance', 'Research']
     },
     {
@@ -20,6 +21,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '🎨',
       path: '/image-gen',
+      external: false,
       capabilities: ['Text-to-Image', 'Style Transfer', 'HD Output']
     },
     {
@@ -29,6 +31,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '🎬',
       path: '/video-gen',
+      external: false,
       capabilities: ['Text-to-Video', 'Cinematic', 'Animation']
     },
     {
@@ -38,6 +41,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '🎵',
       path: '/music',
+      external: false,
       capabilities: ['Composition', 'Soundtracks', 'Audio Effects']
     },
     {
@@ -67,6 +71,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '📈',
       path: '/finance',
+      external: false,
       capabilities: ['Market Analysis', 'Predictions', 'Signals']
     },
     {
@@ -76,6 +81,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '📜',
       path: '/agent/contracts',
+      external: false,
       capabilities: ['Solidity', 'Rust/Anchor', 'Auditing']
     },
     {
@@ -85,6 +91,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '💻',
       path: '/agent/code',
+      external: false,
       capabilities: ['Full Stack', 'Debugging', 'Architecture']
     },
     {
@@ -94,6 +101,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '🔍',
       path: '/agent/research',
+      external: false,
       capabilities: ['Deep Search', 'Data Mining', 'Analysis']
     },
     {
@@ -103,6 +111,7 @@ export default function Dashboard() {
       status: 'online',
       icon: '🧠',
       path: '/intelligence',
+      external: false,
       capabilities: ['File Operations', 'Commands', 'Git', 'Secure Access']
     }
   ];
