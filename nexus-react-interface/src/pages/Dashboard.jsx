@@ -11,7 +11,6 @@ export default function Dashboard() {
       status: 'online',
       icon: '💬',
       path: '/chat',
-      external: false,
       capabilities: ['Natural Language', 'Code Assistance', 'Research']
     },
     {
@@ -21,7 +20,6 @@ export default function Dashboard() {
       status: 'online',
       icon: '🎨',
       path: '/image-gen',
-      external: false,
       capabilities: ['Text-to-Image', 'Style Transfer', 'HD Output']
     },
     {
@@ -31,7 +29,6 @@ export default function Dashboard() {
       status: 'online',
       icon: '🎬',
       path: '/video-gen',
-      external: false,
       capabilities: ['Text-to-Video', 'Cinematic', 'Animation']
     },
     {
@@ -41,47 +38,42 @@ export default function Dashboard() {
       status: 'online',
       icon: '🎵',
       path: '/music',
-      external: false,
       capabilities: ['Composition', 'Soundtracks', 'Audio Effects']
     },
     {
       id: 'website',
       name: 'NeXus Website Builder',
-      description: 'AI-powered website generation and development',
+      description: 'AI-powered website generation with real-time code & preview',
       status: 'online',
       icon: '🌐',
       path: '/deepsite',
-      external: false,
       capabilities: ['Full Stack', 'Responsive', 'Modern UI']
     },
     {
       id: 'crypto',
       name: 'NeXus Crypto Agency',
-      description: 'Token deployment, NFT studio, and blockchain solutions',
+      description: 'Crypto trading signals, chart analysis, and liquidity detection',
       status: 'online',
-      icon: '🔗',
-      path: '/agent/trading',
-      external: false,
-      capabilities: ['Token Launch', 'NFT Studio', 'Smart Contracts']
+      icon: '📈',
+      path: '/crypto',
+      capabilities: ['Trading Signals', 'Chart Analysis', 'Liquidity Detection']
     },
     {
       id: 'finance',
       name: 'NeXus Financial Analytics',
-      description: 'Market analysis, predictions, and trading intelligence',
+      description: 'Market research, portfolio analysis, and financial planning',
       status: 'online',
-      icon: '📈',
-      path: '/finance',
-      external: false,
-      capabilities: ['Market Analysis', 'Predictions', 'Signals']
+      icon: '💹',
+      path: '/finance-analytics',
+      capabilities: ['Market Research', 'Portfolio', 'Analysis']
     },
     {
       id: 'contracts',
       name: 'NeXus Smart Contract Builder',
-      description: 'Automated smart contract generation for Solana & EVM',
+      description: 'AI-powered smart contract generation with real-time code preview',
       status: 'online',
       icon: '📜',
-      path: '/agent/contracts',
-      external: false,
+      path: '/nexus-contract-builder',
       capabilities: ['Solidity', 'Rust/Anchor', 'Auditing']
     },
     {
@@ -91,7 +83,6 @@ export default function Dashboard() {
       status: 'online',
       icon: '💻',
       path: '/agent/code',
-      external: false,
       capabilities: ['Full Stack', 'Debugging', 'Architecture']
     },
     {
@@ -101,7 +92,6 @@ export default function Dashboard() {
       status: 'online',
       icon: '🔍',
       path: '/agent/research',
-      external: false,
       capabilities: ['Deep Search', 'Data Mining', 'Analysis']
     },
     {
@@ -111,7 +101,6 @@ export default function Dashboard() {
       status: 'online',
       icon: '🧠',
       path: '/intelligence',
-      external: false,
       capabilities: ['File Operations', 'Commands', 'Git', 'Secure Access']
     }
   ];
