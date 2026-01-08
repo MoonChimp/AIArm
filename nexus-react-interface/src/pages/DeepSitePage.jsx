@@ -98,7 +98,22 @@ export default function DeepSitePage() {
     return completeHtml;
   };
 
-  // Generate website using streaming API
+  // System prompt for website generation
+  const WEBSITE_SYSTEM_PROMPT = `You are an expert web developer. Generate a complete, production-ready HTML website based on the user's description.
+
+CRITICAL REQUIREMENTS:
+- Generate a SINGLE, complete HTML file with embedded CSS and JavaScript
+- Start with <!DOCTYPE html> and include all code in one file
+- Use modern, responsive design with TailwindCSS CDN: <script src="https://cdn.tailwindcss.com"></script>
+- Include smooth animations and professional styling
+- Make it mobile-responsive
+- Use semantic HTML5 elements
+- Add hover effects and transitions
+- Ensure the website is fully functional and self-contained
+
+Output ONLY the HTML code, no explanations or markdown.`;
+
+  // Generate website using local Ollama (streaming)
   const generateWebsite = async (e) => {
     e?.preventDefault();
     if (!prompt.trim() || isGenerating) return;
@@ -109,19 +124,77 @@ export default function DeepSitePage() {
     setMessages(prev => [...prev, { role: 'user', content: prompt }]);
 
     try {
-      const response = await fetch(`${API_URL}/api/website/generate/stream`, {
+      // Try local Ollama first (runs on user's machine)
+      const ollamaUrl = 'http://localhost:11434/api/chat';
+
+      const response = await fetch(ollamaUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          prompt: prompt.trim(),
-          model: 'auto'
+          model: 'qwen2.5-coder:7b',
+          messages: [
+            { role: 'system', content: WEBSITE_SYSTEM_PROMPT },
+            { role: 'user', content: `Create a professional website for: ${prompt.trim()}` }
+          ],
+          stream: true
         })
-      });
+      }).catch(() => null);
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      // Check if Ollama is available
+      if (!response || !response.ok) {
+        // Fallback to Lambda backend
+        const lambdaResponse = await fetch(`${API_URL}/api/website/generate/stream`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: prompt.trim(), model: 'auto' })
+        });
+
+        if (!lambdaResponse.ok) {
+          throw new Error(`Backend error: ${lambdaResponse.status}`);
+        }
+
+        // Handle Lambda SSE response
+        const reader = lambdaResponse.body.getReader();
+        const decoder = new TextDecoder();
+        let fullContent = '';
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          const chunk = decoder.decode(value, { stream: true });
+          const lines = chunk.split('\n');
+
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              const data = line.slice(6);
+              if (data === '[DONE]') continue;
+
+              try {
+                const parsed = JSON.parse(data);
+                if (parsed.type === 'chunk' && parsed.content) {
+                  fullContent += parsed.content;
+                  const parsedPages = parseStreamingContent(fullContent);
+                  if (parsedPages.length > 0) {
+                    setPages(parsedPages);
+                  }
+                } else if (parsed.type === 'error') {
+                  throw new Error(parsed.message);
+                }
+              } catch (e) {
+                // Ignore parse errors
+              }
+            }
+          }
+        }
+
+        const finalPages = parseStreamingContent(fullContent);
+        if (finalPages.length > 0) setPages(finalPages);
+        setStatus('ready');
+        return;
       }
 
+      // Handle Ollama streaming response (JSON lines, not SSE)
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let fullContent = '';
@@ -131,49 +204,25 @@ export default function DeepSitePage() {
         if (done) break;
 
         const chunk = decoder.decode(value, { stream: true });
-        const lines = chunk.split('\n');
+        const lines = chunk.split('\n').filter(l => l.trim());
 
         for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const data = line.slice(6);
-
-            if (data === '[DONE]') {
-              continue;
-            }
-
-            try {
-              const parsed = JSON.parse(data);
-
-              if (parsed.type === 'chunk' && parsed.content) {
-                fullContent += parsed.content;
-                const parsedPages = parseStreamingContent(fullContent);
-                if (parsedPages.length > 0) {
-                  setPages(parsedPages);
-                  // Auto-select first HTML page for preview
-                  const htmlPage = parsedPages.find(p => p.path.endsWith('.html'));
-                  if (htmlPage && currentPage !== htmlPage.path) {
-                    setCurrentPage(htmlPage.path);
-                  }
-                }
-              } else if (parsed.type === 'complete') {
-                setStatus('ready');
-                setMessages(prev => [...prev, {
-                  role: 'assistant',
-                  content: `Website generated successfully! ${pages.length} file(s) created.`
-                }]);
-              } else if (parsed.type === 'error') {
-                throw new Error(parsed.message);
-              }
-            } catch (parseError) {
-              // If not JSON, treat as raw content
-              if (!data.startsWith('{')) {
-                fullContent += data;
-                const parsedPages = parseStreamingContent(fullContent);
-                if (parsedPages.length > 0) {
-                  setPages(parsedPages);
+          try {
+            const parsed = JSON.parse(line);
+            const content = parsed.message?.content || '';
+            if (content) {
+              fullContent += content;
+              const parsedPages = parseStreamingContent(fullContent);
+              if (parsedPages.length > 0) {
+                setPages(parsedPages);
+                const htmlPage = parsedPages.find(p => p.path.endsWith('.html'));
+                if (htmlPage && currentPage !== htmlPage.path) {
+                  setCurrentPage(htmlPage.path);
                 }
               }
             }
+          } catch (e) {
+            // Ignore parse errors
           }
         }
       }
